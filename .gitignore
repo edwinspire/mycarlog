@@ -1,10 +1,4 @@
 # Ignores
-#*.sh
-*.bat
-**.log
-**.env
-*.env
-**.exe
 *node_modules
 
 
