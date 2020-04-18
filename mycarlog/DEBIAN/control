@@ -1,11 +1,11 @@
-Package: OpenMonitoringSystem
-Version: 0.0.4
+Package: MyCarLog
+Version: 0.0.1
 Architecture: all
 Maintainer: edwinspire <edwinspire@gmail.com>
 Section: WWW
 Priority: optional
 Depends: nodejs
-Description: Open Monitoring System
+Description: My Car Log
 	Application of general purpose to receive and manage incidents or system events in general.
 	Your interace web in real time makes it easy to use.
 	Developed in Javascript and supported by the power of PostgreSQL, Dojo Toolkit and NodeJS.
