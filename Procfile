@@ -1,1 +1,1 @@
-web: node ./openmonitoringsystem/opt/openmonitoringsystem/backend/index.js
+web: node ./mycarlog/opt/mycarlog/backend/index.js
