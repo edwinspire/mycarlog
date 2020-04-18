@@ -1,6 +1,5 @@
 # Ignores
 mycarlog/**/node_modules/
-mycarlog/opt/mycarlog/backend/node_modules/**
 #*.sh
 *.bat
 **.log
