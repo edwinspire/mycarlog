@@ -32,8 +32,8 @@
     "node",
     "heroku",
     "express",
-    "open",
-    "monitoring"
+    "car",
+    "log"
   ],
   "license": "LGPL"
 }
