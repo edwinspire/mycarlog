@@ -1,6 +1,6 @@
 import { v, w } from '@dojo/framework/core/vdom';
 import WidgetBase from '@dojo/framework/core/WidgetBase';
-import * as css from '../styles/Profile.m.css';
+//import * as css from '../styles/Profile.m.css';
 import Grid from '@dojo/widgets/grid';
 import { createFetcher } from '@dojo/widgets/grid/utils';
 import Card from '@dojo/widgets/card';
@@ -99,7 +99,7 @@ export default class Vehicles extends WidgetBase {
 					}
 				})
 				]),
-			v('div', {classes: [css.grid]}, [
+			v('div', {classes: []}, [
 				this._fetcher ? w(Grid, {
 					columnConfig: this.columnConfig,
 					fetcher: this._fetcher,
