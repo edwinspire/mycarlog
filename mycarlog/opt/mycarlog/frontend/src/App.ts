@@ -1,8 +1,8 @@
 import { create, v, w } from '@dojo/framework/core/vdom';
 import theme from '@dojo/framework/core/middleware/theme';
-import black from './themes/black/theme';
+//import black from './themes/black/theme';
 import Outlet from '@dojo/framework/routing/Outlet';
-//import dojo from '@dojo/themes/dojo';
+import dojo from '@dojo/themes/dojo';
 import Home from './widgets/Home';
 import Dashboard from './widgets/Dashboard';
 import About from './widgets/About';
@@ -15,18 +15,16 @@ import Contacts from './widgets/Contacts';
 import Login from './widgets/login/Login';
 import Register from './widgets/register/Register';
 import AccountActivation from './widgets/account_activation/account_activation';
-//import Menu from './widgets/Menu';
 import * as css from './App.m.css';
 
 const factory = create({ theme });
 
 export default factory(function App({ middleware: { theme } }) {
 	if (!theme.get()) {
-		theme.set(black);
+		theme.set(dojo);
 	}
 
 	return v('div', { classes: [css.root] }, [
-            //w(Menu, {}),
             v('div', { classes: [css.body] }, [
                   v('div', {classes: [css.wrapper] }, [
                         w(Outlet, { key: 'home', id: 'home', renderer: () => w(Home, {}) }),
