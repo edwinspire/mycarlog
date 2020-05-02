@@ -27,19 +27,21 @@ export default factory(function App({ middleware: { theme } }) {
 
 	return v('div', { classes: [css.root] }, [
             //w(Menu, {}),
-            v('div', [
-                  w(Outlet, { key: 'home', id: 'home', renderer: () => w(Home, {}) }),
-                  w(Outlet, { key: 'contact', id: 'contact', renderer: () => w(Contact, {}) }),      
-                  w(Outlet, { key: 'contacts', id: 'contacts', renderer: () => w(Contacts, {}) }),   
-                  w(Outlet, { key: 'vehicle', id: 'vehicle', renderer: () => w(Vehiculo, {}) }),         
-                  w(Outlet, { key: 'vehicles', id: 'vehicles', renderer: () => w(Vehicles, {}) }),         
-                  w(Outlet, { key: 'about', id: 'about', renderer: () => w(About, {}) }),
-                  w(Outlet, { key: 'dashboard', id: 'dashboard', renderer: () => w(Dashboard, {}) }),
-                  w(Outlet, { key: 'login', id: 'login', renderer: () => w(Login, {}) }),
-                  w(Outlet, { key: 'register', id: 'register', renderer: () => w(Register, {}) }),
-                  w(Outlet, { key: 'fueling', id: 'fueling', renderer: () => w(Fueling, {}) }),
-                  w(Outlet, { key: 'account_activation', id: 'account_activation', renderer: () => w(AccountActivation, {}) }),
-                  w(Outlet, { key: 'fuelinglog', id: 'fuelinglog', renderer: () => w(FuelingLog, {}) })
+            v('div', { classes: [css.body] }, [
+                  v('div', {classes: [css.wrapper] }, [
+                        w(Outlet, { key: 'home', id: 'home', renderer: () => w(Home, {}) }),
+                        w(Outlet, { key: 'contact', id: 'contact', renderer: () => w(Contact, {}) }),      
+                        w(Outlet, { key: 'contacts', id: 'contacts', renderer: () => w(Contacts, {}) }),   
+                        w(Outlet, { key: 'vehicle', id: 'vehicle', renderer: () => w(Vehiculo, {}) }),         
+                        w(Outlet, { key: 'vehicles', id: 'vehicles', renderer: () => w(Vehicles, {}) }),         
+                        w(Outlet, { key: 'about', id: 'about', renderer: () => w(About, {}) }),
+                        w(Outlet, { key: 'dashboard', id: 'dashboard', renderer: () => w(Dashboard, {}) }),
+                        w(Outlet, { key: 'login', id: 'login', renderer: () => w(Login, {}) }),
+                        w(Outlet, { key: 'register', id: 'register', renderer: () => w(Register, {}) }),
+                        w(Outlet, { key: 'fueling', id: 'fueling', renderer: () => w(Fueling, {}) }),
+                        w(Outlet, { key: 'account_activation', id: 'account_activation', renderer: () => w(AccountActivation, {}) }),
+                        w(Outlet, { key: 'fuelinglog', id: 'fuelinglog', renderer: () => w(FuelingLog, {}) })
+                        ])
                   ])
             ]);
 });

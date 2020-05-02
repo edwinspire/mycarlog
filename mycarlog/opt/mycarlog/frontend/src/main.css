@@ -2,36 +2,6 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-size: 400% 400%;
-	background: #4877af;
-	background: -webkit-gradient(linear, left top, right bottom, from(#4877af), to(#12284a));
-	background: linear-gradient(to bottom right, #4877af 0%, #12284a 100%);
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
-
-@-webkit-keyframes BackGroundAnim {
-	0%{background-position:0% 58%}
-	50%{background-position:100% 43%}
-	100%{background-position:0% 58%}
-}
-@-moz-keyframes BackGroundAnim {
-	0%{background-position:0% 58%}
-	50%{background-position:100% 43%}
-	100%{background-position:0% 58%}
-}
-@-o-keyframes BackGroundAnim {
-	0%{background-position:0% 58%}
-	50%{background-position:100% 43%}
-	100%{background-position:0% 58%}
-}
-@keyframes BackGroundAnim {
-	0%{background-position:0% 58%}
-	50%{background-position:100% 43%}
-	100%{background-position:0% 58%}
 }
 
 * {
