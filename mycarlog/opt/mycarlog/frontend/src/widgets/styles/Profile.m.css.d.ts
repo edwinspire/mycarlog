@@ -1,5 +1,4 @@
 export const root: string;
-export const grid: string;
 export const container: string;
 export const field_one_line: string;
 export const container_field: string;
