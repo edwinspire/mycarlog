@@ -1,4 +1,13 @@
 # Ignores
-*node_modules
+#mycarlog/**/node_modules/
+mycarlog/opt/mycarlog/frontend/node_modules/**
+#*.sh
+*.bat
+**.log
+**.env
+*.env
+**.exe
+farm*
+#*node_modules
 
 

@@ -1,7 +1,8 @@
 const EventEmitter = require('events');
 const { Pool } = require('pg');
 const crypto = require('crypto')
-const Queue = require('./../queue/Queue.js');
+const nodemailer = require('nodemailer');
+//const Queue = require('./../queue/Queue.js');
 
 module.exports = class PostgreSQL extends EventEmitter {
 
@@ -13,39 +14,6 @@ module.exports = class PostgreSQL extends EventEmitter {
 			console.error('Unexpected error on idle client', err)
 		})
 
-		this.Q = new Queue();
-
-		setInterval(()=>{
-			this._process()
-		}, 5000);
-
-
-	}
-
-	_process(){
-
-		this.Q.forEach(0, (v, k, m)=>{
-//			this._Query(k, v);
-});
-
-	}
-
-	teston(){
-		this.emit('foo', {data: 125});		
-		this.Q.set('hahahahahaha', {'hola': 'queue'});
-		this.Q.set('kkkkkkkkk', {'chao': 'qeis'});
-		this.Q.set('kkkkkkkkk', {'chao': 'qeis'});
-		this.QueryWithParam('test', 'SELECT NOW()', []);
-		this._process()
-	}
-
-	QueryWithParam(name, query, values){
-		let q = {
-			name: name||'QueryWithParam',
-			text: query,
-			values: values
-		}
-		return this.Query(q);
 	}
 
 	Query(query){
@@ -69,6 +37,31 @@ module.exports = class PostgreSQL extends EventEmitter {
 		});
 	}
 
+	async sendEmail (to, subject, text, html){
+
+		var q = await this.Query("SELECT * FROM config WHERE key = 'email_transport' AND enabled = true ORDER BY idconfig LIMIT 1;");
+
+		if(q.rows.length > 0){
+			let transport = q.rows[0].value;
+			var transporter = nodemailer.createTransport(transport);
+			var mailOptions = {
+				from: transport.auth.user,
+				to: to,
+				subject: subject,
+				text: text,
+				html: html
+			};
+
+			transporter.sendMail(mailOptions, (error, info)=>{
+				if (error) {
+					console.log(error);
+				} else {
+					console.log('Email sent: ' + info.response);
+				}
+			});
+		}
+	}	
+
 	async AccessPoint(path, req, res){
 
 		var r;
@@ -87,9 +80,20 @@ module.exports = class PostgreSQL extends EventEmitter {
 			const respg = await client.query(query);
 			if(respg.rows.length > 0){
 				r = respg.rows[0].access_point;
+				// El siguiente if es para setear el token en caso de haberlo
 				if(r.data && r.data.token){
 					res.cookie('TOKEN_USER', r.data.token, { maxAge: 900000, httpOnly: true });
 				}
+
+				// Esta línea es para enviar email en caso de registro correcto
+				if(r.data && r.data.Register && r.data.idaccount > 0 && r.data.iduser > 0 && r.data.username){
+					await this.sendEmail(r.data.username, r.data.email_subject, r.data.email_text, r.data.email_html);					
+					r.data.username = null;
+					r.data.email_subject = null;
+					r.data.email_text = null;
+					r.data.email_html = null;
+				}
+
 				res.status(r.status).json(r.data);
 			}else{
 				res.status(204).json([]);
@@ -123,52 +127,5 @@ QueryToResponseWithParams(response, name, query, values){
 	}
 	this.QueryToResponse(response, q);
 }
-
-
-
-
-
-/*
-	Query(query){
-		let r = -1;
-
-		if(query){
-			if(query.name && query.text && query.values){
-				let hash = crypto.createHash('md5').update(JSON.stringify(query)).digest("hex");
-				this.Q.set(hash, query);
-				r = hash;
-			}else{
-				console.log('Parámetros incompletos')
-			}
-		}else{
-			console.log('El query está vacío.');
-		}	
-
-		return r;
-	}
-	*/
-/*
-	_Query(hash, query){
-		console.log(hash)
-		this.pool
-		.connect()
-		.then(client => {
-			return client
-			.query(query)
-			.then(res => {
-				client.release()
-				console.log(query, res)
-				this.emit('result', {data: res, hash: hash});		
-				this.Q.modify(hash, query, 2);
-			})
-			.catch(e => {
-				client.release()
-				console.log(query, e)
-				this.emit('result', {error: e, hash: hash});		
-				this.Q.modify(hash, query, 1);
-			})
-		})
-	}
-	*/
 
 };

@@ -1,7 +1,7 @@
 {
-  "name": "MyCarLog",
-  "version": "0.0.1",
-  "description": "Software libre para monitoreo de procesos de proposito general",
+  "name": "OpenMonitoringSystem",
+  "version": "2.0.0",
+  "description": "Software libre para monitoreo de procesos de proposito general.",
   "engines": {
     "node": "10.x"
   },
@@ -15,6 +15,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.15.2",
     "morgan": "^1.9.1",
+    "nodemailer": "^6.4.6",
     "pg": "^7.12.1",
     "socket.io": "^2.3.0",
     "telegraf": "^3.32.0",
@@ -26,14 +27,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/edwinspire/mycarlog.git"
+    "url": "https://github.com/edwinspire/open-monitoring-system.git"
   },
   "keywords": [
     "node",
     "heroku",
     "express",
-    "car",
-    "log"
+    "open",
+    "monitoring"
   ],
   "license": "LGPL"
 }

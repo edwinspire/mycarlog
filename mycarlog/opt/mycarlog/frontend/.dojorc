@@ -7,7 +7,7 @@
         },
         "pwa": {
             "manifest": {
-                "name": "My Car Log",
+                "name": "Car Log",
                 "description": "Take your vehicle's log everywhere.",
                 "display": "standalone",
                 "orientation":  "any",
@@ -30,7 +30,7 @@
                     {
                         "urlPattern": ".*\\.(png|jpg|gif|svg)",
                         "strategy": "cacheFirst",
-                        "cacheName": "my-al-images",
+                        "cacheName": "mcl-images",
                         "expiration": { "maxEntries": 10, "maxAgeSeconds": 604800 }
                     }
                 ], 
