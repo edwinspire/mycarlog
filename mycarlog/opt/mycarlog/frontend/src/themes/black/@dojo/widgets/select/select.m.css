@@ -1,11 +1,16 @@
 .root, .root * { box-sizing: border-box; }
 
 .root {
-	
+
 }
 
 .inputWrapper {
 	position: relative;
+}
+
+.inputWrapper option {
+    background: rgba(96, 127, 167, 0.9);
+    color: white;
 }
 
 .trigger {
