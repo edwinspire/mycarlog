@@ -72,6 +72,9 @@
 
 /* native input styles */
 .input {
+	padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
 	color: white;
 	appearance: none;
 	border-radius: 3px;
@@ -82,9 +85,9 @@
 	cursor: pointer;
 	display: block;
 	font-size: inherit;
-	line-height: var(--line-height-base);
+	height: calc(var(--line-height-base) + 2 * var(--grid-base) + 2 * var(--border-width)); /* for IE 11 */
 	outline: 0;
-	padding: var(--spacing-regular) calc(var(--spacing-regular) * 3) var(--spacing-regular) var(--spacing-regular);
+	/*padding: var(--spacing-regular) calc(var(--spacing-regular) * 2) var(--spacing-regular) var(--spacing-regular);*/
 	transition: border var(--transition-duration) var(--transition-easing);
 	width: 100%;
 }
