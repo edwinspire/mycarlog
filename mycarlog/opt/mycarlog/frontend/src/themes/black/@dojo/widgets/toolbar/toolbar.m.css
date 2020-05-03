@@ -7,7 +7,6 @@
 }
 
 .root {
-	background: var(--color-background);
 	border-top: var(--border-width) solid var(--color-border);
 	border-bottom: var(--border-width) solid var(--color-border);
 	box-sizing: border-box;
