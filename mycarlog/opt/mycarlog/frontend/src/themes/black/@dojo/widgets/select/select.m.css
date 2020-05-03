@@ -6,11 +6,12 @@
 
 .inputWrapper {
 	position: relative;
+	margin-top: 8px;
 }
 
 .inputWrapper option {
-    background: rgba(96, 127, 167, 0.9);
-    color: white;
+	background: rgba(96, 127, 167, 0.8);
+	color: white;
 }
 
 .trigger {
@@ -73,8 +74,8 @@
 /* native input styles */
 .input {
 	padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
 	color: white;
 	appearance: none;
 	border-radius: 3px;
