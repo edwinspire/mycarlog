@@ -3,7 +3,7 @@ import WidgetBase from '@dojo/framework/core/WidgetBase';
 //import * as css from '../styles/Profile.m.css';
 import Grid from '@dojo/widgets/grid';
 import { createFetcher } from '@dojo/widgets/grid/utils';
-import Card from '@dojo/widgets/card';
+//import Card from '@dojo/widgets/card';
 import ToolBar from '@dojo/widgets/toolbar';
 import IconX from '.././Icon/Icon';
 
@@ -91,7 +91,7 @@ export default class Vehicles extends WidgetBase {
 
 	protected render(){
 
-		return w(Card, {}, [
+		return v('div', {}, [
 			w(ToolBar, {heading: 'VEHÍCULOS', collapseWidth: 150}, [
 				w(IconX, {label: 'NUEVO', classes: ['fas', 'fa-car'], ShowLabel: true,
 					onClick: (e)=>{    
@@ -105,7 +105,7 @@ export default class Vehicles extends WidgetBase {
 					fetcher: this._fetcher,
 					height: 500,
 					onRowSelect: (items: any[]) => {
-						console.log(items, this._fetcher)
+				//		console.log(items, this._fetcher)
 						window.location.href = "/#vehicle?idvehicle="+items[0].idvehicle+"&rowkey="+items[0].rowkey+"&idaccount="+localStorage.getItem('idaccount');
 					}
 				}) : null
