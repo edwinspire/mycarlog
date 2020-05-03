@@ -37,9 +37,11 @@
 	font-weight: 300;
 }
 .wrapper {
-	background: #12284a;	
-	background: -webkit-gradient(linear, right bottom, left top, from(#12284a), to(#4877af));
-	background: linear-gradient(to left top, #12284a 0%, #4877af 100%);
+	background: rgb(18,40,74);
+	background: -moz-linear-gradient(180deg, rgba(18,40,74,1) 0%, rgba(72,119,175,1) 50%);
+	background: -webkit-linear-gradient(180deg, rgba(18,40,74,1) 0%, rgba(72,119,175,1) 50%);
+	background: linear-gradient(180deg, rgba(18,40,74,1) 0%, rgba(72,119,175,1) 50%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#12284a",endColorstr="#4877af",GradientType=1);
 	position: absolute;
 	left: 0;
 	width: 100%;
