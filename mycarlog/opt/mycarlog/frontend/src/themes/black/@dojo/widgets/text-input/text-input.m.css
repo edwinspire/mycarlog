@@ -12,8 +12,6 @@
 	border-color: darkgrey;
 }
 
-}
-
 .root {
 	display: block;
 	font-size: var(--font-size-base);
