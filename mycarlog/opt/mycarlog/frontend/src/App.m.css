@@ -38,8 +38,8 @@
 }
 .wrapper {
 	background: #12284a;	
-	background: -webkit-gradient(linear, left top, right bottom, from(#12284a), to(#4877af));
-	background: linear-gradient(to bottom right, #12284a 0%, #4877af 100%);
+	background: -webkit-gradient(linear, right bottom, left top, from(#12284a), to(#4877af));
+	background: linear-gradient(to left top, #12284a 0%, #4877af 100%);
 	position: absolute;
 	left: 0;
 	width: 100%;
