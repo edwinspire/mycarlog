@@ -8,8 +8,7 @@
 
 .root {
 	background: rgba(13, 39, 78, 0.3);
-	border-top: var(--border-width) solid var(--color-border);
-	border-bottom: var(--border-width) solid var(--color-border);
+    border-bottom: var(--border-width) solid #48667b;
 	box-sizing: border-box;
 	height: calc(7 * var(--grid-base));
 	padding: calc(2 * var(--grid-base));
