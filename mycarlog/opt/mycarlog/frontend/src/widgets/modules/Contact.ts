@@ -218,7 +218,7 @@ export default class Contact extends WidgetBase<ContactProperties>  {
 					),
 				v('div', {classes: css.column2}, [])
 				]),
-			v('div', {classes: []}, [
+			v('div', {classes: [css.column1]}, [
 				w(Textarea, {
 					columns: 40,
 					rows: 5,
