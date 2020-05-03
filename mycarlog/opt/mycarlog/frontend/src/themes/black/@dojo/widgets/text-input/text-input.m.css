@@ -1,5 +1,4 @@
 .input {
-	border: none;
 	width: 100%;
 	margin: 0;
 	font-size: inherit;
@@ -8,6 +7,11 @@
 	padding: var(--grid-base);
 	box-sizing: border-box;
 	border-radius: 3px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: darkgrey;
+}
+
 }
 
 .root {
@@ -18,9 +22,6 @@
 }
 
 .inputWrapper {
-	border: var(--border-width) solid var(--color-border);
-	border-bottom-color: var(--color-border-strong);
-	border-radius: 3px;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
