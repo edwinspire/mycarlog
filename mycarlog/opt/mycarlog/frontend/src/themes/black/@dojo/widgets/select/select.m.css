@@ -38,8 +38,7 @@
 .required {}
 
 .dropdown {
-	/*box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow);*/
-	background: yellow;
+	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow);
 	display: none;
 	pointer-events: none;
 	position: absolute;
@@ -98,7 +97,7 @@
 .arrow {
 	border-left: var(--border-width) solid var(--color-border);
 	bottom: var(--border-width);
-	/*color: var(--color-text-faded);*/
+	color: var(--color-text-faded);
 	color: red;
 	/*font-size: var(--font-size-icon);*/
 	font-size: 1em;
