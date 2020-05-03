@@ -29,6 +29,14 @@
 }
 
 /* Create three equal columns that floats next to each other */
+.column1 {
+	float: left;
+	width: 100%;
+	padding-left: 1%;
+	padding-right: 1%;
+	min-width: 150px;
+}
+
 .column2 {
 	float: left;
 	width: 48%;

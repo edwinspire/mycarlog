@@ -4,6 +4,7 @@ export const field_one_line: string;
 export const container_field: string;
 export const container_field_reset: string;
 export const general_padding: string;
+export const column1: string;
 export const column2: string;
 export const column2_center_checkbox: string;
 export const column3: string;

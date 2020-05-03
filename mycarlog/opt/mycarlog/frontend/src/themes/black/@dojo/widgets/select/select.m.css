@@ -1,12 +1,12 @@
 .root, .root * { box-sizing: border-box; }
 
 .root {
-
+    margin-top: 4px;
 }
 
 .inputWrapper {
 	position: relative;
-	margin-top: 8px;
+	margin-top: 4px;
 }
 
 .inputWrapper option {
