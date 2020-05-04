@@ -9,6 +9,7 @@ export default class Summary extends WidgetBase {
 
 	private TotalContacts:string = '0';
 	private TotalVehicles:string = '0';
+	private Sum: any[] = [];
 
 	async onAttach() {
 		const res = await fetch("/summary",{method: 'POST', body: JSON.stringify({idaccount: localStorage.getItem('idaccount')}), headers: {'Content-Type': 'application/json'}});
@@ -23,6 +24,10 @@ export default class Summary extends WidgetBase {
 		}else if(res.status == 401){
 			window.location.href = "/#login";
 		}
+
+		this.Sum.push('AAAAAAAAAA');
+		this.Sum.push('BBBBBBBBBB');
+		this.Sum.push('CCCCCCCCCC');
 
 	}
 
@@ -44,7 +49,8 @@ export default class Summary extends WidgetBase {
 						}}),
 						'Hay '+this.TotalVehicles+' Vehículos'
 						])
-					])
+					]),
+				v('div',{}, this.Sum)
 
 
 				])
