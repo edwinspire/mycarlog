@@ -78,5 +78,6 @@
 }
 
 .open {
+		color: white;
 	transform: translateX(0%);
 }
