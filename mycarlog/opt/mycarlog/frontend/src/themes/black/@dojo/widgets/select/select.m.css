@@ -107,7 +107,7 @@
 	border-left: var(--border-width) solid var(--color-border);
 	bottom: var(--border-width);
 	color: var(--color-text-faded);
-	/*color: red;*/
+	color: white;
 	/*font-size: var(--font-size-icon);*/
 	font-size: 1em;
 	line-height: var(--line-height-base);
