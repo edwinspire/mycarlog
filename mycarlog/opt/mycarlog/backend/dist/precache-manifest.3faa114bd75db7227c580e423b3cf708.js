@@ -15,7 +15,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "ace7b718e0942da4462a7533a32b2a6a",
+    "revision": "61f227e0cc7255783ca51ff9c978a352",
     "url": "index.html"
   },
   {
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "dojo2.1jRzby-N.ttf"
   },
   {
-    "revision": "84b6e76f4f0cff99f291",
+    "revision": "451423050a01f57606ab",
     "url": "7.f4128faf3558170d088e.bundle.css"
   },
   {
@@ -80,11 +80,11 @@ self.__precacheManifest = [
     "url": "fa-solid-900.2TU7KN5_.svg"
   },
   {
-    "revision": "367a3d20f5f703549c2c",
+    "revision": "5a2dda7bd0946a61856c",
     "url": "bootstrap.bac23a0f13193406ba61.bundle.css"
   },
   {
-    "url": "bootstrap.367a3d20f5f703549c2c.bundle.js"
+    "url": "bootstrap.5a2dda7bd0946a61856c.bundle.js"
   },
   {
     "revision": "75f38a159982b6bd1704891332d95fa7",
@@ -164,7 +164,7 @@ self.__precacheManifest = [
     "url": "6.7300e861614bc88c5d30.bundle.js"
   },
   {
-    "url": "7.84b6e76f4f0cff99f291.bundle.js"
+    "url": "7.451423050a01f57606ab.bundle.js"
   },
   {
     "url": "11.e90a781bc583ff3c77b1.bundle.js"
