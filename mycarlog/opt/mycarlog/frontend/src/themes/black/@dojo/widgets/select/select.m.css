@@ -117,7 +117,9 @@
 	right: 0;
 	top: 0;
 }
-
+.arrow::after {
+  content: "X";
+}
 
 /* State classes */
 .disabled .input,
