@@ -2,7 +2,7 @@ import * as accordionPane from './@dojo/widgets/accordion-pane/accordion-pane.m.
 import * as button from './@dojo/widgets/button/button.m.css';
 import * as calendar from './@dojo/widgets/calendar/calendar.m.css';
 import * as card from './@dojo/widgets/card/card.m.css';
-//import * as checkbox from './@dojo/widgets/checkbox/checkbox.m.css';
+import * as checkbox from './@dojo/widgets/checkbox/checkbox.m.css';
 import * as combobox from './@dojo/widgets/combobox/combobox.m.css';
 import * as dialog from './@dojo/widgets/dialog/dialog.m.css';
 import * as gridBody from './@dojo/widgets/grid-body/grid-body.m.css';
@@ -40,7 +40,7 @@ export default {
 	'@dojo/widgets/button': button,
 	'@dojo/widgets/calendar': calendar,
 	'@dojo/widgets/card': card,
-//	'@dojo/widgets/checkbox': checkbox,
+	'@dojo/widgets/checkbox': checkbox,
 	'@dojo/widgets/combobox': combobox,
 	'@dojo/widgets/dialog': dialog,
 	'@dojo/widgets/grid-body': gridBody,
