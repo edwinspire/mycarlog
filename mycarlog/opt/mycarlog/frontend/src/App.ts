@@ -1,8 +1,8 @@
 import { create, v, w } from '@dojo/framework/core/vdom';
 import theme from '@dojo/framework/core/middleware/theme';
-//import black from './themes/black/theme';
+import black from './themes/black/theme';
 //import blue from './themes/blue/theme';
-import dojo from '@dojo/themes/dojo';
+//import dojo from '@dojo/themes/dojo';
 import Outlet from '@dojo/framework/routing/Outlet';
 import Home from './widgets/Home';
 import Dashboard from './widgets/Dashboard';
@@ -22,8 +22,8 @@ const factory = create({ theme });
 
 export default factory(function App({ middleware: { theme } }) {
 	if (!theme.get()) {
-//		theme.set(black);
-                        theme.set(dojo);
+		theme.set(black);
+  //                      theme.set(dojo);
 //theme.set(blue);
 	}
 
