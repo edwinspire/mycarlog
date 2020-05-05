@@ -25,9 +25,9 @@ export default class Summary extends WidgetBase {
 			window.location.href = "/#login";
 		}
 
-		this.Sum.push('AAAAAAAAAA');
-		this.Sum.push('BBBBBBBBBB');
-		this.Sum.push('CCCCCCCCCC');
+		//this.Sum.push('AAAAAAAAAA');
+		//this.Sum.push('BBBBBBBBBB');
+		//this.Sum.push('CCCCCCCCCC');
 
 	}
 

@@ -15,7 +15,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "a8e6ebb190db4a40df447458d68ebaf7",
+    "revision": "ace7b718e0942da4462a7533a32b2a6a",
     "url": "index.html"
   },
   {
@@ -37,18 +37,18 @@ self.__precacheManifest = [
     "url": "runtime/IntersectionObserver.ecea1bcfb5f2b0b961ab.bundle.js"
   },
   {
-    "url": "main.60be5a55afb9228143c4.bundle.js"
+    "url": "main.34a3265979088e922919.bundle.js"
   },
   {
-    "revision": "60be5a55afb9228143c4",
-    "url": "main.a816427a036caba232b8.bundle.css"
+    "revision": "34a3265979088e922919",
+    "url": "main.d12f83c046c5f698c269.bundle.css"
   },
   {
     "revision": "ff16d1a932c2ba49ba8310fbe232d653",
     "url": "dojo2.1jRzby-N.ttf"
   },
   {
-    "revision": "58dec0b8d9adb247601f",
+    "revision": "84b6e76f4f0cff99f291",
     "url": "7.f4128faf3558170d088e.bundle.css"
   },
   {
@@ -80,11 +80,11 @@ self.__precacheManifest = [
     "url": "fa-solid-900.2TU7KN5_.svg"
   },
   {
-    "revision": "8f2bd6c7be92a1f424c3",
-    "url": "bootstrap.ec1c8aca2d52a5741786.bundle.css"
+    "revision": "367a3d20f5f703549c2c",
+    "url": "bootstrap.bac23a0f13193406ba61.bundle.css"
   },
   {
-    "url": "bootstrap.8f2bd6c7be92a1f424c3.bundle.js"
+    "url": "bootstrap.367a3d20f5f703549c2c.bundle.js"
   },
   {
     "revision": "75f38a159982b6bd1704891332d95fa7",
@@ -164,7 +164,7 @@ self.__precacheManifest = [
     "url": "6.7300e861614bc88c5d30.bundle.js"
   },
   {
-    "url": "7.58dec0b8d9adb247601f.bundle.js"
+    "url": "7.84b6e76f4f0cff99f291.bundle.js"
   },
   {
     "url": "11.e90a781bc583ff3c77b1.bundle.js"
@@ -177,11 +177,11 @@ self.__precacheManifest = [
     "url": "3.db04ec7862d91c585d03.bundle.js"
   },
   {
-    "revision": "1825e6549a1eb6b5201a",
+    "revision": "c2da54e5c139b9ca218e",
     "url": "4.506da64f62047b2d7dca.bundle.css"
   },
   {
-    "url": "4.1825e6549a1eb6b5201a.bundle.js"
+    "url": "4.c2da54e5c139b9ca218e.bundle.js"
   },
   {
     "revision": "12fcd1a30d4f2c6f6614",

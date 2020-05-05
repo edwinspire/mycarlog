@@ -56,26 +56,33 @@ export default class Vehicle extends WidgetBase<VehicleProperties>  {
 
 	private async Save(){
 
-		if(this.Params.license_plate.length > 0){
+		if(Number(this.Params.idcontact) > 0){
 
-			let resp = await fetch('/vehicle_cu', {method: 'POST', body: JSON.stringify(this.Params), headers: {'Content-Type': 'application/json'}});
-			let data = await resp.json();
-			if(resp.status == 200){
-				console.log(data);
-				if(data.idvehicle > 0){
-					window.location.href = "/#vehicles?idvehicle="+data.idvehicle+"&idaccount="+localStorage.getItem('idaccount');
+			if(this.Params.license_plate.length > 0){
+
+				let resp = await fetch('/vehicle_cu', {method: 'POST', body: JSON.stringify(this.Params), headers: {'Content-Type': 'application/json'}});
+				let data = await resp.json();
+				if(resp.status == 200){
+					console.log(data);
+					if(data.idvehicle > 0){
+						window.location.href = "/#vehicles?idvehicle="+data.idvehicle+"&idaccount="+localStorage.getItem('idaccount');
+					}else{
+						this.SnackBar('No se pudo guardar');
+					}
+				}else if(resp.status == 401){
+					window.location.href = "/#login";
 				}else{
-					this.SnackBar('No se pudo guardar');
+					this.SnackBar('No se pudo guardar '+resp.status);
 				}
-			}else if(resp.status == 401){
-				window.location.href = "/#login";
+
 			}else{
-				this.SnackBar('No se pudo guardar '+resp.status);
+				this.SnackBar('Complete los campos que son requeridos');
 			}
 
 		}else{
-			this.SnackBar('Complete los campos que son requeridos');
+			this.SnackBar('Debe seleccionar un Propietario');
 		}
+
 		this.invalidate();
 	}
 
