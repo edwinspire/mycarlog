@@ -107,7 +107,7 @@
 	border-left: var(--border-width) solid var(--color-border);
 	bottom: var(--border-width);
 	color: var(--color-text-faded);
-	color: red;
+	/*color: red;*/
 	/*font-size: var(--font-size-icon);*/
 	font-size: 1em;
 	line-height: var(--line-height-base);
@@ -117,9 +117,9 @@
 	right: 0;
 	top: 0;
 }
-.arrow::after {
-  content: "X";
-}
+/*.arrow::after {
+ content: "\e313";
+}*/
 
 /* State classes */
 .disabled .input,

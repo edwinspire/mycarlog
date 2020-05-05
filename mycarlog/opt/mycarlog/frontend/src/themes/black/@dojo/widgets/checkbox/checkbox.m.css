@@ -99,7 +99,7 @@
 .toggleSwitch::before,
 .toggleSwitch::after {
 	border-radius: calc(var(--line-height-base) / 2);
-	content: "";
+	content: "Y";
 	height: var(--line-height-base);
 	left: calc(var(--border-width) * -1);
 	position: absolute;
