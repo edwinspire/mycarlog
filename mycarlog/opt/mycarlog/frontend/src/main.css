@@ -7,8 +7,8 @@ body {
 }
 
 * {
-	--line-height-base: 15px;
-	--font-size-title: 1.1em;
+	--line-height-base: 24px;
+	--font-size-title: 1em;
 	--color-text-faded: white;
 	--color-text-primary: white;
 	--color-highlight: #4780ff;
@@ -20,6 +20,11 @@ body {
 	--font-size-title: 1.2em;
 	--on-focus-input: honeydew;
 	/* font-size: 0.98em!important; */
+}
+.backgroud_menu{
+	background: #4b6cb7;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to top, #4b6cb7, #182848);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to top, #4b6cb7, #182848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 /*
 i.fas,

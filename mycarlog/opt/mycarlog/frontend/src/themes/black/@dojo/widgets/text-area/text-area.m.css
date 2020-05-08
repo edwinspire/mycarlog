@@ -16,7 +16,7 @@
 }
 
 .input {
-	color: white;
+	color: var(--color-text-primary);
 	width: -webkit-fill-available;
 	border: var(--border-width) solid var(--color-border);
 	border-bottom-color: var(--color-border-strong);
@@ -30,8 +30,8 @@
 	border-radius: var(--border-radius);
 	border-style: solid;
 	border-width: var(--border-width);
-	border-color: darkgrey;
-	background-color: rgba(255, 255, 255, 0.2);
+	border-color: var(--color-border);
+	background-color: var(--background-color);
 }
 
 .input:focus {

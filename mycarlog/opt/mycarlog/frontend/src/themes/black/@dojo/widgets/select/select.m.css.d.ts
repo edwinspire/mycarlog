@@ -1,5 +1,6 @@
 export const root: string;
 export const inputWrapper: string;
+export const backgroud_menu: string;
 export const trigger: string;
 export const placeholder: string;
 export const required: string;

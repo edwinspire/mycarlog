@@ -1,16 +1,16 @@
 .root, .root * { box-sizing: border-box; }
 
 .root {
-    margin-top: 4px;
+    margin-top: 3px;
 }
 
 .inputWrapper {
 	position: relative;
-	margin-top: 4px;
+	margin-top: 2px;
 }
 
-.inputWrapper option {
-	background: rgba(96, 127, 167, 0.8);
+.backgroud_menu .inputWrapper option {
+	/* background: rgba(96, 127, 167, 0.8); */
 	color: var(--color-text-primary);
 }
 

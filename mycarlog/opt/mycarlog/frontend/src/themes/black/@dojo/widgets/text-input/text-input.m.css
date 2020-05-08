@@ -39,7 +39,7 @@
 .readonly {}
 
 .required {
-background-color: brown;
+/* background-color: brown; */
 }
 
 .invalid {}
@@ -56,7 +56,7 @@ background-color: brown;
 
 .valid {}
 
-.input::focus{
+.inputWrapper::focus{
 	border-color: var(--color-highlight);
 	border-bottom-color: var(--color-highlight);
 	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow-highlight);
