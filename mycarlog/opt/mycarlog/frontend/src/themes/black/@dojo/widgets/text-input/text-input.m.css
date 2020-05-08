@@ -7,10 +7,10 @@
 	line-height: var(--line-height-base);
 	padding: var(--grid-base);
 	box-sizing: border-box;
-	border-radius: 3px;
+	border-radius: var(--border-radius);
 	border-style: solid;
-	border-width: 1px;
-	border-color: darkgrey;
+	border-width: var(--border-width);
+	border-color: var(--color-border);
 	background-color: var(--background-color);
 }
 
