@@ -9,8 +9,11 @@
 	margin-top: 2px;
 }
 
-.backgroud_menu .inputWrapper option {
+.inputWrapper option {
 	/* background: rgba(96, 127, 167, 0.8); */
+	background: var(--background_menu1);
+	background: var(--background_menu2);
+	background: var(--background_menu3);	
 	color: var(--color-text-primary);
 }
 
