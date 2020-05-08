@@ -7,7 +7,10 @@ body {
 }
 
 * {
-	font-size: 0.98em!important;
+	--line-height-base: 15px;
+	--font-size-title: 1.1em;
+	--color-text-faded: white;
+	/* font-size: 0.98em!important; */
 }
 /*
 i.fas,
