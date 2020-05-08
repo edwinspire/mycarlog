@@ -2,7 +2,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: Arial, Helvetica, sans-serif!important;
+	/* font-family: Arial, Helvetica, sans-serif!important; */
 	/*font-family: "Times New Roman", Times, serif;*/
 }
 
@@ -24,6 +24,8 @@ body {
 	--background_menu2: -webkit-linear-gradient(to top, #4b6cb7, #182848);  /* Chrome 10-25, Safari 5.1-6 */
 	--background_menu3: linear-gradient(to top, #4b6cb7, #182848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+
 
 /*
 i.fas,
