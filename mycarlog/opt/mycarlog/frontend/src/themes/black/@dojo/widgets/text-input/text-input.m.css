@@ -1,8 +1,8 @@
 .input {
-	color: white;
+	color: var(--color-text-primary);
 	width: 100%;
 	margin: 0;
-	font-size: initial!important;
+	/* font-size: initial!important; */
 	height: calc(var(--line-height-base) + 2 * var(--grid-base) + 2 * var(--border-width)); /* for IE 11 */
 	line-height: var(--line-height-base);
 	padding: var(--grid-base);
@@ -11,7 +11,7 @@
 	border-style: solid;
 	border-width: 1px;
 	border-color: darkgrey;
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: var(--background-color);
 }
 
 .root {
