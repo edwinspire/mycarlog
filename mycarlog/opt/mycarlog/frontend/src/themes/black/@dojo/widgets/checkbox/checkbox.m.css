@@ -29,7 +29,7 @@
 	composes: checkIcon icon from '../icon/icon.m.css';
 	left: 0;
 	position: absolute;
-	top: calc(var(--grid-base) / 2);
+	top: calc(var(--grid-base) / 1);
 }
 
 .inputWrapper::before,
@@ -43,7 +43,7 @@
 	/*background-color: var(--color-background);*/
 	background: rgba(96, 127, 167, 0.8);
 	color: white;
-	border: var(--border-width) solid var(--color-border-strong);
+	/*border: var(--border-width) solid var(--color-border-strong);*/
 	content: '';
 }
 
