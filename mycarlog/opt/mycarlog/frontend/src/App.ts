@@ -1,8 +1,8 @@
 import { create, v, w } from '@dojo/framework/core/vdom';
 import theme from '@dojo/framework/core/middleware/theme';
-//import themeBase from './themes/black/theme';
+import themeBase from './themes/black/theme';
 //import blue from './themes/blue/theme';
-import themeBase from '@dojo/themes/dojo';
+//import themeBase from '@dojo/themes/dojo';
 //import themeBase from '@dojo/themes/dojo';
 import Outlet from '@dojo/framework/routing/Outlet';
 import Home from './widgets/Home';
