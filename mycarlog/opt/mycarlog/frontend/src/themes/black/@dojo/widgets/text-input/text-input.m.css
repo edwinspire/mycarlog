@@ -32,7 +32,10 @@
 
 .disabled {}
 
-.focused {}
+.focused {
+	outline-color: var(--on-focus-input);
+	border-radius: var(--border-radius);
+}
 
 .readonly {}
 

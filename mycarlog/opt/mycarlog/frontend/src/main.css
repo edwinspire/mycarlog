@@ -13,10 +13,12 @@ body {
 	--color-text-primary: white;
 	--color-highlight: #4780ff;
 	--color-highlight-border: #dcdcdc;
-	--color-border: #545454;
+	--color-border: #2d4867;
 	--border-width: 1px;
 	--background-color: rgba(255, 255, 255, 0.2);
 	--border-radius: 4px;
+	--font-size-title: 1.2em;
+	--on-focus-input: honeydew;
 	/* font-size: 0.98em!important; */
 }
 /*
