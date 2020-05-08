@@ -33,13 +33,14 @@
 .disabled {}
 
 .focused {
-	outline-color: var(--on-focus-input);
-	border-radius: var(--border-radius);
+
 }
 
 .readonly {}
 
-.required {}
+.required {
+background-color: brown;
+}
 
 .invalid {}
 
@@ -54,3 +55,10 @@
 .helperText {}
 
 .valid {}
+
+.input::focus{
+	border-color: var(--color-highlight);
+	border-bottom-color: var(--color-highlight);
+	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow-highlight);
+	outline: none;
+}

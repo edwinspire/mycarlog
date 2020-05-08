@@ -11,7 +11,7 @@
 
 .inputWrapper option {
 	background: rgba(96, 127, 167, 0.8);
-	color: white;
+	color: var(--color-text-primary);
 }
 
 .trigger {
@@ -73,22 +73,22 @@
 
 /* native input styles */
 .input {
-	padding-top: 5px;
+	/* padding-top: 5px;
 	padding-bottom: 5px;
-	padding-left: 5px;
-	color: white;
+	padding-left: 5px; */
+	color: var(--color-text-primary);
 	appearance: none;
-	border-radius: 3px;
+	border-radius: var(--border-radius);
 	border-style: solid;
-	border-width: 1px;
-	border-color: darkgrey;
-	background-color: rgba(255, 255, 255, 0.2);
+	border-width: var(--border-width);
+	border-color: var(--color-border);
+	background-color: var(--background-color);
 	cursor: pointer;
 	display: block;
 	font-size: inherit;
 	height: calc(var(--line-height-base) + 2 * var(--grid-base) + 2 * var(--border-width)); /* for IE 11 */
 	outline: 0;
-	/*padding: var(--spacing-regular) calc(var(--spacing-regular) * 2) var(--spacing-regular) var(--spacing-regular);*/
+	padding: var(--spacing-regular) calc(var(--spacing-regular) * 2) var(--spacing-regular) var(--spacing-regular);
 	transition: border var(--transition-duration) var(--transition-easing);
 	width: 100%;
 }
