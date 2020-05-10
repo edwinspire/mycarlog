@@ -15,7 +15,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "410b360d6bb4425661244f2ef5b1f1b3",
+    "revision": "594a7e7458f0fc350cb3ec92d0186288",
     "url": "index.html"
   },
   {
@@ -80,11 +80,11 @@ self.__precacheManifest = [
     "url": "fa-solid-900.2TU7KN5_.svg"
   },
   {
-    "revision": "3df95a483746d789e9c6",
-    "url": "bootstrap.4b46baa92b7698656419.bundle.css"
+    "revision": "4b294ee1d034d6c45ee2",
+    "url": "bootstrap.4b3b3b8da960d8aa1782.bundle.css"
   },
   {
-    "url": "bootstrap.3df95a483746d789e9c6.bundle.js"
+    "url": "bootstrap.4b294ee1d034d6c45ee2.bundle.js"
   },
   {
     "revision": "75f38a159982b6bd1704891332d95fa7",
