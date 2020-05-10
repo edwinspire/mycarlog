@@ -15,9 +15,9 @@ body {
 	--color-highlight-border: #dcdcdc;
 	--color-border: #2d4867;
 	--border-width: 1px;
-	--background-color: rgba(255, 255, 255, 0.2);
+	--background-color: rgba(255, 255, 255, 0.05);
 	--border-radius: 4px;
-	--font-size-title: 1.2em;
+	--font-size-title: 1.1em;
 	--on-focus-input: honeydew;
 	/* font-size: 0.98em!important; */
 	--background_menu1: #4b6cb7;  /* fallback for old browsers */

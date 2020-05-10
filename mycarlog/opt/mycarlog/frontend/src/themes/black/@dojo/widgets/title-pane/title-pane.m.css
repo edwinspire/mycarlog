@@ -13,7 +13,8 @@
 }
 
 .titleButton {
-	background-color: var(--color-background); 
+	/* background-color: var(--color-background);  */
+	background: var(--color-background); 
 	border: var(--border-width) solid var(--color-border);
 	color: var(--color-text-faded);
 	cursor: pointer;
