@@ -13,6 +13,7 @@
 	min-height: var(--line-height-base);
 	padding: 0 0 0 calc(var(--grid-base) * 3);
 	position: relative;
+	padding-left: 30px;
 }
 
 .input {
