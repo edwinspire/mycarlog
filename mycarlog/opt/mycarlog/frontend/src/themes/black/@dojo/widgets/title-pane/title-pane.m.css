@@ -11,10 +11,10 @@
 .root * {
 	box-sizing: border-box;
 }
-/* 
+
 .title {
-	background-color: var(--color-background);
-} */
+	background-color: var(--background-color);
+}
 
 .titleButton {
     background: var(--background-color);  
@@ -36,8 +36,9 @@
 }
 
 .titleButton:hover {
-	background: var(--color-background-faded);
-	color: var(--color-text-primary);
+	/* background: var(--color-background-faded); */
+	/* color: var(--color-text-primary); */
+	border-color: var(--color-highlight);
 }
 
 .content {
