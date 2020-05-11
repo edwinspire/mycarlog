@@ -62,3 +62,21 @@ self.addEventListener('push', (e)=> {
 		);
 //	self.registration.showNotification('test_uuutitle', options)
 });
+
+self.addEventListener('activate', (event)=> {
+	console.log('Activa Service Worker');
+	event.waitUntil(
+	  caches.keys().then((cacheNames)=> {
+		return Promise.all(
+		  cacheNames.filter((cacheName)=> {
+			// Return true if you want to remove this cache,
+			// but remember that caches are shared across
+			// the whole origin
+		  }).map((cacheName)=> {
+			  console.log('Se elimina la cache');
+			return caches.delete(cacheName);
+		  })
+		);
+	  })
+	);
+  });

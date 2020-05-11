@@ -6,6 +6,7 @@
 	line-height: var(--line-height-base);
 	overflow: hidden;
 	min-height: calc(var(--font-size-title) + 2 * var(--grid-base));
+	border-radius: 5px 5px 0px 0px;
 }
 
 .root * {
@@ -27,18 +28,21 @@
 	position: relative;
 	width: 100%;
 	margin: 0;
+	border-radius: 5px 5px 0px 0px;
 }
 
 .titleButton:focus {
 	border-color: var(--color-highlight);
 	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow-highlight);
 	outline: none;
+	border-radius: 5px 5px 0px 0px;
 }
 
 .titleButton:hover {
 	/* background: var(--color-background-faded); */
 	/* color: var(--color-text-primary); */
 	border-color: var(--color-highlight);
+	border-radius: 5px 5px 0px 0px;
 }
 
 .content {
@@ -54,6 +58,7 @@
 
 .open .titleButton {
 	color: var(--color-highlight);
+	border-radius: 5px 5px 0px 0px;
 }
 
 .arrow {
@@ -63,6 +68,6 @@
 }
 
 .open .arrow {
-	font-size: xxx-large;
+	/* font-size: xxx-large; */
 	top: 10px;
 }
