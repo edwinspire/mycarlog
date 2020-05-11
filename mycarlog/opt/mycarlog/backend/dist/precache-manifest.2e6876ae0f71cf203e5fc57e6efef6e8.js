@@ -15,7 +15,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "952c93a874b2ad8fc0056a1aee6c8507",
+    "revision": "96c01d6e1101f0ec2a44a57460dbed36",
     "url": "index.html"
   },
   {
@@ -37,11 +37,11 @@ self.__precacheManifest = [
     "url": "runtime/IntersectionObserver.ecea1bcfb5f2b0b961ab.bundle.js"
   },
   {
-    "url": "main.49d31f08140ddc2e7b87.bundle.js"
+    "url": "main.1d536a5f1de399c4646a.bundle.js"
   },
   {
-    "revision": "49d31f08140ddc2e7b87",
-    "url": "main.ab8db53db0b6b8069a53.bundle.css"
+    "revision": "1d536a5f1de399c4646a",
+    "url": "main.54f8e5dcc2d3fc1a5487.bundle.css"
   },
   {
     "revision": "ff16d1a932c2ba49ba8310fbe232d653",
@@ -80,11 +80,11 @@ self.__precacheManifest = [
     "url": "fa-solid-900.2TU7KN5_.svg"
   },
   {
-    "revision": "b036fe31612f60d4374e",
+    "revision": "935a11889b721712f043",
     "url": "bootstrap.19a3e9c738251f67af18.bundle.css"
   },
   {
-    "url": "bootstrap.b036fe31612f60d4374e.bundle.js"
+    "url": "bootstrap.935a11889b721712f043.bundle.js"
   },
   {
     "revision": "75f38a159982b6bd1704891332d95fa7",
