@@ -11,11 +11,17 @@
 
 .inputWrapper option {
 	/* background: rgba(96, 127, 167, 0.8); */
-	background: var(--background_menu1);
-	background: var(--background_menu2);
-	background: var(--background_menu3);	
+	background: var(--color-border);
 	color: var(--color-text-primary);
 }
+
+
+.inputWrapper option:hover {
+	/* background: rgba(96, 127, 167, 0.8); */
+	background: #3b608b;
+	color: var(--color-text-primary);
+}
+
 
 .trigger {
 	background-color: var(--color-background);
