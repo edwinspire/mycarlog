@@ -11,13 +11,13 @@
 .root * {
 	box-sizing: border-box;
 }
-
+/* 
 .title {
 	background-color: var(--color-background);
-}
+} */
 
 .titleButton {
-	/* background-color: var(--color-background);  */
+    background: var(--color-background);  
 	background-color: var(--color-background);
 	border: var(--border-width) solid var(--color-border);
 	color: var(--color-text-faded);
