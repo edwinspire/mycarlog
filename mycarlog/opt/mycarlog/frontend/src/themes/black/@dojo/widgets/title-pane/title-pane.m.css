@@ -11,10 +11,10 @@
 .root * {
 	box-sizing: border-box;
 }
-/* 
+
 .title {
-	background-color: var(--background-color);
-} */
+	background-color: transparent;
+}
 
 .titleButton {
     background: var(--background-color);  
