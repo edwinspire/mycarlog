@@ -80,3 +80,14 @@ self.addEventListener('activate', (event)=> {
 	  })
 	);
   });
+
+  
+self.addEventListener('install',  (event)=> {
+
+    self.skipWaiting();
+
+    event.waitUntil(
+	   // Do stuff
+	   console.log('Install SW')
+    );
+});

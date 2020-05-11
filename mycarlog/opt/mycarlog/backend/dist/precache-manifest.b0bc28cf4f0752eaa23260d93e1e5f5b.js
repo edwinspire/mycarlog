@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "icon_192x192.5c4788e2149fc2ae44d9e63707a81bc8.png"
   },
   {
-    "revision": "d5c4832e9c27151578aac9808d8c8fb1",
+    "revision": "9679d58b53644094b65949475559022a",
     "url": "externals/./src/sw/service-worker-app.js"
   },
   {
