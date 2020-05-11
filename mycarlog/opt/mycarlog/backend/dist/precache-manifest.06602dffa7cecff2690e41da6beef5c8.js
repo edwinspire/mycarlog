@@ -15,7 +15,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "d84259f2f146d1c89a15db9510d3c772",
+    "revision": "90b46f2da53aa965045c47c4f62647af",
     "url": "index.html"
   },
   {
@@ -37,11 +37,11 @@ self.__precacheManifest = [
     "url": "runtime/IntersectionObserver.ecea1bcfb5f2b0b961ab.bundle.js"
   },
   {
-    "url": "main.b09f955b5f17287db7e8.bundle.js"
+    "url": "main.ca0d84fe60676a8ff929.bundle.js"
   },
   {
-    "revision": "b09f955b5f17287db7e8",
-    "url": "main.45ce16b39e41c4b187d6.bundle.css"
+    "revision": "ca0d84fe60676a8ff929",
+    "url": "main.f9c20008f362b748cf08.bundle.css"
   },
   {
     "revision": "ff16d1a932c2ba49ba8310fbe232d653",
@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "icon_192x192.5c4788e2149fc2ae44d9e63707a81bc8.png"
   },
   {
-    "revision": "9679d58b53644094b65949475559022a",
+    "revision": "9d65ebbfd3f8e860aff82b7e8e7425d2",
     "url": "externals/./src/sw/service-worker-app.js"
   },
   {
@@ -80,11 +80,11 @@ self.__precacheManifest = [
     "url": "fa-solid-900.2TU7KN5_.svg"
   },
   {
-    "revision": "406c4e393db6fda57a8b",
+    "revision": "6310e47d3fc230419354",
     "url": "bootstrap.ed45639389d62cf61972.bundle.css"
   },
   {
-    "url": "bootstrap.406c4e393db6fda57a8b.bundle.js"
+    "url": "bootstrap.6310e47d3fc230419354.bundle.js"
   },
   {
     "revision": "75f38a159982b6bd1704891332d95fa7",
