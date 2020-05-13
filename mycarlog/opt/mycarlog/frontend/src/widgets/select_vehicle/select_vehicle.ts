@@ -18,13 +18,13 @@ export default class Fueling extends WidgetBase {
 
   onAttach() {
     setInterval(() => {
-      this.Vehicles.push("Se ha agregado uno más");
+      this.Vehicles.push(v('div', {}, ["Se ha agregado uno más"]));
       console.log("Se agrega un vehiculo");
       this.invalidate();
     }, 3000);
   }
 
   protected render() {
-    return v("div", {}, [w(Menu, {}), v("div", {}, this.Vehicles)]);
+    return v("div", {}, [w(Menu, {}), 'Este es una prueba nada más', v("div", {}, this.Vehicles)]);
   }
 }
