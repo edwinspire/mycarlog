@@ -1,4 +1,3 @@
-
 .root {
 	box-sizing: border-box;
 	color: var(--color-text-primary);
@@ -18,7 +17,7 @@
 }
 
 .titleButton {
-    background: var(--background-color);  
+	background: var(--background-color);
 	background-color: var(--background-color);
 	border: var(--border-width) solid var(--color-border);
 	color: var(--color-text-faded);

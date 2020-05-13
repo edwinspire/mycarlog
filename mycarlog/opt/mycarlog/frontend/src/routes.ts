@@ -50,5 +50,9 @@ export default [
 {
 	path: 'account_activation',
 	outlet: 'account_activation'
+},
+{
+	path: 'select_vehicle',
+	outlet: 'select_vehicle'
 }
 ];

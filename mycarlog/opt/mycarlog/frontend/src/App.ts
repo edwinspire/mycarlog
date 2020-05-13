@@ -17,6 +17,7 @@ import Contacts from './widgets/Contacts';
 import Login from './widgets/login/Login';
 import Register from './widgets/register/Register';
 import AccountActivation from './widgets/account_activation/account_activation';
+import SelectVehicle from './widgets/select_vehicle/select_vehicle';
 import * as css from './App.m.css';
 
 const factory = create({ theme });
@@ -42,6 +43,7 @@ export default factory(function App({ middleware: { theme } }) {
                         w(Outlet, { key: 'register', id: 'register', renderer: () => w(Register, {}) }),
                         w(Outlet, { key: 'fueling', id: 'fueling', renderer: () => w(Fueling, {}) }),
                         w(Outlet, { key: 'account_activation', id: 'account_activation', renderer: () => w(AccountActivation, {}) }),
+                        w(Outlet, { key: 'select_vehicle', id: 'select_vehicle', renderer: () => w(SelectVehicle, {}) }),
                         w(Outlet, { key: 'fuelinglog', id: 'fuelinglog', renderer: () => w(FuelingLog, {}) })
                         ])
                   ])
