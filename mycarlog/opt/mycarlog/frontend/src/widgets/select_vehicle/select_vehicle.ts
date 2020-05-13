@@ -14,14 +14,15 @@ import watch from "@dojo/framework/core/decorators/watch";
 import Menu from ".././Menu";
 
 export default class Fueling extends WidgetBase {
+  @watch() Vehicles: any[] = [];
+
   onAttach() {
     setInterval(() => {
       this.Vehicles.push("Se ha agregado uno más");
       console.log("Se agrega un vehiculo");
+      this.invalidate();
     }, 3000);
   }
-
-  @watch() Vehicles: any[] = [];
 
   protected render() {
     return v("div", {}, [w(Menu, {}), v("div", {}, this.Vehicles)]);
