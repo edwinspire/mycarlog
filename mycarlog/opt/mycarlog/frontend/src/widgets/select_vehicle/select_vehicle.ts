@@ -19,7 +19,12 @@ export default class SelectVehicle extends WidgetBase {
 
   TextSearch: string = "";
 
-  onAttach() {}
+  onAttach() {
+    setInterval(() => {
+      console.log(this.Vehicles.length);
+      this.invalidate();
+    }, 5000);
+  }
 
   async GetVehicles() {
     const res = await fetch("/vehicles", {
