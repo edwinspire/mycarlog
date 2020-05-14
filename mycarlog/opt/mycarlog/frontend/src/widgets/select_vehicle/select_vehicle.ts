@@ -1,23 +1,13 @@
 import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
-// import * as css from '../styles/Profile.m.css';
 import TextInput from "@dojo/widgets/text-input";
-// import Checkbox from '@dojo/widgets/checkbox';
-// import Textarea from '@dojo/widgets/text-area';
-// import SelectFromURL from '.././modules/SelectFromURL';
-// //import Lbox from '.././modules/ListboxUri';
-import watch from "@dojo/framework/core/decorators/watch";
-// import ToolBar from '@dojo/widgets/toolbar';
-// import Icon from '.././Icon/Icon';
-// // // import SBar from '@dojo/widgets/snackbar';
-// import TitlePane from '@dojo/widgets/title-pane';
+//import watch from "@dojo/framework/core/decorators/watch";
 import Menu from ".././Menu";
-//import { stringify } from "querystring";
 
 export default class SelectVehicle extends WidgetBase {
   private Vehicles = [] as any[];
 
-  @watch() TextSearch: string = "";
+  private TextSearch: string = "";
 
   onAttach() {
     this.Vehicles.push(v("div", {}, ["Primer registro"]));
@@ -65,11 +55,11 @@ export default class SelectVehicle extends WidgetBase {
         TextInput,
         {
           label: "Buscar",
-          onChange: (val) => {
-            console.log(JSON.stringify(val));
-            this.TextSearch = val as string;
-			this.invalidate();
-			//await this.GetVehicles();
+          onChange: (v) => {
+            console.log(JSON.stringify(v));
+            this.TextSearch = v as string;
+            this.invalidate();
+            //await this.GetVehicles();
           },
         },
         []
