@@ -40,9 +40,10 @@ export default class SelectVehicle extends WidgetBase {
       //		this._fetcher = createFetcher(data);
       console.log(data);
       if (Array.isArray(data)) {
-        data.forEach((element: any) => {
+        data.forEach((element: any, index) => {
           console.log(element);
-          this.Vehicles.push(v("div", {}, [element.licence_plate]));
+		  this.Vehicles.push(v("div", {}, [element.licence_plate as string]));
+		  this.Vehicles.push(v("div", {}, ['Hola' + index]));
           this.invalidate();
         });
       }
