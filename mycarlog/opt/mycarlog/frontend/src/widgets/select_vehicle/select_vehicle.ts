@@ -68,8 +68,8 @@ export default class SelectVehicle extends WidgetBase {
           onChange: async (val) => {
             console.log(JSON.stringify(val));
             this.TextSearch = val as string;
-            await this.GetVehicles();
-            this.invalidate();
+			this.invalidate();
+			await this.GetVehicles();
           },
         },
         []
