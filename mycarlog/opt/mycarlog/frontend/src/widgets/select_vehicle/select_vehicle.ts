@@ -15,7 +15,7 @@ import Menu from ".././Menu";
 //import { stringify } from "querystring";
 
 export default class SelectVehicle extends WidgetBase {
-  private Vehicles: any[] = [];
+  private Vehicles = [];
 
   @watch() TextSearch: string = "";
 
