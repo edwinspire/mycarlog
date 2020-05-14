@@ -16,6 +16,7 @@ export default class SelectVehicle extends WidgetBase {
       console.log(this.Vehicles.length);
       this.invalidate();
     }, 5000);
+    this.invalidate();
   }
 
   async GetVehicles() {
@@ -55,11 +56,12 @@ export default class SelectVehicle extends WidgetBase {
         TextInput,
         {
           label: "Buscar",
+          value: this.TextSearch,
           onChange: (v) => {
             console.log(JSON.stringify(v));
             this.TextSearch = v as string;
+            this.GetVehicles();
             this.invalidate();
-            //await this.GetVehicles();
           },
         },
         []
