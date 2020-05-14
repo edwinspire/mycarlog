@@ -15,11 +15,14 @@ import Menu from ".././Menu";
 //import { stringify } from "querystring";
 
 export default class SelectVehicle extends WidgetBase {
-  @watch() Vehicles: any[] = [];
+  private Vehicles: any[] = [];
 
-  TextSearch: string = "";
+  @watch() TextSearch: string = "";
 
   onAttach() {
+
+	this.Vehicles.push(v('div', {}, ['Primer registro']));
+
     setInterval(() => {
       console.log(this.Vehicles.length);
       this.invalidate();
@@ -46,7 +49,7 @@ export default class SelectVehicle extends WidgetBase {
         data.forEach((element: any) => {
           console.log(element);
           this.Vehicles.push(v("div", {}, [element.licence_plate]));
-          this.invalidate();
+          //this.invalidate();
         });
       }
 
@@ -61,10 +64,10 @@ export default class SelectVehicle extends WidgetBase {
         TextInput,
         {
           label: "Buscar",
-          onChange: (val) => {
+          onChange: async (val) => {
             console.log(JSON.stringify(val));
             this.TextSearch = val as string;
-            this.GetVehicles();
+            await this.GetVehicles();
             this.invalidate();
           },
         },
