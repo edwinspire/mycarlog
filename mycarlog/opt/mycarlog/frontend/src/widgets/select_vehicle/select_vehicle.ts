@@ -20,8 +20,7 @@ export default class SelectVehicle extends WidgetBase {
   @watch() TextSearch: string = "";
 
   onAttach() {
-
-	this.Vehicles.push(v('div', {}, ['Primer registro']));
+    this.Vehicles.push(v("div", {}, ["Primer registro"]));
 
     setInterval(() => {
       console.log(this.Vehicles.length);
@@ -30,6 +29,8 @@ export default class SelectVehicle extends WidgetBase {
   }
 
   async GetVehicles() {
+    this.Vehicles = [];
+
     const res = await fetch("/vehicles", {
       method: "POST",
       body: JSON.stringify({
