@@ -41,7 +41,7 @@ export default class SelectVehicle extends WidgetBase {
       console.log(data);
       if (Array.isArray(data)) {
         data.forEach((element: any, index) => {
-          console.log(element);
+          console.log(element.license_plate);
 		  this.Vehicles.push(v("div", {}, [element.license_plate as string]));
 		  this.Vehicles.push(v("div", {}, ['Hola' + index]));
           this.invalidate();
