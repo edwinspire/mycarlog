@@ -26,7 +26,7 @@ export default class SelectVehicle extends WidgetBase {
       method: "POST",
       body: JSON.stringify({
         idaccount: localStorage.getItem("idaccount"),
-        Search: this.TextSearch,
+        Search: this.TextSearch
       }),
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export default class SelectVehicle extends WidgetBase {
         data.forEach((element: any) => {
           console.log(element);
           this.Vehicles.push(v("div", {}, [element.licence_plate]));
-          //this.invalidate();
+          this.invalidate();
         });
       }
 
@@ -55,7 +55,7 @@ export default class SelectVehicle extends WidgetBase {
       w(
         TextInput,
         {
-          label: "Buscar",
+          label: "BuscarB",
           value: this.TextSearch,
           onChange: (v) => {
             console.log(JSON.stringify(v));
