@@ -65,11 +65,11 @@ export default class SelectVehicle extends WidgetBase {
         TextInput,
         {
           label: "Buscar",
-          onChange: async (val) => {
+          onChange: (val) => {
             console.log(JSON.stringify(val));
             this.TextSearch = val as string;
 			this.invalidate();
-			await this.GetVehicles();
+			//await this.GetVehicles();
           },
         },
         []
