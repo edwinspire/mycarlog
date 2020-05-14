@@ -12,6 +12,7 @@ import watch from "@dojo/framework/core/decorators/watch";
 // // // import SBar from '@dojo/widgets/snackbar';
 // import TitlePane from '@dojo/widgets/title-pane';
 import Menu from ".././Menu";
+//import { stringify } from "querystring";
 
 export default class SelectVehicle extends WidgetBase {
   @watch() Vehicles: any[] = [];
@@ -36,6 +37,13 @@ export default class SelectVehicle extends WidgetBase {
       let data = await res.json();
       //		this._fetcher = createFetcher(data);
       console.log(data);
+      if (Array.isArray(data)) {
+        data.forEach((element: any) => {
+          console.log(element);
+          this.Vehicles.push(element.licence_plate);
+        });
+      }
+
       this.invalidate();
     }
   }
@@ -48,7 +56,7 @@ export default class SelectVehicle extends WidgetBase {
         {
           label: "Buscar",
           onChange: (val) => {
-            console.log(val);
+            console.log(JSON.stringify(val));
             this.TextSearch = val as string;
             this.GetVehicles();
             this.invalidate();
