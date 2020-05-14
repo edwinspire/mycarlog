@@ -13,7 +13,7 @@ export default class SelectVehicle extends WidgetBase {
     this.Vehicles.push(v("div", {}, ["Primer registro"]));
 
     setInterval(() => {
-		this.Vehicles.push(v("div", {}, ["pROBANDO"]));
+		//this.Vehicles.push(v("div", {}, ["pROBANDO"]));
       console.log(this.Vehicles.length);
       this.invalidate();
     }, 5000);
@@ -42,8 +42,8 @@ export default class SelectVehicle extends WidgetBase {
       if (Array.isArray(data)) {
         data.forEach((element: any, index) => {
           console.log(element.license_plate);
-		  this.Vehicles.push(v("div", {}, [element.license_plate as string]));
-		  this.Vehicles.push(v("div", {}, ['Hola' + index]));
+		  this.Vehicles.push(v("div", {}, [element.license_plate+' '+element.vin]));
+		//  this.Vehicles.push(v("div", {}, ['Hola' + index]));
           this.invalidate();
         });
       }
