@@ -13,6 +13,7 @@ export default class SelectVehicle extends WidgetBase {
     this.Vehicles.push(v("div", {}, ["Primer registro"]));
 
     setInterval(() => {
+		this.Vehicles.push(v("div", {}, ["pROBANDO"]));
       console.log(this.Vehicles.length);
       this.invalidate();
     }, 5000);
@@ -56,7 +57,7 @@ export default class SelectVehicle extends WidgetBase {
       w(
         TextInput,
         {
-          label: "BuscarX",
+          label: "BuscarZ",
           value: this.TextSearch,
           onChange: (v) => {
             console.log(JSON.stringify(v));
