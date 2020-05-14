@@ -20,7 +20,6 @@ export default class SelectVehicle extends WidgetBase {
   }
 
   async GetVehicles() {
-    this.Vehicles = [];
 
     const res = await fetch("/vehicles", {
       method: "POST",
@@ -34,6 +33,8 @@ export default class SelectVehicle extends WidgetBase {
     });
 
     if (res.status == 200) {
+
+		this.Vehicles = [];
       let data = await res.json();
       //		this._fetcher = createFetcher(data);
       console.log(data);
@@ -55,13 +56,17 @@ export default class SelectVehicle extends WidgetBase {
       w(
         TextInput,
         {
-          label: "BuscarB",
+          label: "BuscarX",
           value: this.TextSearch,
           onChange: (v) => {
             console.log(JSON.stringify(v));
-            this.TextSearch = v as string;
-            this.GetVehicles();
-            this.invalidate();
+			this.TextSearch = v as string;
+			this.Vehicles.push('Pude cambiar');
+			this.invalidate();
+            this.GetVehicles().then(()=>{
+				console.log('invalida al terminar de obtener los vehiculos');
+				this.invalidate();
+			});
           },
         },
         []
