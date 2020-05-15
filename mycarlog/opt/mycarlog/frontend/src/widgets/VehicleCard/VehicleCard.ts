@@ -41,8 +41,8 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
 
   protected render() {
     return v("div", { classes: css.container }, [
-      v("div", { classes: [css.row] }, [
-        v("div", { classes: [css.column] }, [
+      v("div", { classes: [css.column] }, [
+        v("div", { classes: [] }, [
           w(Card, {}, [
             w(Icon, {
               label: "CONTACTS",

@@ -15,7 +15,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "19b14ce52336b9288409c8c3703ae197",
+    "revision": "1ba8e45e98bee110712250736848396a",
     "url": "index.html"
   },
   {
@@ -51,11 +51,11 @@ self.__precacheManifest = [
     "url": "7.7c99edb56db5ab89d298.bundle.css"
   },
   {
-    "revision": "6e67432674c801d57570",
-    "url": "8.a2ec77f3801abe2f5e13.bundle.css"
+    "revision": "ef5ae9be9184fe25ade0",
+    "url": "8.4f273b9f01a74fdd7429.bundle.css"
   },
   {
-    "url": "8.6e67432674c801d57570.bundle.js"
+    "url": "8.ef5ae9be9184fe25ade0.bundle.js"
   },
   {
     "revision": "b71caf304482c7fed20a",
@@ -87,11 +87,11 @@ self.__precacheManifest = [
     "url": "fa-solid-900.239gj4YH.woff"
   },
   {
-    "revision": "84c2369f70e0584c5997",
+    "revision": "3f6256e57edeb3ebdd1d",
     "url": "bootstrap.ed45639389d62cf61972.bundle.css"
   },
   {
-    "url": "bootstrap.84c2369f70e0584c5997.bundle.js"
+    "url": "bootstrap.3f6256e57edeb3ebdd1d.bundle.js"
   },
   {
     "revision": "55eb2a60e8181f0e68b558c991973bf0",
