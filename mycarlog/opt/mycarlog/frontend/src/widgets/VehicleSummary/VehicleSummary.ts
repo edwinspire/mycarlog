@@ -9,7 +9,7 @@ import Icon from "../Icon/Icon";
 import ToolBar from "@dojo/widgets/toolbar";
 
 export interface VehicleSummaryProperties {
-  idvehicle?: string;
+  idvehicle: string;
 }
 
 export default class VehicleSummary extends WidgetBase<
