@@ -52,7 +52,7 @@ export default [
 	outlet: 'account_activation'
 },
 {
-	path: 'select_vehicle',
-	outlet: 'select_vehicle'
+	path: 'vehicle_cards',
+	outlet: 'vehicle_cards'
 }
 ];

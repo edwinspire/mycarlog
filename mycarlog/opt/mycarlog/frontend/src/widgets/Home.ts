@@ -1,5 +1,5 @@
 import { create, w, v } from '@dojo/framework/core/vdom';
-import Summary from './Summary/Summary';
+import Summary from './VehicleSummary/VehicleSummary';
 import Menu from './Menu';
 
 const factory = create();
