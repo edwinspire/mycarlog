@@ -41,6 +41,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                 //window.location.href = "/#contacts";
                 this.Selected = "fas";
                 console.log("Se ha presionado");
+                this.invalidate();
               },
             }),
             v("div", {}, [
