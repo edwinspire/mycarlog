@@ -1,8 +1,8 @@
-import { v} from "@dojo/framework/core/vdom";
+import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
 import * as css from "./VehicleCard.m.css";
-//import Card from "@dojo/widgets/card";
-//import Icon from ".././Icon/Icon";
+import Card from "@dojo/widgets/card";
+import Icon from ".././Icon/Icon";
 
 export interface VehicleCardProperties {
   idvehicle?: string;
@@ -24,65 +24,69 @@ export interface VehicleCardProperties {
 }
 
 export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
-  private Color: string = this.properties.license_plate;
+  //private Color: string = this.properties.license_plate;
 
+  private Data: VehicleCardProperties =this.properties;
+  
   protected render() {
+
+
     return v("div", { classes: css.container }, [
       v("div", { classes: [css.column] }, [
         v("div", {onclick:(e)=>{
           console.log(e);
-          this.Color = "prueba";
+          this.Data.color = "prueba";
           this.invalidate();
-        }}, ['Nada', this.Color
-          // w(Card, {}, [
-          //   w(Icon, {
-          //     key: 'sss',
-          //     label:
-          //       this.properties.name ||
-          //       this.properties.license_plate + " - " + this.properties.vin,
-          //     classes: ["fa-car-side", "far", css.title],
-          //     ShowLabel: true,
-          //     onClick: () => {
-          //       //window.location.href = "/#contacts";
-          //       //this.Selected = "fa-star";
-          //       console.log("Se ha presionado");
-          //       this.invalidate();
-          //     },
-          //   }),
-          //   v("div", {}, [
-          //     // v("div", {}, [this.properties.license_plate]),
-          //     v("img", { classes: [css.image] }, []),
-          //     v("div", {}, [
-          //       v("div", {}, [
-          //         v("div", {}, [
-          //           v("span", { classes: [css.label] }, ["VIN: "]),
-          //           v("span", {}, [this.properties.vin]),
-          //         ]),
-          //         v("div", {}, [
-          //           v("span", { classes: [css.label] }, ["Año: "]),
-          //           v("span", {}, [this.properties.year]),
-          //         ]),
-          //         v("div", {}, [
-          //           v("span", { classes: [css.label] }, ["Propietario: "]),
-          //           v("span", {}, [this.properties.lfname]),
-          //         ]),
-          //         v("div", {}, [
-          //           v("span", { classes: [css.label] }, ["Tipo combustible: "]),
-          //           v("span", {}, [this.properties.fueltype]),
-          //         ]),
-          //         v("div", {}, [
-          //           v("span", {}, ["Color: "]),
-          //           v("span", {}, [this.Color]),
-          //         ]),
-          //       ]),
-          //     ]),
-          //     v("div", {onclick:()=>{
-          //       this.Color = "Verde";
-          //       console.log('Invalida');
-          //       this.invalidate();
-          //     }}, ["Piecito"]),
-          //   ]),
-          // ]),
+        }}, ['Nada', this.Data.color,
+           w(Card, {}, [
+             w(Icon, {
+               key: 'sss',
+               label:
+                 this.Data.name ||
+                 this.Data.license_plate + " - " + this.Data.vin,
+               classes: ["fa-car-side", "far", css.title],
+               ShowLabel: true,
+               onClick: () => {
+                 //window.location.href = "/#contacts";
+                 //this.Selected = "fa-star";
+                 console.log("Se ha presionado");
+                 this.invalidate();
+               },
+             }),
+             v("div", {}, [
+               // v("div", {}, [this.properties.license_plate]),
+               v("img", { classes: [css.image] }, []),
+               v("div", {}, [
+                 v("div", {}, [
+                   v("div", {}, [
+                     v("span", { classes: [css.label] }, ["VIN: "]),
+                     v("span", {}, [this.Data.vin]),
+                   ]),
+                   v("div", {}, [
+                     v("span", { classes: [css.label] }, ["Año: "]),
+                     v("span", {}, [this.Data.year]),
+                   ]),
+                   v("div", {}, [
+                     v("span", { classes: [css.label] }, ["Propietario: "]),
+                     v("span", {}, [this.Data.lfname]),
+                   ]),
+                   v("div", {}, [
+                     v("span", { classes: [css.label] }, ["Tipo combustible: "]),
+                     v("span", {}, [this.Data.fueltype]),
+                   ]),
+                   v("div", {}, [
+                     v("span", {}, ["Color: "]),
+                     v("span", {}, [this.Data.color]),
+                   ]),
+                 ]),
+               ]),
+               v("div", {onclick:()=>{
+                 this.Data.color = "Verde";
+                 console.log('Invalida');
+                 this.invalidate();
+               }}, ["Piecito"]),
+             ]),
+           ]),
         ]),
       ]),
     ]);
