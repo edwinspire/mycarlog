@@ -25,12 +25,13 @@ export interface VehicleCardProperties {
 
 export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
   //private Color: string = this.properties.license_plate;
-
-  private Data: VehicleCardProperties =this.properties;
+clase = "fa-car-side";
+private Data: VehicleCardProperties =this.properties;
   
   protected render() {
 
-
+    
+    
     return v("div", { classes: css.container }, [
       v("div", { classes: [css.column] }, [
         v("div", {onclick:(e)=>{
@@ -44,11 +45,11 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                label:
                  this.Data.name ||
                  this.Data.license_plate + " - " + this.Data.vin,
-               classes: ["fa-car-side", "far", css.title],
+               classes: [this.clase, "far", css.title],
                ShowLabel: true,
                onClick: () => {
                  //window.location.href = "/#contacts";
-                 //this.Selected = "fa-star";
+                 this.clase = "fa-star";
                  console.log("Se ha presionado");
                  this.invalidate();
                },
