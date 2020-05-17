@@ -24,8 +24,7 @@ export interface VehicleCardProperties {
 }
 
 export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
-  //private TotalContacts: string = "0";
-  //private TotalVehicles: string = "0";
+  private Selected: string = "far";
 
   protected render() {
     return v("div", { classes: css.container }, [
@@ -36,10 +35,11 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
               label:
                 this.properties.name ||
                 this.properties.license_plate + " - " + this.properties.vin,
-              classes: ["fas", "fa-star", css.title],
+              classes: [this.Selected, "fa-star", css.title],
               ShowLabel: true,
               onClick: () => {
                 //window.location.href = "/#contacts";
+                this.Selected = "fas";
                 console.log("Se ha presionado");
               },
             }),
