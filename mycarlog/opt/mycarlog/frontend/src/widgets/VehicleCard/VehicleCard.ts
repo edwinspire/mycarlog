@@ -24,7 +24,7 @@ export interface VehicleCardProperties {
 }
 
 export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
-  //private Selected: string = "fa-car-side";
+  private Color: string = this.properties.color;
 
   protected render() {
     return v("div", { classes: css.container }, [
@@ -68,11 +68,12 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                   ]),
                   v("div", {}, [
                     v("span", {}, ["Color: "]),
-                    v("span", {}, [this.properties.color]),
+                    v("span", {}, [this.Color]),
                   ]),
                 ]),
               ]),
               v("div", {onclick:()=>{
+                this.Color = "Verde";
                 console.log('Invalida');
                 this.invalidate();
               }}, ["Piecito"]),
