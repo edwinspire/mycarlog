@@ -26,12 +26,29 @@ export interface VehicleCardProperties {
 export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
   //private Color: string = this.properties.license_plate;
 clase = "fa-car-side";
-private Data: VehicleCardProperties =this.properties;
-  
-  protected render() {
+//private Data: VehicleCardProperties = this.properties;
 
-    
-    
+private Data = {
+  idvehicle: this.properties.idvehicle,
+  idaccount: this.properties.idaccount,
+  account: this.properties.account,
+  idcontact: this.properties.idcontact,
+  license_plate: this.properties.license_plate,
+  year: this.properties.year,
+  fuel_tank_capacity: this.properties.fuel_tank_capacity,
+  vin: this.properties.vin,
+  name: this.properties.name,
+  idvehicletype: this.properties.idvehicletype,
+  mark: this.properties.mark,
+  model: this.properties.model,
+  color: this.properties.color,
+  fueltype: this.properties.fueltype,
+  unit_measure_fuel_tank: this.properties.unit_measure_fuel_tank,
+  lfname: this.properties.lfname
+}
+
+  protected render() {    
+
     return v("div", { classes: css.container }, [
       v("div", { classes: [css.column] }, [
         v("div", {onclick:(e)=>{
