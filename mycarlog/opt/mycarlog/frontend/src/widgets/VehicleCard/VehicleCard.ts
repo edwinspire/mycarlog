@@ -40,27 +40,28 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
               ShowLabel: true,
               onClick: () => {
                 //window.location.href = "/#contacts";
+                console.log("Se ha presionado");
               },
             }),
             v("div", {}, [
               // v("div", {}, [this.properties.license_plate]),
-              v("img", {classes: [css.image]}, []),
+              v("img", { classes: [css.image] }, []),
               v("div", {}, [
                 v("div", {}, [
                   v("div", {}, [
-                    v("span", {classes: [css.label]}, ["VIN: "]),
+                    v("span", { classes: [css.label] }, ["VIN: "]),
                     v("span", {}, [this.properties.vin]),
                   ]),
                   v("div", {}, [
-                    v("span", {classes: [css.label]}, ["Año: "]),
+                    v("span", { classes: [css.label] }, ["Año: "]),
                     v("span", {}, [this.properties.year]),
                   ]),
                   v("div", {}, [
-                    v("span", {classes: [css.label]}, ["Propietario: "]),
+                    v("span", { classes: [css.label] }, ["Propietario: "]),
                     v("span", {}, [this.properties.lfname]),
                   ]),
                   v("div", {}, [
-                    v("span", {classes: [css.label]}, ["Tipo combustible: "]),
+                    v("span", { classes: [css.label] }, ["Tipo combustible: "]),
                     v("span", {}, [this.properties.fueltype]),
                   ]),
                   v("div", {}, [
