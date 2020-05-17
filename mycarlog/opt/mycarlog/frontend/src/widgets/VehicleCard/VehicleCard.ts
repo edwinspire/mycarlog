@@ -72,7 +72,10 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                   ]),
                 ]),
               ]),
-              v("div", {}, ["Piecito"]),
+              v("div", {onclick:()=>{
+                console.log('Invalida');
+                this.invalidate();
+              }}, ["Piecito"]),
             ]),
           ]),
         ]),
