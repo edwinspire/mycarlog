@@ -24,7 +24,7 @@ export interface VehicleCardProperties {
 }
 
 export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
-  private Color: string = this.properties.color;
+  private Color: string = this.properties.license_plate;
 
   protected render() {
     return v("div", { classes: css.container }, [
