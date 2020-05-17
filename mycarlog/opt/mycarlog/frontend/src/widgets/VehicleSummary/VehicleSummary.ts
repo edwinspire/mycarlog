@@ -2,7 +2,7 @@ import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
 import * as cssProfile from "../styles/Profile.m.css";
 import TextInput from "@dojo/widgets/text-input";
-import Textarea from "@dojo/widgets/text-area";
+//import Textarea from "@dojo/widgets/text-area";
 import SBar from "@dojo/widgets/snackbar";
 import watch from "@dojo/framework/core/decorators/watch";
 import Icon from "../Icon/Icon";
@@ -16,22 +16,35 @@ export default class VehicleSummary extends WidgetBase<
   VehicleSummaryProperties
 > {
   @watch() private Params = {
-    idvehicle: "-1",
-    idaccount: localStorage.getItem("idaccount"),
-    idcontact: "0",
-    rowkey: 0,
+    idaccount: "",
+    account: "",
+    date_start: "",
+    date_end: "",
+    idvehicle: "",
     license_plate: "",
     year: "",
+    color: "",
     fuel_tank_capacity: "",
-    idfuel_tank_capacitytype: "0",
     vin: "",
-    idvehicletype: "0",
-    idmark: "0",
-    idmodel: "0",
-    idcolor: "0",
-    idfueltype: "0",
-    idunit_measure_fuel_tank: "0",
-    note: "",
+    name: "",
+    idmark: "",
+    mark_label: "",
+    idmodel: "",
+    model_label: "",
+    idcontact: "",
+    firstname: "",
+    lastname: "",
+    identification: "",
+    birthday: "",
+    lfname: "",
+    idcontacttype: "",
+    contacttype_label: "",
+    idgender: "",
+    gender_label: "",
+    idfueltype: "",
+    fueltype_label: "",
+    idunit_measure_fuel_tank: "",
+    unit_measure_fuel_tank_label: "",
   };
 
   @watch() private _openSnack = false;
@@ -52,17 +65,11 @@ export default class VehicleSummary extends WidgetBase<
     console.log(this.properties.idvehicle);
 
     if (this.properties.idvehicle) {
-      var paramsString = window.location.hash.split("?")[1];
-      var searchParams = new URLSearchParams(paramsString);
-      this.Params.idvehicle = searchParams.get("idvehicle") || "-2";
-      var url =
-        "/vehicle?idvehicle=" +
-        this.Params.idvehicle +
-        "&idaccount=" +
-        localStorage.getItem("idaccount");
+      var url = "/vehicle_summary";
 
       const res = await fetch(url, {
-        method: "GET",
+        method: "POST",
+        body: JSON.stringify(this.Params),
         headers: {
           "Content-Type": "application/json",
         },
@@ -87,24 +94,7 @@ export default class VehicleSummary extends WidgetBase<
           classes: ["fas", "fa-car"],
           ShowLabel: true,
           onClick: (e) => {
-            this.Params = {
-              idaccount: localStorage.getItem("idaccount"),
-              idvehicle: "-1",
-              idcontact: "0",
-              rowkey: 0,
-              license_plate: "",
-              year: "",
-              fuel_tank_capacity: "",
-              idfuel_tank_capacitytype: "0",
-              vin: "",
-              idvehicletype: "0",
-              idmark: "0",
-              idmodel: "0",
-              idcolor: "0",
-              idfueltype: "0",
-              idunit_measure_fuel_tank: "0",
-              note: "",
-            };
+           
           },
         }),
         v("span", {}, ["|"]),
@@ -196,8 +186,9 @@ export default class VehicleSummary extends WidgetBase<
               TextInput,
               {
                 label: "Color",
+                //type: "color",
                 readOnly: true,
-                value: this.Params.idcolor,
+                value: this.Params.color,
               },
               []
             ),
@@ -207,7 +198,7 @@ export default class VehicleSummary extends WidgetBase<
               TextInput,
               {
                 label: "Tipo de combustible",
-                value: this.Params.idfueltype,
+                value: this.Params.fueltype_label,
                 readOnly: true,
               },
               []
@@ -239,26 +230,11 @@ export default class VehicleSummary extends WidgetBase<
               {
                 label: "Unidad de medida del tanque",
                 readOnly: true,
-                value: this.Params.idunit_measure_fuel_tank,
+                value: this.Params.unit_measure_fuel_tank_label,
               },
               []
             ),
           ]),
-        ]),
-        v("div", { classes: [cssProfile.container_field_reset] }, [
-          w(Textarea, {
-            columns: 40,
-            rows: 5,
-            readOnly: true,
-            placeholder: "Notas",
-            label: "Notas",
-            key: "text-area",
-            value: this.Params.note,
-            onInput: (value: string) => {
-              this.Params.note = value;
-              this.invalidate();
-            },
-          }),
         ]),
         w(SBar, {
           open: this._openSnack,
