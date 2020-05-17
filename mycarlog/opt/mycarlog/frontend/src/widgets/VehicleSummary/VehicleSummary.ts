@@ -16,7 +16,7 @@ export default class VehicleSummary extends WidgetBase<
   VehicleSummaryProperties
 > {
   @watch() private Params = {
-    idaccount: "",
+    idaccount: localStorage.getItem("idaccount"),
     account: "",
     date_start: "",
     date_end: "",

@@ -49,7 +49,7 @@ export default class SelectVehicle extends WidgetBase {
       w(
         TextInput,
         {
-          label: "BuscarZ",
+          label: "Buscar",
           value: this.TextSearch,
           onChange: (v) => {
             console.log(JSON.stringify(v));

@@ -7,6 +7,6 @@ const factory = create();
 export default factory(function Profile() {
 	return  v('div', {}, [
 		w(Menu, {}),
-		w(Summary, {idvehicle: localStorage.getItem("idaccount") as string}, [])
+		w(Summary, {idvehicle: localStorage.getItem("1") as string}, [])
 		]) ;
 });
