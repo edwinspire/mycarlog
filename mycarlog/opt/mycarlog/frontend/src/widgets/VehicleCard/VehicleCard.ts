@@ -49,16 +49,21 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
 */
 
 
-constructor() {
-  super();
-  this.Data = this.properties;
-  console.log(this.Data, this.properties);
-}
+// constructor() {
+//   super();
+//   this.Data = this.properties;
+//   console.log(this.Data, this.properties);
+// }
 
+// onAttach(){
+
+//   console.log(this.Data, this.properties);
+
+// }
 
   protected render() {
 
-    
+    this.Data = this.properties;
   const {license_plate} = this.properties;
 
     return v("div", { classes: css.container }, [
@@ -84,7 +89,7 @@ constructor() {
                 onClick: () => {
                   //window.location.href = "/#contacts";
                   this.clase = "fa-star";
-                  console.log("Se ha presionado", this.Data);
+                  console.log("Se ha presionado", this.Data, this.properties);
                   this.invalidate();
                 },
               }),
