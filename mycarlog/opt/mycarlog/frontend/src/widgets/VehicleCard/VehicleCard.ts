@@ -50,7 +50,7 @@ private Data: VehicleCardProperties =this.properties;
                onClick: () => {
                  //window.location.href = "/#contacts";
                  this.clase = "fa-star";
-                 console.log("Se ha presionado");
+                 console.log("Se ha presionado", this.Data);
                  this.invalidate();
                },
              }),

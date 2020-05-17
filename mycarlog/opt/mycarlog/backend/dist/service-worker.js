@@ -16,7 +16,7 @@ workbox.setConfig({modulePathPrefix: "workbox-v3.6.3"});
 
 importScripts(
   "./externals/src/sw/service-worker-app.js",
-  "precache-manifest.c10a452eacd8677e60c02e2c7caa7353.js"
+  "precache-manifest.200209cbf6e5630edf34be78ca3d90b7.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "mycarlog-app"});
