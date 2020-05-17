@@ -32,7 +32,7 @@ export default class SelectVehicle extends WidgetBase {
         data.forEach((element: any, index) => {
           console.log(element.license_plate);
           this.Vehicles.push(
-            w(CardVehicle, {license_plate: element.license_plate, vin: element.vin, year: element.year, fuel_tank_capacity: element.fuel_tank_capacity})
+            w(CardVehicle, {name: element.name,  color: element.color, lfname: element.lfname, fueltype: element.fueltype, license_plate: element.license_plate, vin: element.vin, year: element.year, fuel_tank_capacity: element.fuel_tank_capacity})
           );
           //  this.Vehicles.push(v("div", {}, ['Hola' + index]));
           this.invalidate();
