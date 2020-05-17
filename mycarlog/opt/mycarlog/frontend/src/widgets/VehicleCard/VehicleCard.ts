@@ -33,7 +33,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
           console.log(e);
           this.Color = "prueba";
           this.invalidate();
-        }}, [this.Color
+        }}, ['Nada', this.Color
           // w(Card, {}, [
           //   w(Icon, {
           //     key: 'sss',
