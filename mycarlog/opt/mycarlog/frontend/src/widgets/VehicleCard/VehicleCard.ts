@@ -40,7 +40,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
               ShowLabel: true,
               onClick: () => {
                 //window.location.href = "/#contacts";
-                this.Selected = "fa-star";
+                //this.Selected = "fa-star";
                 console.log("Se ha presionado");
                 this.invalidate();
               },
