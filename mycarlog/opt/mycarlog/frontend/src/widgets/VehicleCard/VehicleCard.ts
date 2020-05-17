@@ -26,8 +26,8 @@ export interface VehicleCardProperties {
 export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
   //private Color: string = this.properties.license_plate;
   clase = "fa-car-side";
-  //private Data: VehicleCardProperties = this.properties;
-
+  private Data: VehicleCardProperties = this.properties;
+/*
   private Data = {
     idvehicle: this.properties.idvehicle,
     idaccount: this.properties.idaccount,
@@ -46,8 +46,21 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
     unit_measure_fuel_tank: this.properties.unit_measure_fuel_tank,
     lfname: this.properties.lfname,
   };
+*/
+
+
+constructor() {
+  super();
+  this.Data = this.properties;
+  console.log(this.Data, this.properties);
+}
+
 
   protected render() {
+
+    
+  const {license_plate} = this.properties;
+
     return v("div", { classes: css.container }, [
       v("div", { classes: [css.column] }, [
         v(
@@ -65,7 +78,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                 key: "sss",
                 label:
                   this.Data.name ||
-                  this.Data.license_plate + " - " + this.Data.vin,
+                  license_plate + " - " + this.Data.vin,
                 classes: [this.clase, "far", css.title],
                 ShowLabel: true,
                 onClick: () => {
@@ -90,7 +103,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                     ]),
                     v("div", {}, [
                       v("span", { classes: [css.label] }, ["Propietario: "]),
-                      v("span", {}, [this.properties.lfname]),
+                      v("span", {}, [this.Data.lfname]),
                     ]),
                     v("div", {}, [
                       v("span", { classes: [css.label] }, [
