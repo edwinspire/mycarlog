@@ -34,7 +34,6 @@ export default class SelectVehicle extends WidgetBase {
           this.Vehicles.push(
             w(CardVehicle, {name: element.name,  color: element.color, lfname: element.lfname, fueltype: element.fueltype, license_plate: element.license_plate, vin: element.vin, year: element.year, fuel_tank_capacity: element.fuel_tank_capacity})
           );
-          //  this.Vehicles.push(v("div", {}, ['Hola' + index]));
           this.invalidate();
         });
       }
