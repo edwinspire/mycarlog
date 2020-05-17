@@ -18,4 +18,17 @@
   display: table;
   clear: both;
 }
+.label{
+  font-weight: bold;
+  border-right-width: 1em;
+}
 
+.title{
+  font-weight: bold;
+}
+
+.image{
+  width: 150px;
+  height: 150px;
+  float: left;
+}

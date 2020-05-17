@@ -36,7 +36,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
               label:
                 this.properties.name ||
                 this.properties.license_plate + " - " + this.properties.vin,
-              classes: ["fas", "fa-start"],
+              classes: ["fas", "fa-star", css.title],
               ShowLabel: true,
               onClick: () => {
                 //window.location.href = "/#contacts";
@@ -44,23 +44,23 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
             }),
             v("div", {}, [
               v("div", {}, [this.properties.license_plate]),
-              v("img", {}, []),
+              v("img", {classes: [css.image]}, []),
               v("div", {}, [
                 v("div", {}, [
                   v("div", {}, [
-                    v("span", {}, ["VIN: "]),
+                    v("span", {classes: [css.label]}, ["VIN: "]),
                     v("span", {}, [this.properties.vin]),
                   ]),
                   v("div", {}, [
-                    v("span", {}, ["Año: "]),
+                    v("span", {classes: [css.label]}, ["Año: "]),
                     v("span", {}, [this.properties.year]),
                   ]),
                   v("div", {}, [
-                    v("span", {}, ["Propietario: "]),
+                    v("span", {classes: [css.label]}, ["Propietario: "]),
                     v("span", {}, [this.properties.lfname]),
                   ]),
                   v("div", {}, [
-                    v("span", {}, ["Tipo combustible: "]),
+                    v("span", {classes: [css.label]}, ["Tipo combustible: "]),
                     v("span", {}, [this.properties.fueltype]),
                   ]),
                   v("div", {}, [
