@@ -43,7 +43,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
               },
             }),
             v("div", {}, [
-              v("div", {}, [this.properties.license_plate]),
+              // v("div", {}, [this.properties.license_plate]),
               v("img", {classes: [css.image]}, []),
               v("div", {}, [
                 v("div", {}, [
