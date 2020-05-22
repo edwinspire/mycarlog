@@ -3,9 +3,15 @@ import WidgetBase from "@dojo/framework/core/WidgetBase";
 import * as css from "./VehicleCard.m.css";
 import Card from "@dojo/widgets/card";
 import Icon from ".././Icon/Icon";
+import UserPreferences, {
+  UserPreferencesProperties,
+} from ".././UserPreferences/UserPreferences";
+import watch from "@dojo/framework/core/decorators/watch";
+import PStore from ".././modules/PathStore";
+
 
 export interface VehicleCardProperties {
-  idvehicle?: string;
+  idvehicle: string;
   idaccount?: string;
   account?: string;
   idcontact?: string;
@@ -24,48 +30,38 @@ export interface VehicleCardProperties {
 }
 
 export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
-  //private Color: string = this.properties.license_plate;
   clase = "fa-car-side";
-  private Data: VehicleCardProperties = this.properties;
-/*
-  private Data = {
-    idvehicle: this.properties.idvehicle,
-    idaccount: this.properties.idaccount,
-    account: this.properties.account,
-    idcontact: this.properties.idcontact,
-    license_plate: this.properties.license_plate,
-    year: this.properties.year,
-    fuel_tank_capacity: this.properties.fuel_tank_capacity,
-    vin: this.properties.vin,
-    name: this.properties.name,
-    idvehicletype: this.properties.idvehicletype,
-    mark: this.properties.mark,
-    model: this.properties.model,
-    color: this.properties.color,
-    fueltype: this.properties.fueltype,
-    unit_measure_fuel_tank: this.properties.unit_measure_fuel_tank,
-    lfname: this.properties.lfname,
+  @watch() private Data: VehicleCardProperties = this.properties;
+  private favorite: UserPreferencesProperties = {
+    preference: { name: "Date", value: Date.now },
   };
-*/
+
+  onAttach() {
+    this.Data = this.properties;
 
 
-// constructor() {
-//   super();
-//   this.Data = this.properties;
-//   console.log(this.Data, this.properties);
-// }
+    window.onstorage = (e: any)=> {
+      console.log('The ' + e.key +
+        ' key has been changed from ' + e.oldValue +
+        ' to ' + e.newValue + '.', e);
+        this.Data.name = e.newValue;
+        this.invalidate();
+    };
 
-// onAttach(){
 
-//   console.log(this.Data, this.properties);
+    let ps = new PStore();
+    ps.set('aaaa.llo', 'add');
+    ps.set('aaaa.llo.we', {"d": 10});
+    
+    console.log(this.Data, this.properties);
 
-// }
+    ps.set('aaaa.llo', 'Prueba');
+    ps.set('aaaa.lloa', 'TTY&/add');
+
+    this.invalidate();
+  }
 
   protected render() {
-
-    this.Data = this.properties;
-  const {license_plate} = this.properties;
-
     return v("div", { classes: css.container }, [
       v("div", { classes: [css.column] }, [
         v(
@@ -80,16 +76,19 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
           [
             w(Card, {}, [
               w(Icon, {
-                key: "sss",
                 label:
                   this.Data.name ||
-                  license_plate + " - " + this.Data.vin,
+                  this.Data.license_plate + " - " + this.Data.vin,
                 classes: [this.clase, "far", css.title],
                 ShowLabel: true,
                 onClick: () => {
                   //window.location.href = "/#contacts";
                   this.clase = "fa-star";
-                  console.log("Se ha presionado", this.Data, this.properties);
+                  console.log("Se ha presionado", this.Data);
+                  this.favorite.preference = {
+                    name: "last_vehicle_selected",
+                    value: this.Data.idvehicle,
+                  };
                   this.invalidate();
                 },
               }),
@@ -131,7 +130,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                       this.invalidate();
                     },
                   },
-                  ["Piecito"]
+                  ["Piecito", w(UserPreferences, this.favorite)]
                 ),
               ]),
             ]),

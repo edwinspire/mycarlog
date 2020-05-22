@@ -14,6 +14,7 @@ new push(); // Registra para recibir notificaciones push
 let gcom = new GlobalComunicator();
 gcom.connect();
 gcom.storeTest();
+gcom.storeTest();
 
 const noSleep = new NoSleep();
 noSleep.enable();

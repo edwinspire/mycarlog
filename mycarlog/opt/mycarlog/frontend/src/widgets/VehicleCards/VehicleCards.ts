@@ -5,40 +5,66 @@ import TextInput from "@dojo/widgets/text-input";
 import Menu from ".././Menu";
 import CardVehicle from ".././VehicleCard/VehicleCard";
 
-
 export default class SelectVehicle extends WidgetBase {
   private Vehicles = [] as any[];
 
   private TextSearch: string = "";
 
   async GetVehicles() {
-    const res = await fetch("/vehicles", {
-      method: "POST",
-      body: JSON.stringify({
-        idaccount: localStorage.getItem("idaccount"),
-        Search: this.TextSearch,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
 
-    if (res.status == 200) {
-      this.Vehicles = [];
-      let data = await res.json();
-      //		this._fetcher = createFetcher(data);
-      console.log(data);
-      if (Array.isArray(data)) {
-        data.forEach((element: any, index) => {
-          console.log(element.license_plate);
-          this.Vehicles.push(
-            w(CardVehicle, {name: element.name,  color: element.color, lfname: element.lfname, fueltype: element.fueltype, license_plate: element.license_plate, vin: element.vin, year: element.year, fuel_tank_capacity: element.fuel_tank_capacity})
-          );
-          this.invalidate();
-        });
+    this.Vehicles.push(w(CardVehicle, {
+      idvehicle: "",
+      name: "name",
+      color: "color",
+      lfname: "element.lfname",
+      fueltype: "element.fueltype",
+      license_plate: "element.license_plate",
+      vin: "element.vin",
+      year: "element.year",
+      fuel_tank_capacity: "element.fuel_tank_capacity",
+    }));
+
+    try {
+      const res = await fetch("/vehicles", {
+        method: "POST",
+        body: JSON.stringify({
+          idaccount: localStorage.getItem("idaccount"),
+          Search: this.TextSearch,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (res.status == 200) {
+        this.Vehicles = [];
+        let data = await res.json();
+        //		this._fetcher = createFetcher(data);
+        console.log(data);
+        if (Array.isArray(data)) {
+          data.forEach((element: any, index) => {
+            console.log(element.license_plate);
+            this.Vehicles.push(
+              w(CardVehicle, {
+                idvehicle: element.idvehicle,
+                name: element.name,
+                color: element.color,
+                lfname: element.lfname,
+                fueltype: element.fueltype,
+                license_plate: element.license_plate,
+                vin: element.vin,
+                year: element.year,
+                fuel_tank_capacity: element.fuel_tank_capacity,
+              })
+            );
+            this.invalidate();
+          });
+        }
+
+        this.invalidate();
       }
-
-      this.invalidate();
+    } catch (err) {
+      console.log(err);
     }
   }
 
