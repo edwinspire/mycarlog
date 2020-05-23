@@ -1,10 +1,9 @@
 import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
 import TextInput from "@dojo/widgets/text-input";
-//import watch from "@dojo/framework/core/decorators/watch";
 import Menu from ".././Menu";
 import CardVehicle from ".././VehicleCard/VehicleCard";
-import { add } from "@dojo/framework/stores/state/operations";
+//import { add } from "@dojo/framework/stores/state/operations";
 
 export default class SelectVehicle extends WidgetBase {
   private Vehicles = [] as any[];
@@ -12,29 +11,29 @@ export default class SelectVehicle extends WidgetBase {
   private TextSearch: string = "";
 
   async GetVehicles() {
+    const { path } = window.GlobalStore;
+    //apply([add(path("root", "user", "token"), "sdsdasdassdasdasdad")], true);
 
-    const { path, apply } = window.GlobalStore;
-    apply([add(path('root', 'user', 'token'), 'sdsdasdassdasdasdad')], true);        
+  //  console.log(window.GlobalStore.get(path("root", "user", "token")));
+    let idaccount = window.GlobalStore.get(path("root", "user", "idaccount"));
 
-    console.log(window.GlobalStore.get(path("root", "user", "token" )));
-
-    this.Vehicles.push(w(CardVehicle, {
-      idvehicle: "",
-      name: "name",
-      color: "color",
-      lfname: "element.lfname",
-      fueltype: "element.fueltype",
-      license_plate: "element.license_plate",
-      vin: "element.vin",
-      year: "element.year",
-      fuel_tank_capacity: "element.fuel_tank_capacity",
-    }));
+    // this.Vehicles.push(w(CardVehicle, {
+    //   idvehicle: "",
+    //   name: "name",
+    //   color: "color",
+    //   lfname: "element.lfname",
+    //   fueltype: "element.fueltype",
+    //   license_plate: "element.license_plate",
+    //   vin: "element.vin",
+    //   year: "element.year",
+    //   fuel_tank_capacity: "element.fuel_tank_capacity",
+    // }));
 
     try {
       const res = await fetch("/vehicles", {
         method: "POST",
         body: JSON.stringify({
-          idaccount: localStorage.getItem("idaccount"),
+          idaccount: idaccount,
           Search: this.TextSearch,
         }),
         headers: {

@@ -63,29 +63,25 @@ export default class Login extends WidgetBase {
                             if (!data.login) {
                               this.SnackBar(data.message);
                             } else {
-                              localStorage.setItem("idaccount", data.idaccount);
-                              localStorage.setItem("iduser", data.iduser);
-                              localStorage.setItem(
-                                "preferences",
-                                data.preferences
-                              );
-                              localStorage.setItem("fullname", data.fullname);
-                              localStorage.setItem(
-                                "user",
-                                JSON.stringify(data)
-							  );
-							  
+
+                            //   localStorage.setItem("idaccount", data.idaccount);
+                            //   localStorage.setItem("iduser", data.iduser);
+                            //   localStorage.setItem(
+                            //     "preferences",
+                            //     data.preferences
+                            //   );
+                            //   localStorage.setItem("fullname", data.fullname);
+                            //   localStorage.setItem(
+                            //     "user",
+                            //     JSON.stringify(data)
+							//   );
+
 							  const { path, apply } = window.GlobalStore;
 							  apply([add(path('root', 'user', "idaccount"), data.idaccount)], true);        
 							  apply([add(path('root', 'user', "iduser"), data.iduser)], true);        
 							  apply([add(path('root', 'user', "preferences"), data.preferences)], true);        
 							  apply([add(path('root', 'user', "fullname"), data.fullname)], true);        
 						  
-
-
-
-
-
                               window.location.href = "/#home";
                             }
                           } else {
