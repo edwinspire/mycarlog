@@ -16,7 +16,7 @@ export default class VehicleSummary extends WidgetBase<
   VehicleSummaryProperties
 > {
   @watch() private Params = {
-    idaccount: localStorage.getItem("idaccount"),
+    idaccount: 0,
     account: "",
     date_start: "",
     date_end: "",
@@ -64,6 +64,11 @@ export default class VehicleSummary extends WidgetBase<
   async onAttach() {
     console.log(this.properties.idvehicle);
 
+    let idaccount = window.GlobalStore.get(
+      window.GlobalStore.path("root", "user", "idaccount")
+    );
+    this.Params.idaccount = idaccount;
+
     if (this.properties.idvehicle) {
       var url = "/vehicle_summary";
 
@@ -93,9 +98,7 @@ export default class VehicleSummary extends WidgetBase<
           label: "NUEVO",
           classes: ["fas", "fa-car"],
           ShowLabel: true,
-          onClick: (e) => {
-           
-          },
+          onClick: (e) => {},
         }),
         v("span", {}, ["|"]),
       ]),
