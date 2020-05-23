@@ -4,6 +4,7 @@ import TextInput from "@dojo/widgets/text-input";
 //import watch from "@dojo/framework/core/decorators/watch";
 import Menu from ".././Menu";
 import CardVehicle from ".././VehicleCard/VehicleCard";
+import { add } from "@dojo/framework/stores/state/operations";
 
 export default class SelectVehicle extends WidgetBase {
   private Vehicles = [] as any[];
@@ -11,6 +12,11 @@ export default class SelectVehicle extends WidgetBase {
   private TextSearch: string = "";
 
   async GetVehicles() {
+
+    const { path, apply } = window.GlobalStore;
+    apply([add(path('root', 'user', 'token'), 'sdsdasdassdasdasdad')], true);        
+
+    console.log(window.GlobalStore.get(path("root", "user", "token" )));
 
     this.Vehicles.push(w(CardVehicle, {
       idvehicle: "",

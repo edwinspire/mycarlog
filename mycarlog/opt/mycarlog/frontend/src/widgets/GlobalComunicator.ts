@@ -1,8 +1,9 @@
 import Evented from "@dojo/framework/core/Evented";
 import SocketIO from "socket.io-client";
-import { Store } from "@dojo/framework/stores/Store";
-import { OperationType } from "@dojo/framework/stores/state/Patch";
-import { Pointer } from "@dojo/framework/stores/state/Pointer";
+//import { Store } from "@dojo/framework/stores/Store";
+//import { OperationType } from "@dojo/framework/stores/state/Patch";
+//import { Pointer } from "@dojo/framework/stores/state/Pointer";
+//import  PathS  from "./modules/PathStore";
 //import { registerStoreInjector } from '@dojo/framework/stores/StoreInjector';
 //import { load } from "@dojo/framework/stores/middleware/localStorage";
 
@@ -10,24 +11,24 @@ declare global {
   interface Window {
     GlobalSocketIO: SocketIOClient.Socket;
   }
-  interface Window {
-    GlobalStore: Store;
-  }
 }
 
 export default class GlobalComunicator extends Evented {
   public test = "";
-  private store = new Store();
+  //private store = new Store();
   private socket = SocketIO.connect("//" + document.location.host);
+  //private PStore = new PathS();
+
 
   constructor() {
     super();
-    console.log("Global Test");
+    //console.log("Global Test", this.PStore);
     //		const registry = registerStoreInjector(this.store);
     //		console.log(registry);
     window.GlobalSocketIO = this.socket;
     //load("my-process", this.store);
-    window.GlobalStore = this.store;
+    /*
+    window.GlobalStoreX = this.store;
 
     window.GlobalStore.on("invalidate", (e) => {
       console.log("El store ha cambiado", e);
@@ -39,38 +40,9 @@ export default class GlobalComunicator extends Evented {
         console.log("onChange store");
       }
     );
-
-    setTimeout(() => {
-      this.storeTest();
-    }, 5000);
+*/
   }
 
-  storeTest() {
-    window.GlobalStore.apply([
-      {
-        op: OperationType.ADD,
-        path: new Pointer(["grid", "meta", "page"]),
-        value: Date.now(),
-      },
-    ]);
-
-    const page = this.store.get(this.store.path("grid", "meta", "page"));
-    console.log("Main Nuevo Global1: " + page);
-
-    this.store.apply([
-      {
-        op: OperationType.REPLACE,
-        path: new Pointer(["grid", "meta", "page"]),
-        value: 999,
-      },
-    ]);
-
-    let page2 = this.store.get(this.store.path("grid"));
-    console.log("Main Nuevo Global2: " + page2);
-
-    //	let page3 = this.getValue('grid', 'meta', 'page');
-    //	console.log('Main Nuevo Global3: '+page3);
-  }
 
   connect() {
     window.GlobalSocketIO.on("connection", function (client: any) {
