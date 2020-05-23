@@ -44,6 +44,31 @@ window.GlobalStore.on("invalidate", (e) => {
   console.log("El store Global ha cambiado", e);
 });
 
+window.GlobalStore.onChange(
+  window.GlobalStore.path("root", "user", "preferences"),
+ async () => {
+    console.log("Las preferencias han cambiado");
+    
+    let preferences = window.GlobalStore.get(
+      window.GlobalStore.path(
+        "root",
+        "user",
+        "preferences"
+      )
+    );
+
+    let f = await fetch('/preferences_u', {
+      method: 'POST',
+      body: JSON.stringify(preferences),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    let data = await f.json();
+    console.log(data);
+  }
+);
+
 new push(); // Registra para recibir notificaciones push
 
 let gcom = new GlobalComunicator();
