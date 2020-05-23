@@ -84,7 +84,7 @@ export default class SelectVehicle extends WidgetBase {
           onChange: (v) => {
             console.log(JSON.stringify(v));
             this.TextSearch = v as string;
-            this.Vehicles.push("Pude cambiar");
+
             this.invalidate();
             this.GetVehicles().then(() => {
               console.log("invalida al terminar de obtener los vehiculos");

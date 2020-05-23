@@ -7,12 +7,11 @@ import UserPreferences, {
   UserPreferencesProperties,
 } from ".././UserPreferences/UserPreferences";
 import watch from "@dojo/framework/core/decorators/watch";
-import PStore from ".././modules/PathStore";
-
+import { add } from "@dojo/framework/stores/state/operations";
 
 export interface VehicleCardProperties {
-  idvehicle: string;
-  idaccount?: string;
+  idvehicle: number;
+  idaccount?: number;
   account?: string;
   idcontact?: string;
   license_plate: string;
@@ -39,24 +38,30 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
   onAttach() {
     this.Data = this.properties;
 
+    this.Data.idaccount = window.GlobalStore.get(
+      window.GlobalStore.path(
+        "root",
+        "user",
+        "preferences",
+        "last_vehicle",
+        "idvehicle"
+      )
+    );
 
-    window.onstorage = (e: any)=> {
-      console.log('The ' + e.key +
-        ' key has been changed from ' + e.oldValue +
-        ' to ' + e.newValue + '.', e);
-        this.Data.name = e.newValue;
-        this.invalidate();
+    window.onstorage = (e: any) => {
+      console.log(
+        "The " +
+          e.key +
+          " key has been changed from " +
+          e.oldValue +
+          " to " +
+          e.newValue +
+          ".",
+        e
+      );
+      this.Data.name = e.newValue;
+      this.invalidate();
     };
-
-
-    let ps = new PStore();
-    ps.set('aaaa.llo', 'add');
-    ps.set('aaaa.llo.we', {"d": 10});
-    
-    console.log(this.Data, this.properties);
-
-    ps.set('aaaa.llo', 'Prueba');
-    ps.set('aaaa.lloa', 'TTY&/add');
 
     this.invalidate();
   }
@@ -82,6 +87,23 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                 classes: [this.clase, "far", css.title],
                 ShowLabel: true,
                 onClick: () => {
+                  const { path, apply } = window.GlobalStore;
+                  apply(
+                    [
+                      add(
+                        path(
+                          "root",
+                          "user",
+                          "preferences",
+                          "last_vehicle",
+                          "idvehicle"
+                        ),
+                        this.Data.idvehicle
+                      ),
+                    ],
+                    true
+                  );
+
                   //window.location.href = "/#contacts";
                   this.clase = "fa-star";
                   console.log("Se ha presionado", this.Data);
