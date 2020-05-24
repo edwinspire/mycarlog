@@ -12,22 +12,7 @@ export default class SelectVehicle extends WidgetBase {
 
   async GetVehicles() {
     const { path } = window.GlobalStore;
-    //apply([add(path("root", "user", "token"), "sdsdasdassdasdasdad")], true);
-
-  //  console.log(window.GlobalStore.get(path("root", "user", "token")));
     let idaccount = window.GlobalStore.get(path("root", "user", "idaccount"));
-
-    // this.Vehicles.push(w(CardVehicle, {
-    //   idvehicle: "",
-    //   name: "name",
-    //   color: "color",
-    //   lfname: "element.lfname",
-    //   fueltype: "element.fueltype",
-    //   license_plate: "element.license_plate",
-    //   vin: "element.vin",
-    //   year: "element.year",
-    //   fuel_tank_capacity: "element.fuel_tank_capacity",
-    // }));
 
     try {
       const res = await fetch("/vehicles", {

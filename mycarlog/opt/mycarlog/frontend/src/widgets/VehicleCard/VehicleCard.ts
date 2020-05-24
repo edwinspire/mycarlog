@@ -36,25 +36,10 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
         "root",
         "user",
         "preferences",
-        "last_vehicle",
+        "last_vehicle_selected",
         "idvehicle"
       )
     );
-
-    window.onstorage = (e: any) => {
-      console.log(
-        "The " +
-          e.key +
-          " key has been changed from " +
-          e.oldValue +
-          " to " +
-          e.newValue +
-          ".",
-        e
-      );
-      this.Data.name = e.newValue;
-      this.invalidate();
-    };
     this.invalidate();
   }
 
@@ -75,7 +60,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                           "root",
                           "user",
                           "preferences",
-                          "last_vehicle",
+                          "last_vehicle_selected",
                           "idvehicle"
                         ),
                         this.Data.idvehicle
@@ -96,7 +81,6 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                   ShowLabel: true,
                 }),
                 v("div", {}, [
-                  // v("div", {}, [this.properties.license_plate]),
                   v("img", { classes: [css.image] }, []),
                   v("div", {}, [
                     v("div", {}, [
