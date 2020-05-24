@@ -15,16 +15,14 @@ require("@fortawesome/fontawesome-free/css/all.css");
 export interface StateStore {
   root: {
     user: {
-      default_idvehicle: string;
-      default_vehicle: string;
       fullname: string;
       idaccount: number;
       iduser: number;
-      login: boolean;
-      welcome: string;
+      message: string;
       preferences: { last_vehicle: { idvehicle: number; label: string } };
       token: string;
       username: string;
+      rowkey: string;
     };
   };
 }
@@ -45,7 +43,7 @@ window.GlobalStore.on("invalidate", (e) => {
 });
 
 window.GlobalStore.onChange(
-  window.GlobalStore.path("root", "user", "preferences"),
+  window.GlobalStore.path("root", "user"),
  async () => {
     console.log("Las preferencias han cambiado");
     

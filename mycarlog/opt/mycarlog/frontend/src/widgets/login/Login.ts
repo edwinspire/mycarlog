@@ -4,7 +4,7 @@ import * as css from "./Login.m.css";
 import SBar from "@dojo/widgets/snackbar";
 import watch from "@dojo/framework/core/decorators/watch";
 import { add } from "@dojo/framework/stores/state/operations";
-//import {StateStore} from "../../main"; 
+//import {StateStore} from "../../main";
 
 export default class Login extends WidgetBase {
   @watch() private _openSnack = false;
@@ -63,25 +63,62 @@ export default class Login extends WidgetBase {
                             if (!data.login) {
                               this.SnackBar(data.message);
                             } else {
+                              const { path, apply } = window.GlobalStore;
+                              apply(
+                                [
+                                  add(
+                                    path("root", "user", "idaccount"),
+                                    data.idaccount
+                                  ),
+                                ],
+                                true
+                              );
+                              apply(
+                                [
+                                  add(
+                                    path("root", "user", "iduser"),
+                                    data.iduser
+                                  ),
+                                ],
+                                true
+                              );
+                              apply(
+                                [
+                                  add(
+                                    path("root", "user", "preferences"),
+                                    data.preferences
+                                  ),
+                                ],
+                                true
+                              );
+                              apply(
+                                [
+                                  add(
+                                    path("root", "user", "username"),
+                                    data.username
+                                  ),
+                                ],
+                                true
+                              );
+                              apply(
+                                [
+                                  add(
+                                    path("root", "user", "fullname"),
+                                    data.fullname
+                                  ),
+                                ],
+                                true
+                              );
+                              apply(
+                                [
+                                  add(
+                                    path("root", "user", "rowkey"),
+                                    data.rowkey
+                                  ),
+                                ],
+                                true
+                              );
 
-                            //   localStorage.setItem("idaccount", data.idaccount);
-                            //   localStorage.setItem("iduser", data.iduser);
-                            //   localStorage.setItem(
-                            //     "preferences",
-                            //     data.preferences
-                            //   );
-                            //   localStorage.setItem("fullname", data.fullname);
-                            //   localStorage.setItem(
-                            //     "user",
-                            //     JSON.stringify(data)
-							//   );
-
-							  const { path, apply } = window.GlobalStore;
-							  apply([add(path('root', 'user', "idaccount"), data.idaccount)], true);        
-							  apply([add(path('root', 'user', "iduser"), data.iduser)], true);        
-							  apply([add(path('root', 'user', "preferences"), data.preferences)], true);        
-							  apply([add(path('root', 'user', "fullname"), data.fullname)], true);        
-						  
                               window.location.href = "/#home";
                             }
                           } else {
