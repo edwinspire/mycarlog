@@ -51,7 +51,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
             v(
               "div",
               {
-                onClick: () => {
+                onclick: () => {
                   const { path, apply } = window.GlobalStore;
                   apply(
                     [
@@ -108,17 +108,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                       ]),
                     ]),
                   ]),
-                  v(
-                    "div",
-                    {
-                      onclick: () => {
-                        this.Data.color = "Verde";
-                        console.log("Invalida");
-                        this.invalidate();
-                      },
-                    },
-                    ["Piecito"]
-                  ),
+                  v("div", {}, ["Piecito"]),
                 ]),
               ]
             ),
