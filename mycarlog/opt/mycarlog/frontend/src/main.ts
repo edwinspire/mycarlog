@@ -7,7 +7,7 @@ import App from "./App";
 import push from "./push-notifications";
 import GlobalComunicator from "./widgets/GlobalComunicator";
 import { Store } from "@dojo/framework/stores/Store";
-//import { add } from "@dojo/framework/stores/state/operations";
+import { add } from "@dojo/framework/stores/state/operations";
 
 const NoSleep = require("nosleep.js");
 require("@fortawesome/fontawesome-free/css/all.css");
@@ -19,7 +19,9 @@ export interface StateStore {
       idaccount: number;
       iduser: number;
       message: string;
-      preferences: { last_vehicle_selected: { idvehicle: number; label: string } };
+      preferences: {
+        last_vehicle_selected: { idvehicle: number; label: string };
+      };
       token: string;
       username: string;
       rowkey: string;
@@ -44,25 +46,24 @@ window.GlobalStore.on("invalidate", (e) => {
 
 window.GlobalStore.onChange(
   window.GlobalStore.path("root", "user"),
- async () => {
+  async () => {
     console.log("Las preferencias han cambiado");
-    
+
     let user_preferences = window.GlobalStore.get(
-      window.GlobalStore.path(
-        "root",
-        "user"
-      )
+      window.GlobalStore.path("root", "user")
     );
 
-    let f = await fetch('/preferences_u', {
-      method: 'POST',
+    let f = await fetch("/preferences_u", {
+      method: "POST",
       body: JSON.stringify(user_preferences),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     });
     let data = await f.json();
     console.log(data);
+    const { path, apply } = window.GlobalStore;
+    apply([add(path("root", "user", "rowkey"), data.rowkey)], false);
   }
 );
 
