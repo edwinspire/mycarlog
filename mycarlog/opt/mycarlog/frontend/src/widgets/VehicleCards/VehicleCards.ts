@@ -3,6 +3,7 @@ import WidgetBase from "@dojo/framework/core/WidgetBase";
 import TextInput from "@dojo/widgets/text-input";
 import Menu from ".././Menu";
 import CardVehicle from ".././VehicleCard/VehicleCard";
+//import { toggleSwitch } from '@dojo/themes/dojo/checkbox.m.css';
 //import { add } from "@dojo/framework/stores/state/operations";
 
 export default class SelectVehicle extends WidgetBase {
@@ -69,7 +70,6 @@ export default class SelectVehicle extends WidgetBase {
           onChange: (v) => {
             console.log(JSON.stringify(v));
             this.TextSearch = v as string;
-
             this.invalidate();
             this.GetVehicles().then(() => {
               console.log("invalida al terminar de obtener los vehiculos");

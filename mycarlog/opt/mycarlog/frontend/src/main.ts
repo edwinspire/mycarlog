@@ -47,17 +47,16 @@ window.GlobalStore.onChange(
  async () => {
     console.log("Las preferencias han cambiado");
     
-    let preferences = window.GlobalStore.get(
+    let user_preferences = window.GlobalStore.get(
       window.GlobalStore.path(
         "root",
-        "user",
-        "preferences"
+        "user"
       )
     );
 
     let f = await fetch('/preferences_u', {
       method: 'POST',
-      body: JSON.stringify(preferences),
+      body: JSON.stringify(user_preferences),
       headers: {
         'Content-Type': 'application/json'
       }
