@@ -218,9 +218,9 @@ export default class VehicleSummary extends WidgetBase<
               TextInput,
               {
                 //                key: "t6",
-                type: "number",
+                type: "text",
                 label: "Capacidad del tanque",
-                disabled: false,
+//                disabled: false,
                 readOnly: true,
                 value:
                   (this.Params.fuel_tank_capacity as any) +

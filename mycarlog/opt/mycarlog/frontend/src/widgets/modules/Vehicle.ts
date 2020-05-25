@@ -1,17 +1,17 @@
 import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
-import * as css from "../styles/Vehicle.m.css";
+//import * as css from "../styles/Vehicle.m.css";
 import * as cssProfile from "../styles/Profile.m.css";
 import TextInput from "@dojo/widgets/text-input";
-import Checkbox, { Mode } from "@dojo/widgets/checkbox";
+//import Checkbox, { Mode } from "@dojo/widgets/checkbox";
 import Textarea from "@dojo/widgets/text-area";
 import SelectFromURL from "./SelectFromURL";
 import SBar from "@dojo/widgets/snackbar";
 import watch from "@dojo/framework/core/decorators/watch";
 import Icon from ".././Icon/Icon";
-import UserPreferences, {
-  UserPreferencesProperties,
-} from ".././UserPreferences/UserPreferences";
+// import UserPreferences, {
+//   UserPreferencesProperties,
+// } from ".././UserPreferences/UserPreferences";
 import ToolBar from "@dojo/widgets/toolbar";
 
 export interface VehicleProperties {
@@ -19,14 +19,9 @@ export interface VehicleProperties {
 }
 
 export default class Vehicle extends WidgetBase<VehicleProperties> {
-  private favorite: UserPreferencesProperties = {
-    preference: { name: "", value: "" },
-  };
-  private checkbox_favorite: boolean = false;
-
   @watch() private Params = {
     idvehicle: "-1",
-    idaccount: localStorage.getItem("idaccount"),
+    idaccount: 0,
     idcontact: "0",
     rowkey: 0,
     license_plate: "",
@@ -73,7 +68,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
               "/#vehicles?idvehicle=" +
               data.idvehicle +
               "&idaccount=" +
-              localStorage.getItem("idaccount");
+              this.Params.idaccount;
           } else {
             this.SnackBar("No se pudo guardar");
           }
@@ -95,6 +90,10 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
   async onAttach() {
     console.log(this.properties.idvehicle);
 
+    this.Params.idaccount = window.GlobalStore.get(
+      window.GlobalStore.path("root", "user", "idaccount")
+    );
+
     if (this.properties.idvehicle) {
       var paramsString = window.location.hash.split("?")[1];
       var searchParams = new URLSearchParams(paramsString);
@@ -103,7 +102,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
         "/vehicle?idvehicle=" +
         this.Params.idvehicle +
         "&idaccount=" +
-        localStorage.getItem("idaccount");
+        this.Params.idaccount;
 
       const res = await fetch(url, {
         method: "GET",
@@ -113,7 +112,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
       });
       let data = await res.json();
       console.log(data);
-      if (data.length > 0) {
+      if (data.length > 0 && data[0].idaccount && data[0].idvehicle) {
         this.Params = data[0];
         this.invalidate();
       }
@@ -130,7 +129,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
           ShowLabel: true,
           onClick: (e) => {
             this.Params = {
-              idaccount: localStorage.getItem("idaccount"),
+              idaccount: this.Params.idaccount,
               idvehicle: "-1",
               idcontact: "0",
               rowkey: 0,
@@ -160,36 +159,36 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
         }),
       ]),
       v("div", { classes: [cssProfile.container] }, [
-        v("div", { classes: css.favorite_checkbox }, [
-          w(Checkbox, {
-            checked: this.checkbox_favorite,
-            aria: { describedBy: "Predeterminado" },
-            label: "Predeterminado",
-            mode: Mode.toggle,
-            name: "Predeterminado",
-            //onLabel: 'Si',
-            //offLabel: 'No',
-            onChange: (value: string, checked: boolean) => {
-              if (Number(this.Params.idvehicle) > 0) {
-                this.checkbox_favorite = checked;
-                if (checked) {
-                  this.favorite.preference = {
-                    name: "default_idvehicle",
-                    value: this.Params.idvehicle,
-                  };
-                } else {
-                  this.favorite.preference = {
-                    name: "default_idvehicle",
-                    value: 0,
-                  };
-                }
-                this.invalidate();
-              } else {
-                this.SnackBar("Debe primero guardar el vehículo");
-              }
-            },
-          }),
-        ]),
+        // v("div", { classes: css.favorite_checkbox }, [
+        //   w(Checkbox, {
+        //     checked: false,
+        //     aria: { describedBy: "Predeterminado" },
+        //     label: "Predeterminado",
+        //     mode: Mode.toggle,
+        //     name: "Predeterminado",
+        //     //onLabel: 'Si',
+        //     //offLabel: 'No',
+        //     onChange: (value: string, checked: boolean) => {
+        //       if (Number(this.Params.idvehicle) > 0) {
+        //         this.checkbox_favorite = checked;
+        //         if (checked) {
+        //           this.favorite.preference = {
+        //             name: "default_idvehicle",
+        //             value: this.Params.idvehicle,
+        //           };
+        //         } else {
+        //           this.favorite.preference = {
+        //             name: "default_idvehicle",
+        //             value: 0,
+        //           };
+        //         }
+        //         this.invalidate();
+        //       } else {
+        //         this.SnackBar("Debe primero guardar el vehículo");
+        //       }
+        //     },
+        //   }),
+        // ]),
         v("div", { classes: [cssProfile.container_field_reset] }, [
           w(
             SelectFromURL,
@@ -374,7 +373,6 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
           type: "error",
           messageRenderer: () => this._MsgSnackBar,
         }),
-        w(UserPreferences, this.favorite),
       ]),
     ]);
   }
