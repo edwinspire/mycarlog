@@ -156,7 +156,7 @@ export default class Login extends WidgetBase {
                   },
                   []
                 ),
-                v("input", { type: "submit", value: "Aceptar" }),
+                v("input", { type: "submit", name: "submit", value: "Aceptar" }),
                 v("div", { classes: css.links_block }, [
                   v("a", { href: "/#register" }, ["Registro"]),
                 ]),
