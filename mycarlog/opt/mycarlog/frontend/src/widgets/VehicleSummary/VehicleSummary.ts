@@ -102,12 +102,11 @@ export default class VehicleSummary extends WidgetBase<
     return v("div", {}, [
       w(ToolBar, { heading: "VEHÍCULO", collapseWidth: 150 }, [
         w(Icon, {
-          label: "NUEVO",
+          label: "Editar",
           classes: ["fas", "fa-car"],
           ShowLabel: true,
           onClick: (e) => {},
         }),
-        v("span", {}, ["|"]),
       ]),
       v("div", { classes: [cssProfile.container] }, [
         v("div", { classes: [cssProfile.container_field_reset] }, [
@@ -117,7 +116,7 @@ export default class VehicleSummary extends WidgetBase<
               type: "text",
               label: "Propietario",
               value: this.Params.idcontact,
-              readOnly: false,
+              readOnly: true,
             },
             []
           ),
@@ -130,7 +129,7 @@ export default class VehicleSummary extends WidgetBase<
                 type: "text",
                 label: "Placa",
                 disabled: false,
-                readOnly: false,
+                readOnly: true,
                 required: true,
                 placeholder: "Placa",
                 value: this.Params.license_plate,
@@ -148,7 +147,7 @@ export default class VehicleSummary extends WidgetBase<
               {
                 label: "Marca",
                 value: this.Params.idmark,
-                readOnly: false,
+                readOnly: true,
               },
               []
             ),
@@ -162,7 +161,7 @@ export default class VehicleSummary extends WidgetBase<
                 type: "number",
                 label: "Año",
                 disabled: false,
-                readOnly: false,
+                readOnly: true,
                 value: this.Params.year as any,
                 onChange: (v) => {
                   this.Params.year = v as string;
@@ -179,7 +178,7 @@ export default class VehicleSummary extends WidgetBase<
                 type: "text",
                 label: "VIN",
                 disabled: false,
-                readOnly: false,
+                readOnly: true,
                 value: this.Params.vin as any,
                 onChange: (v) => {
                   this.Params.vin = v as string;
@@ -224,7 +223,7 @@ export default class VehicleSummary extends WidgetBase<
                 type: "number",
                 label: "Capacidad del tanque",
                 disabled: false,
-                readOnly: false,
+                readOnly: true,
                 value: this.Params.fuel_tank_capacity as any,
                 onChange: (v) => {
                   this.Params.fuel_tank_capacity = v as string;
