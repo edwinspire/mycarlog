@@ -77,7 +77,7 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                           "user",
                           "preferences",
                           "last_vehicle_selected",
-                          "label"
+                          "name"
                         ),
                         this.Data.name ||
                           this.Data.license_plate + " - " + this.Data.vin

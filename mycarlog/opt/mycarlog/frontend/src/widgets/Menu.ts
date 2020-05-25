@@ -14,7 +14,7 @@ export default factory(function Menu() {
         "user",
         "preferences",
         "last_vehicle_selected",
-        "label"
+        "name"
       )
     ) || "May Car Log";
 
@@ -24,7 +24,7 @@ export default factory(function Menu() {
       "user",
       "preferences",
       "last_vehicle_selected",
-      "label"
+      "name"
     ),
     () => {
       Title = window.GlobalStore.get(
@@ -33,7 +33,7 @@ export default factory(function Menu() {
           "user",
           "preferences",
           "last_vehicle_selected",
-          "label"
+          "name"
         )
       );
       console.log("El Título ha cambiado", Title);

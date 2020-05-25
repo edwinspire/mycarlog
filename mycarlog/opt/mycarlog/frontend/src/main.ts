@@ -20,7 +20,7 @@ export interface StateStore {
       iduser: number;
       message: string;
       preferences: {
-        last_vehicle_selected: { idvehicle: number; label: string };
+        last_vehicle_selected: { idvehicle: number; name: string; vin: string; mark_label: string; licence_plate: string;};
       };
       token: string;
       username: string;
