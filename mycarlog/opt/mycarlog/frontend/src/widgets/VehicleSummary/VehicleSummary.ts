@@ -100,12 +100,18 @@ export default class VehicleSummary extends WidgetBase<
 
   protected render() {
     return v("div", {}, [
-      w(ToolBar, { heading: "VEHÍCULO", collapseWidth: 150 }, [
+      w(ToolBar, { heading: this.Params.name, collapseWidth: 150 }, [
         w(Icon, {
           label: "Editar",
           classes: ["fas", "fa-car"],
           ShowLabel: true,
-          onClick: (e) => {},
+          onClick: (e) => {
+            window.location.href =
+              "/#vehicle?idvehicle=" +
+              this.Params.idvehicle +
+              "&rowkey=0&idaccount=" +
+              this.Params.idaccount;
+          },
         }),
       ]),
       v("div", { classes: [cssProfile.container] }, [
@@ -115,7 +121,7 @@ export default class VehicleSummary extends WidgetBase<
             {
               type: "text",
               label: "Propietario",
-              value: this.Params.idcontact,
+              value: this.Params.lastname + " " + this.Params.firstname,
               readOnly: true,
             },
             []
@@ -128,9 +134,9 @@ export default class VehicleSummary extends WidgetBase<
               {
                 type: "text",
                 label: "Placa",
-                disabled: false,
+                //                disabled: false,
                 readOnly: true,
-                required: true,
+                //              required: true,
                 placeholder: "Placa",
                 value: this.Params.license_plate,
                 onChange: (d) => {
@@ -146,7 +152,7 @@ export default class VehicleSummary extends WidgetBase<
               TextInput,
               {
                 label: "Marca",
-                value: this.Params.idmark,
+                value: this.Params.mark_label,
                 readOnly: true,
               },
               []
@@ -160,13 +166,9 @@ export default class VehicleSummary extends WidgetBase<
               {
                 type: "number",
                 label: "Año",
-                disabled: false,
+                //disabled: false,
                 readOnly: true,
                 value: this.Params.year as any,
-                onChange: (v) => {
-                  this.Params.year = v as string;
-                  this.invalidate();
-                },
               },
               []
             ),
@@ -177,13 +179,9 @@ export default class VehicleSummary extends WidgetBase<
               {
                 type: "text",
                 label: "VIN",
-                disabled: false,
+                //disabled: false,
                 readOnly: true,
                 value: this.Params.vin as any,
-                onChange: (v) => {
-                  this.Params.vin = v as string;
-                  this.invalidate();
-                },
               },
               []
             ),
@@ -219,16 +217,15 @@ export default class VehicleSummary extends WidgetBase<
             w(
               TextInput,
               {
-                key: "t6",
+                //                key: "t6",
                 type: "number",
                 label: "Capacidad del tanque",
                 disabled: false,
                 readOnly: true,
-                value: this.Params.fuel_tank_capacity as any,
-                onChange: (v) => {
-                  this.Params.fuel_tank_capacity = v as string;
-                  this.invalidate();
-                },
+                value:
+                  (this.Params.fuel_tank_capacity as any) +
+                  " " +
+                  this.Params.unit_measure_fuel_tank_label,
               },
               []
             ),
@@ -239,7 +236,7 @@ export default class VehicleSummary extends WidgetBase<
               {
                 label: "Unidad de medida del tanque",
                 readOnly: true,
-                value: this.Params.unit_measure_fuel_tank_label,
+                value: "this.Params.unit_measure_fuel_tank_label",
               },
               []
             ),
