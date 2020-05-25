@@ -5,7 +5,7 @@ import "@dojo/themes/dojo/index.css";
 import routes from "./routes";
 import App from "./App";
 import push from "./push-notifications";
-import GlobalComunicator from "./widgets/GlobalComunicator";
+//import GlobalComunicator from "./widgets/GlobalComunicator";
 import { Store } from "@dojo/framework/stores/Store";
 import { add } from "@dojo/framework/stores/state/operations";
 
@@ -36,6 +36,7 @@ declare global {
 }
 
 window.GlobalStore = new Store<StateStore>();
+/*
 window.GlobalStore.on("invalidate", (e) => {
   localStorage.setItem(
     "mycarlog",
@@ -43,9 +44,10 @@ window.GlobalStore.on("invalidate", (e) => {
   );
   console.log("El store Global ha cambiado", e);
 });
+*/
 
 window.GlobalStore.onChange(
-  window.GlobalStore.path("root", "user"),
+  window.GlobalStore.path("root", "user", "preferences"),
   async () => {
     console.log("Las preferencias han cambiado");
 
@@ -62,15 +64,17 @@ window.GlobalStore.onChange(
     });
     let data = await f.json();
     console.log(data);
-    const { path, apply } = window.GlobalStore;
-    apply([add(path("root", "user", "rowkey"), data.rowkey)], false);
+    if (data.rowkey) {
+      const { path, apply } = window.GlobalStore;
+      apply([add(path("root", "user", "rowkey"), data.rowkey)], false);
+    }
   }
 );
 
 new push(); // Registra para recibir notificaciones push
 
-let gcom = new GlobalComunicator();
-gcom.connect();
+//let gcom = new GlobalComunicator();
+//gcom.connect();
 //gcom.storeTest();
 //gcom.storeTest();
 

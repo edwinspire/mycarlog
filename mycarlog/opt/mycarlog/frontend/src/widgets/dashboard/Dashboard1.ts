@@ -11,11 +11,11 @@ export default class MyWidget extends WidgetBase  {
 	private GeoLocalizacion = {coords: {latitude: 0, longitude: 0, speed: 0 as any} };
 	private kmh = 0;
 	private Altitud = 0;
-	private ws = window.GlobalSocketIO;
+	//private ws = window.GlobalSocketIO;
 	private open = false;
 
 	protected render(){
-
+/*
 		this.ws.on('hora', (data: any)=> {
 			//console.log('Hora: ', data);
 			//socket.emit('my other event', { my: 'data' });
@@ -26,7 +26,7 @@ export default class MyWidget extends WidgetBase  {
 		this.ws.on('/dashboard/geolocation', (data: any)=> {
 			console.log('Path: ', data);
 		});
-
+*/
 		if (navigator.geolocation) {
 
 			navigator.geolocation.watchPosition((pos)=>{
