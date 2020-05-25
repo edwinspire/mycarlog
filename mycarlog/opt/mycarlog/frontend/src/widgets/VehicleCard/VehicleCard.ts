@@ -68,6 +68,24 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                     ],
                     true
                   );
+
+                  apply(
+                    [
+                      add(
+                        path(
+                          "root",
+                          "user",
+                          "preferences",
+                          "last_vehicle_selected",
+                          "label"
+                        ),
+                        this.Data.name ||
+                          this.Data.license_plate + " - " + this.Data.vin
+                      ),
+                    ],
+                    true
+                  );
+
                   console.log("Se ha presionado", this.Data);
                   window.location.href = "/#home";
                   //this.invalidate();

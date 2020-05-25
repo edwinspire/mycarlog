@@ -7,6 +7,39 @@ import Icon from "./Icon/Icon";
 const factory = create();
 
 export default factory(function Menu() {
+  var Title =
+    window.GlobalStore.get(
+      window.GlobalStore.path(
+        "root",
+        "user",
+        "preferences",
+        "last_vehicle_selected",
+        "label"
+      )
+    ) || "May Car Log";
+
+  window.GlobalStore.onChange(
+    window.GlobalStore.path(
+      "root",
+      "user",
+      "preferences",
+      "last_vehicle_selected",
+      "label"
+    ),
+    () => {
+      Title = window.GlobalStore.get(
+        window.GlobalStore.path(
+          "root",
+          "user",
+          "preferences",
+          "last_vehicle_selected",
+          "label"
+        )
+      );
+      console.log("El Título ha cambiado", Title);
+    }
+  );
+
   let m = [
     w(
       Link,
@@ -93,5 +126,5 @@ export default factory(function Menu() {
       ]
     ),
   ];
-  return w(Toolbar, { heading: "Car Log", collapseWidth: 500 }, m);
+  return w(Toolbar, { heading: Title, collapseWidth: 500 }, m);
 });
