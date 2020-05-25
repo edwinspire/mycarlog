@@ -20,7 +20,7 @@ export default class VehicleSummary extends WidgetBase<
     account: "",
     date_start: "",
     date_end: "",
-    idvehicle: "",
+    idvehicle: 0,
     license_plate: "",
     year: "",
     color: "",
@@ -62,6 +62,7 @@ export default class VehicleSummary extends WidgetBase<
   }
 
   async onAttach() {
+    this.Params.idvehicle = this.properties.idvehicle;
     console.log(this.properties.idvehicle);
 
     let idaccount = window.GlobalStore.get(
@@ -69,12 +70,15 @@ export default class VehicleSummary extends WidgetBase<
     );
     this.Params.idaccount = idaccount;
 
-    if (this.properties.idvehicle) {
+    if (this.properties.idvehicle > 0) {
       var url = "/vehicle_summary";
 
       const res = await fetch(url, {
         method: "POST",
-        body: JSON.stringify(this.Params),
+        body: JSON.stringify({
+          idaccount: this.Params.idaccount,
+          idvehicle: this.Params.idvehicle,
+        }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -88,6 +92,9 @@ export default class VehicleSummary extends WidgetBase<
         this.SnackBar("No se ha encontrado datos");
       }
       //console.log(data);
+    } else {
+      this.SnackBar("Debe seleccionar un vehículo");
+      window.location.href = "/#vehicle_cards";
     }
   }
 
