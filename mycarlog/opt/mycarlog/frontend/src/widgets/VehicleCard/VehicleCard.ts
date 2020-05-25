@@ -69,7 +69,8 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
                     true
                   );
                   console.log("Se ha presionado", this.Data);
-                  this.invalidate();
+                  window.location.href = "/#home";
+                  //this.invalidate();
                 },
               },
               [

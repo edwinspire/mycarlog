@@ -67,6 +67,10 @@ window.GlobalStore.onChange(
     if (data.rowkey) {
       const { path, apply } = window.GlobalStore;
       apply([add(path("root", "user", "rowkey"), data.rowkey)], false);
+      localStorage.setItem(
+        "mycarlog",
+        JSON.stringify(window.GlobalStore.get(window.GlobalStore.path("root")))
+      );
     }
   }
 );

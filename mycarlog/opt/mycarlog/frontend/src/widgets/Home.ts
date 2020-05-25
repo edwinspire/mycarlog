@@ -7,6 +7,6 @@ const factory = create();
 export default factory(function Profile() {
 	return  v('div', {}, [
 		w(Menu, {}),
-		w(Summary, {idvehicle: localStorage.getItem("1") as string}, [])
+		w(Summary, {idvehicle: window.GlobalStore.get(window.GlobalStore.path("root", "user", "preferences", "last_vehicle_selected", "idvehicle"))}, [])
 		]) ;
 });
