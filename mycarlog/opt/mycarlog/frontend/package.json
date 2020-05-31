@@ -1,5 +1,5 @@
 {
-  "name": "OpenMonitoringSystem",
+  "name": "MyCarLog",
   "version": "2.0.0",
   "scripts": {
     "dev": "dojo build --mode dev --watch --serve",
@@ -11,8 +11,10 @@
     "test:all": "dojo build --mode unit && dojo build --mode functional && dojo test --all --config local"
   },
   "dependencies": {
+    "@dojo/cli-build-widget": "^6.0.2",
     "@dojo/framework": "*",
     "@dojo/themes": "*",
+    "@dojo/webpack-contrib": "^6.0.5",
     "@dojo/widgets": "*",
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@types/socket.io-client": "^1.4.32",
@@ -28,6 +30,6 @@
     "@dojo/cli-create-theme": "^6.0.0",
     "@dojo/cli-test-intern": "*",
     "@types/node": "~13.9.0",
-    "typescript": "~3.8.3"
+    "typescript": "^3.4.5"
   }
 }

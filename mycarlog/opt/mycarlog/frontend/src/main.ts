@@ -10,7 +10,7 @@ import { Store } from "@dojo/framework/stores/Store";
 import { add } from "@dojo/framework/stores/state/operations";
 
 const NoSleep = require("nosleep.js");
-require("@fortawesome/fontawesome-free/css/all.css");
+import "@fortawesome/fontawesome-free/css/all.css";
 
 export interface StateStore {
   root: {
