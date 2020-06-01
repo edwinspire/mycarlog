@@ -100,7 +100,7 @@ export default class Fueling extends WidgetBase<FuelingProperties> {
     console.log(this.Params);
 
     if (this.Params.odometer > 0 && Number(this.Params.idvehicle) > 0) {
-      fetch("/fueling", {
+      fetch("/fueling_cu", {
         method: "POST",
         body: JSON.stringify(this.Params),
         headers: {
