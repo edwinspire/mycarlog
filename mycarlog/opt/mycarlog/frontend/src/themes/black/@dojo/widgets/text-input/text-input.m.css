@@ -3,9 +3,10 @@
 	width: 100%;
 	margin: 0;
 	/* font-size: initial!important; */
+	font-size: var(--font-size-base);
 	height: calc(var(--line-height-base) + 2 * var(--grid-base) + 2 * var(--border-width)); /* for IE 11 */
 	line-height: var(--line-height-base);
-	padding: var(--grid-base);
+	padding: calc(var(--grid-base) * 2);
 	box-sizing: border-box;
 	border-radius: var(--border-radius);
 	border-style: solid;
@@ -16,7 +17,7 @@
 
 .root {
 	display: block;
-	font-size: var(--font-size-base);
+	/* font-size: var(--font-size-base); */
 	line-height: var(--line-height-base);
 	box-sizing: border-box;
 }

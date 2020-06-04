@@ -1,12 +1,15 @@
 .root, .root * { box-sizing: border-box; }
 
+
+
 .root {
-    margin-top: 3px;
+	/* margin-top: 3px; */
+	/* font-size: var(--font-size-base); */
 }
 
 .inputWrapper {
 	position: relative;
-	margin-top: 2px;
+	/* margin-top: 2px; */
 }
 
 .inputWrapper option {
@@ -124,7 +127,7 @@
 	pointer-events: none;
 	position: absolute;
 	right: 0;
-	top: 0;
+	top: -4px;
 }
 /*.arrow::after {
  content: "\e313";

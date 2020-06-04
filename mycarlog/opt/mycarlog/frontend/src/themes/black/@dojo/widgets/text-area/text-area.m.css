@@ -11,11 +11,16 @@
 
 .root {
 	display: block;
-	font-size: var(--font-size-base);
+	/* font-size: var(--font-size-base); */
 	line-height: var(--line-height-base);
 }
 
+.root textarea{
+	font-size: var(--font-size-base);	
+}
+
 .input {
+	font-size: var(--font-size-base);
 	color: var(--color-text-primary);
 	width: -webkit-fill-available;
 	border: var(--border-width) solid var(--color-border);

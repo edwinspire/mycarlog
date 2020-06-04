@@ -9,3 +9,5 @@ export const column2: string;
 export const column2_center_checkbox: string;
 export const column3: string;
 export const row: string;
+export const grid2: string;
+export const grid3: string;

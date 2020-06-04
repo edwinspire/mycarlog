@@ -7,8 +7,10 @@ body {
 }
 
 * {
+	--grid-base: 2px;
+	--font-size-base: .80em;
 	--line-height-base: 24px;
-	--font-size-title: 1em;
+	--font-size-title: 0.90em;
 	--color-text-faded: white;
 	--color-text-primary: white;
 	--color-highlight: floralwhite;

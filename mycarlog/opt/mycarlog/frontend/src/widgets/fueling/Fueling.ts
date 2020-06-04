@@ -96,26 +96,31 @@ export default class Fueling extends WidgetBase<FuelingProperties> {
     }
   }
 
-  private Save() {
+  private async Save() {
     console.log(this.Params);
 
     if (this.Params.odometer > 0 && Number(this.Params.idvehicle) > 0) {
-      fetch("/fueling_cu", {
-        method: "POST",
-        body: JSON.stringify(this.Params),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then((response) => {
-        response.json().then((data) => {
-          if (data.save) {
-            window.location.href = "/#fuelinglog";
-          } else {
-            this.SnackBar("No se pudo guardar");
-            this.invalidate();
-          }
+      try {
+        let resp = await fetch("/fueling_cu", {
+          method: "POST",
+          body: JSON.stringify(this.Params),
+          headers: {
+            "Content-Type": "application/json",
+          },
         });
-      });
+
+        let data = await resp.json();
+
+        if (data.idfueling && data.idfueling > 0) {
+          window.location.href = "/#fuelinglog";
+        } else {
+          this.SnackBar("No se pudo guardar");
+          this.invalidate();
+        }
+      } catch (err) {
+        this.SnackBar("No se pudo guardar");
+        this.invalidate();
+      }
     } else {
       this.SnackBar("Complete los campos requerido");
     }
@@ -208,220 +213,191 @@ export default class Fueling extends WidgetBase<FuelingProperties> {
           },
         }),
       ]),
-      v("div", { classes: css.row }, [
-        v("div", { classes: [css.column2] }, [
-          w(TextInput, {
-            type: "text",
-            label: "Odómetro (Km)",
-            disabled: false,
-            readOnly: false,
-            required: true,
-            value: this.Params.odometer as any,
-            onChange: (d) => {
-              this.Params.odometer = Number(d);
-              this.invalidate();
-            },
-          }),
-        ]),
-        v("div", { classes: css.column2_center_checkbox }, [
-          w(Checkbox, {
-            checked: this.Params.full_tank,
-            aria: { describedBy: "Tanque lleno" },
-            label: "Tanque lleno",
-            //mode: Mode.toggle,
-            name: "full_tank",
-            onLabel: "Si",
-            offLabel: "No",
-            onChange: (value: string, checked: boolean) => {
-              this.Params.full_tank = checked;
-              console.log(this.Params.full_tank);
-              this.invalidate();
-            },
-          }),
-        ]),
-      ]),
-      v("div", { classes: css.row }, [
-        v("div", { classes: [css.column2] }, [
-          w(TextInput, {
-            type: "text",
-            label: "Cantidad",
-            disabled: false,
-            readOnly: false,
-            required: true,
-            value: this.Params.quantity as any,
-            onChange: (d) => {
-              this.Params.quantity = Number(d);
-              this.invalidate();
-            },
-          }),
-        ]),
-        v("div", { classes: [css.column2] }, [
-          w(SelectFromURL, {
-            label: "Tipo Combustible",
-            value: this.Params.idfueltype,
-            url: "/toselect/fueltypes",
-            onSelect: (label, value, disabled) => {
-              console.log("onSelect", label, value, disabled);
-              this.Params.idfueltype = value;
-            },
-          }),
-        ]),
-      ]),
-      v("div", { classes: css.row }, [
-        v("div", { classes: [css.column2] }, [
-          w(TextInput, {
-            type: "number",
-            label: "Precio x Unidad",
-            disabled: false,
-            readOnly: false,
-            value: this.Params.price_by_unit as any,
-            onChange: (v) => {
-              this.Params.price_by_unit = v as string;
-              this.invalidate();
-            },
-          }),
-        ]),
-        v("div", { classes: [css.column2] }, [
-          w(TextInput, {
-            type: "number",
-            label: "Costo Total",
-            disabled: false,
-            readOnly: false,
-            value: this.Params.total as any,
-            onChange: (v) => {
-              this.Params.total = Number(v);
-              this.invalidate();
-            },
-          }),
-        ]),
-      ]),
-      v("div", { classes: css.row }, [
-        v("div", { classes: [css.column2] }, [
-          w(TextInput, {
-            type: "date",
-            label: "Fecha",
-            disabled: false,
-            readOnly: false,
-            required: true,
-            placeholder: "Fecha",
-            value: this.Params.date_reg,
-            onChange: (d) => {
-              this.Params.date_reg = d as string;
-              this.invalidate();
-            },
-          }),
-        ]),
-        v("div", { classes: [css.column2] }, [
-          w(TextInput, {
-            type: "text",
-            label: "Hora",
-            disabled: false,
-            readOnly: false,
-            required: true,
-            placeholder: "Hora",
-            value: this.Params.date_reg,
-            onChange: (d) => {
-              this.Params.date_reg = d as string;
-              this.invalidate();
-            },
-          }),
-        ]),
-      ]),
-      v("div", { classes: css.field_one_line }, [
-        w(
-          TitlePane,
-          {
-            title: "Punto de abastecimiento",
-            open: this._openAddress,
-            onRequestOpen: () => {
-              this._openAddress = true;
-              this.getLocation();
-              console.log("Abrió pane");
-            },
-            onRequestClose: () => {
-              this._openAddress = false;
-              console.log("Cerró pane");
-            },
-          },
-          [
-            v("div", { classes: css.row }, [
-              v("div", { classes: [css.column2] }, [
-                w(TextInput, {
-                  type: "number",
-                  label: "Coordenada X",
-                  disabled: false,
-                  readOnly: false,
-                  value: this.Params.geox as any,
-                  onChange: (v) => {
-                    this.Params.geox = v as number;
-                    this.invalidate();
-                  },
-                }),
-              ]),
-              v("div", { classes: [css.column2] }, [
-                w(TextInput, {
-                  type: "number",
-                  label: "Coordenada Y",
-                  disabled: false,
-                  readOnly: false,
-                  value: this.Params.geoy as any,
-                  onChange: (v) => {
-                    this.Params.geoy = v as number;
-                    this.invalidate();
-                  },
-                }),
-              ]),
-              v("div", { classes: [css.field_one_line] }, [
-                w(Textarea, {
-                  columns: 40,
-                  rows: 5,
-                  placeholder: "Dirección",
-                  label: "Dirección",
-                  key: "text-area",
-                  value: this.Params.address,
-                  onInput: (value: string) => {
-                    this.Params.address = value;
-                    this.invalidate();
-                  },
-                }),
-              ]),
-            ]),
-          ]
-        ),
-      ]),
-      v("div", { classes: css.row }, [
-        v("div", { classes: css.column2_center_checkbox }, [
-          w(Checkbox, {
-            checked: this.Params.last_lost,
-            aria: { describedBy: "Última recarga perdida" },
-            label: "Última recarga perdida",
-            //mode: Mode.toggle,
-            name: "last_lost",
-            onLabel: "Si",
-            offLabel: "No",
-            onChange: (value: string, checked: boolean) => {
-              this.Params.last_lost = checked;
-              console.log(this.Params.last_lost);
-              this.invalidate();
-            },
-          }),
-        ]),
-        v("div", { classes: css.column2 }, []),
-      ]),
-      v("div", { classes: [css.field_one_line] }, [
-        w(Textarea, {
-          columns: 40,
-          rows: 5,
-          placeholder: "Notas",
-          label: "Notas",
-          key: "text-area",
-          value: this.Params.note,
-          onInput: (value: string) => {
-            this.Params.note = value;
+      v("div", { classes: css.grid3 }, [
+        w(TextInput, {
+          type: "text",
+          label: "Odómetro (Km)",
+          disabled: false,
+          readOnly: false,
+          required: true,
+          value: this.Params.odometer as any,
+          onChange: (d) => {
+            this.Params.odometer = Number(d);
             this.invalidate();
           },
         }),
+        w(Checkbox, {
+          checked: this.Params.full_tank,
+          aria: { describedBy: "Tanque lleno" },
+          label: "Tanque lleno",
+          //mode: Mode.toggle,
+          name: "full_tank",
+          onLabel: "Si",
+          offLabel: "No",
+          onChange: (value: string, checked: boolean) => {
+            this.Params.full_tank = checked;
+            console.log(this.Params.full_tank);
+            this.invalidate();
+          },
+        }),
+        w(TextInput, {
+          type: "text",
+          label: "Cantidad",
+          disabled: false,
+          readOnly: false,
+          required: true,
+          value: this.Params.quantity as any,
+          onChange: (d) => {
+            this.Params.quantity = Number(d);
+            this.invalidate();
+          },
+        }),
+        w(SelectFromURL, {
+          label: "Tipo Combustible",
+          value: this.Params.idfueltype,
+          url: "/toselect/fueltypes",
+          onSelect: (label, value, disabled) => {
+            console.log("onSelect", label, value, disabled);
+            this.Params.idfueltype = value;
+          },
+        }),
+        w(TextInput, {
+          type: "number",
+          label: "Precio x Unidad",
+          disabled: false,
+          readOnly: false,
+          value: this.Params.price_by_unit as any,
+          onChange: (v) => {
+            this.Params.price_by_unit = v as string;
+            this.invalidate();
+          },
+        }),
+        w(TextInput, {
+          type: "number",
+          label: "Costo Total",
+          disabled: false,
+          readOnly: false,
+          value: this.Params.total as any,
+          onChange: (v) => {
+            this.Params.total = Number(v);
+            this.invalidate();
+          },
+        }),
+        w(TextInput, {
+          type: "date",
+          label: "Fecha",
+          disabled: false,
+          readOnly: false,
+          required: true,
+          placeholder: "Fecha",
+          value: this.Params.date_reg,
+          onChange: (d) => {
+            this.Params.date_reg = d as string;
+            this.invalidate();
+          },
+        }),
+        w(Checkbox, {
+          checked: this.Params.last_lost,
+          aria: { describedBy: "Última recarga perdida" },
+          label: "Última recarga perdida",
+          //mode: Mode.toggle,
+          name: "last_lost",
+          onLabel: "Si",
+          offLabel: "No",
+          onChange: (value: string, checked: boolean) => {
+            this.Params.last_lost = checked;
+            console.log(this.Params.last_lost);
+            this.invalidate();
+          },
+        }),
+        w(TextInput, {
+          type: "text",
+          label: "Hora",
+          disabled: false,
+          readOnly: false,
+          required: true,
+          placeholder: "Hora",
+          value: this.Params.date_reg,
+          onChange: (d) => {
+            this.Params.date_reg = d as string;
+            this.invalidate();
+          },
+        }),
+        v("div", { styles: { gridColumnEnd: "span 3" } }, [
+          w(
+            TitlePane,
+            {
+              title: "Punto de abastecimiento",
+              open: this._openAddress,
+              onRequestOpen: () => {
+                this._openAddress = true;
+                this.getLocation();
+                console.log("Abrió pane");
+              },
+              onRequestClose: () => {
+                this._openAddress = false;
+                console.log("Cerró pane");
+              },
+            },
+            [
+              v("div", {}, [
+                v("div", { classes: 'css.grid2 '}, [
+                  w(TextInput, {
+                    type: "number",
+                    label: "Coordenada Y",
+                    disabled: false,
+                    readOnly: false,
+                    value: this.Params.geoy as any,
+                    onChange: (v) => {
+                      this.Params.geoy = v as number;
+                      this.invalidate();
+                    },
+                  }),
+                  w(TextInput, {
+                    type: "number",
+                    label: "Coordenada X",
+                    disabled: false,
+                    readOnly: false,
+                    value: this.Params.geox as any,
+                    onChange: (v) => {
+                      this.Params.geox = v as number;
+                      this.invalidate();
+                    },
+                  }),
+                  v("div", { styles: { gridColumnEnd: "span 2" } }, [
+                    w(Textarea, {
+                      columns: 40,
+                      rows: 3,
+                      placeholder: "Dirección",
+                      label: "Dirección",
+                      value: this.Params.address,
+                      onInput: (value: string) => {
+                        this.Params.address = value;
+                        this.invalidate();
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+            ]
+          ),
+        ]),
+        v("div", { classes: [], styles: { gridColumnEnd: "span 3" } }, [
+          w(Textarea, {
+            columns: 40,
+            rows: 5,
+            placeholder: "Notas",
+            label: "Notas",
+            key: "text-area",
+            value: this.Params.note,
+            onInput: (value: string) => {
+              this.Params.note = value;
+              this.invalidate();
+            },
+          }),
+        ]),
       ]),
+
       //			w(SBar, {open: this._openSnackMsgValideFields, leading: false, type: 'error', messageRenderer: () => 'Complete los campos requeridos'}),
       //			w(SBar, {open: this._openSnackMsgGPSError, leading: false, type: 'error', messageRenderer: () => 'No se pudo obtener las coordenadas'}),
       //			w(SBar, {open: this._openSnackMsgSaveError, leading: false, type: 'error', messageRenderer: () => 'No se pudo guardar, revise la conexión'}),
