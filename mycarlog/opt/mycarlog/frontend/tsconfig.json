@@ -2,13 +2,11 @@
 	"compilerOptions": {
 		"declaration": false,
 		"experimentalDecorators": true,
-		"esModuleInterop": true,
 		"jsx": "react",
 		"jsxFactory": "tsx",
 		"lib": [
 			"dom",
 			"es5",
-			"es6",
 			"es2015.promise",
 			"es2015.iterable",
 			"es2015.symbol",
@@ -17,19 +15,18 @@
 		"module": "umd",
 		"moduleResolution": "node",
 		"noUnusedLocals": true,
-		"outDir": "pwa/",
-		"removeComments": true,
+		"outDir": "_build/",
+		"removeComments": false,
 		"importHelpers": true,
 		"downlevelIteration": true,
 		"sourceMap": true,
 		"strict": true,
-		"target": "es2015",
+		"target": "es5",
 		"types": [ "intern" ]
 	},
 	"include": [
 		"./src/**/*.ts",
-		"./src/**/*.tsx",
-		"./tests/**/*.ts",
-		"./tests/**/*.tsx"
+		"./tests/**/*.ts"
 	]
 }
+
