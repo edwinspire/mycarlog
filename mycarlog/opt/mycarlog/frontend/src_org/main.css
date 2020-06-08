@@ -5,7 +5,7 @@ body {
 	/* font-family: Arial, Helvetica, sans-serif!important; */
 	/*font-family: "Times New Roman", Times, serif;*/
 }
-
+/* 
 * {
 	--grid-base: 2px;
 	--font-size-base: .80em;
@@ -21,11 +21,11 @@ body {
 	--border-radius: 4px;
 	--font-size-title: 1.1em;
 	--on-focus-input: honeydew;
-	/* font-size: 0.98em!important; */
-	--background_menu1: #182848;  /* fallback for old browsers */
-	--background_menu2: -webkit-linear-gradient(to top, #4b6cb7, #182848);  /* Chrome 10-25, Safari 5.1-6 */
-	--background_menu3: linear-gradient(to top, #4b6cb7, #182848); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	
+	--background_menu1: #182848; 
+	--background_menu2: -webkit-linear-gradient(to top, #4b6cb7, #182848); 
+	--background_menu3: linear-gradient(to top, #4b6cb7, #182848); 
 }
-
+ */
 
 
