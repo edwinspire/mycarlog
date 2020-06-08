@@ -52,11 +52,11 @@ self.__precacheManifest = [
     "url": "src/widgets/AccountActivation/AccountActivation.85120afa73afe35a358c.bundle.js"
   },
   {
-    "revision": "da9c201f7a2a20e722a5",
+    "revision": "89ba3ac2da4264c3ac1f",
     "url": "src/widgets/Home.158b0b132cc1113a957e.bundle.css"
   },
   {
-    "url": "src/widgets/Home.da9c201f7a2a20e722a5.bundle.js"
+    "url": "src/widgets/Home.89ba3ac2da4264c3ac1f.bundle.js"
   },
   {
     "revision": "ea61617a6c9c01671e66",
@@ -80,11 +80,11 @@ self.__precacheManifest = [
     "url": "src/widgets/Register/Register.3fff8c07145198c8d4cb.bundle.js"
   },
   {
-    "revision": "ee894a1daabc82d569e8",
+    "revision": "6f76c0ebf14b1e4771b5",
     "url": "src/widgets/VehicleCards/VehicleCards.7f5e4fd1c5d3cdea944a.bundle.css"
   },
   {
-    "url": "src/widgets/VehicleCards/VehicleCards.ee894a1daabc82d569e8.bundle.js"
+    "url": "src/widgets/VehicleCards/VehicleCards.6f76c0ebf14b1e4771b5.bundle.js"
   },
   {
     "url": "icon_48x48.f09d828f7dd9896e985e794524da9cb4.png"
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "5a9b0fb9d5adef129c8151e871d0a336",
+    "revision": "ad2c9d67b9b670007292931bc05c7d00",
     "url": "index.html"
   },
   {
@@ -186,10 +186,10 @@ self.__precacheManifest = [
     "url": "icon_144x144.ad137bff6e774fa1c00d0f9d5520cde6.png"
   },
   {
-    "url": "bootstrap.bcbc12abc9a4af34b179.bundle.js"
+    "url": "bootstrap.b1c9681550709c05e497.bundle.js"
   },
   {
-    "revision": "bcbc12abc9a4af34b179",
+    "revision": "b1c9681550709c05e497",
     "url": "bootstrap.a17eb493894ffb8ce3e1.bundle.css"
   },
   {
