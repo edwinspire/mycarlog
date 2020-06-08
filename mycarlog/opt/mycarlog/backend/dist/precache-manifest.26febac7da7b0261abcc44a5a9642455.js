@@ -7,11 +7,11 @@ self.__precacheManifest = [
     "url": "icon_36x36.ed1d92e026be1300d6ccc6ce46986423.png"
   },
   {
-    "revision": "8c64646465fa7a0224ca",
+    "revision": "456a1b38b2fd1aa93223",
     "url": "main.f872324c5e59d48ba293.bundle.css"
   },
   {
-    "url": "main.8c64646465fa7a0224ca.bundle.js"
+    "url": "main.456a1b38b2fd1aa93223.bundle.js"
   },
   {
     "url": "runtime/IntersectionObserver.e971697ec10be51b2787.bundle.js"
@@ -38,53 +38,53 @@ self.__precacheManifest = [
     "url": "runtime/pointerEvents.746d91cf8ab5a479142d.bundle.js"
   },
   {
-    "revision": "f1a655c5bf5c63e7b259",
+    "revision": "251746b9221d262a1681",
     "url": "src/widgets/About.0b09a6a039fb2db1de9e.bundle.css"
   },
   {
-    "url": "src/widgets/About.f1a655c5bf5c63e7b259.bundle.js"
+    "url": "src/widgets/About.251746b9221d262a1681.bundle.js"
   },
   {
-    "revision": "85120afa73afe35a358c",
+    "revision": "f53904dc6e5c018cde95",
     "url": "src/widgets/AccountActivation/AccountActivation.10f9f1bee1894827e920.bundle.css"
   },
   {
-    "url": "src/widgets/AccountActivation/AccountActivation.85120afa73afe35a358c.bundle.js"
+    "url": "src/widgets/AccountActivation/AccountActivation.f53904dc6e5c018cde95.bundle.js"
   },
   {
-    "revision": "89ba3ac2da4264c3ac1f",
-    "url": "src/widgets/Home.158b0b132cc1113a957e.bundle.css"
+    "revision": "49bc0430155fc72b76d0",
+    "url": "src/widgets/Home.88ea8314221e991feac0.bundle.css"
   },
   {
-    "url": "src/widgets/Home.89ba3ac2da4264c3ac1f.bundle.js"
+    "url": "src/widgets/Home.49bc0430155fc72b76d0.bundle.js"
   },
   {
-    "revision": "ea61617a6c9c01671e66",
+    "revision": "6de27d04e512c2233ea3",
     "url": "src/widgets/Login/Login.53f8c37e144faaca8b7f.bundle.css"
   },
   {
-    "url": "src/widgets/Login/Login.ea61617a6c9c01671e66.bundle.js"
+    "url": "src/widgets/Login/Login.6de27d04e512c2233ea3.bundle.js"
   },
   {
-    "revision": "69ba6453e1c2c41dcec6",
-    "url": "src/widgets/Profile.a9226ffc0b97366013cf.bundle.css"
+    "revision": "3ad6399b336d43222006",
+    "url": "src/widgets/Profile.3642a0db4c45e856f723.bundle.css"
   },
   {
-    "url": "src/widgets/Profile.69ba6453e1c2c41dcec6.bundle.js"
+    "url": "src/widgets/Profile.3ad6399b336d43222006.bundle.js"
   },
   {
-    "revision": "3fff8c07145198c8d4cb",
+    "revision": "209d405d252409437764",
     "url": "src/widgets/Register/Register.def6d280385934e7cb7d.bundle.css"
   },
   {
-    "url": "src/widgets/Register/Register.3fff8c07145198c8d4cb.bundle.js"
+    "url": "src/widgets/Register/Register.209d405d252409437764.bundle.js"
   },
   {
-    "revision": "6f76c0ebf14b1e4771b5",
-    "url": "src/widgets/VehicleCards/VehicleCards.7f5e4fd1c5d3cdea944a.bundle.css"
+    "revision": "24669a78df62dd046d72",
+    "url": "src/widgets/VehicleCards/VehicleCards.41cfb985433a9c0fdb59.bundle.css"
   },
   {
-    "url": "src/widgets/VehicleCards/VehicleCards.6f76c0ebf14b1e4771b5.bundle.js"
+    "url": "src/widgets/VehicleCards/VehicleCards.24669a78df62dd046d72.bundle.js"
   },
   {
     "url": "icon_48x48.f09d828f7dd9896e985e794524da9cb4.png"
@@ -96,7 +96,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "ad2c9d67b9b670007292931bc05c7d00",
+    "revision": "3965783bbc5b0437d1a97af6cfa6a427",
     "url": "index.html"
   },
   {
@@ -186,11 +186,11 @@ self.__precacheManifest = [
     "url": "icon_144x144.ad137bff6e774fa1c00d0f9d5520cde6.png"
   },
   {
-    "url": "bootstrap.b1c9681550709c05e497.bundle.js"
+    "revision": "6cf20aebce33a383f52c",
+    "url": "bootstrap.eb37b4205ca0905f50f1.bundle.css"
   },
   {
-    "revision": "b1c9681550709c05e497",
-    "url": "bootstrap.a17eb493894ffb8ce3e1.bundle.css"
+    "url": "bootstrap.6cf20aebce33a383f52c.bundle.js"
   },
   {
     "revision": "496e6b4603d321cead729ab1e2e09857",

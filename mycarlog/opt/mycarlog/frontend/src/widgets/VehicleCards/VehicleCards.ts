@@ -2,6 +2,7 @@ import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
 import TextInput from "@dojo/widgets/text-input";
 import Menu from ".././Menu/Menu";
+import ToolBar from ".././ToolBar/ToolBar";
 import CardVehicle from ".././VehicleCard/VehicleCard";
 //import { toggleSwitch } from '@dojo/themes/dojo/checkbox.m.css';
 //import { add } from "@dojo/framework/stores/state/operations";
@@ -62,6 +63,7 @@ export default class SelectVehicle extends WidgetBase {
   protected render() {
     return v("div", {}, [
       w(Menu, {}),
+      w(ToolBar, {}),
       w(
         TextInput,
         {

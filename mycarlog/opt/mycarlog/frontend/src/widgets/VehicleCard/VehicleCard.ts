@@ -2,6 +2,7 @@ import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
 import * as css from "./VehicleCard.m.css";
 import Card from '@dojo/widgets/header-card';
+import TextInput from '@dojo/widgets/text-input';
 import Avatar from '@dojo/widgets/avatar';
 //import Icon from ".././Icon/Icon";
 import watch from "@dojo/framework/core/decorators/watch";
@@ -86,14 +87,16 @@ export default class VehicleCard extends WidgetBase<VehicleCardProperties> {
       //this.invalidate();
     }
    }, [
-          w(Card, {title: 'Titulo'}, 
+          w(Card, {title: (this.properties.name||this.properties.license_plate), subtitle: this.properties.mark}, 
           [{
-            avatar: w(Avatar, {}, ['HolaCar']), 
+            avatar: w(Avatar, {}, [v('i', {classes: ['far fa-car']})]), 
             content: [
-              v("div", {}, [
-                v("span", { classes: [css.label] }, ["VIN: "]),
-                v("span", {}, [this.Data.vin]),
-              ])
+              w(TextInput, {initialValue: this.properties.lfname}, [{label: 'Propietario'}]),
+              w(TextInput, {initialValue: this.properties.model}, [{label: 'Modelo'}]),
+              w(TextInput, {initialValue: this.properties.year}, [{label: 'Año'}]),
+              w(TextInput, {initialValue: this.properties.vin}, [{label: 'VIN'}]),
+              w(TextInput, {initialValue: this.properties.fuel_tank_capacity}, [{label: 'Capacidad', trailing: v('Addon', {}, [this.properties.unit_measure_fuel_tank])}]),
+              w(TextInput, {initialValue: this.properties.fuel_tank_capacity}, [{label: 'Capacidad', trailing: this.properties.unit_measure_fuel_tank}])
             ]}
           ])
       ]

@@ -9,7 +9,7 @@ import * as css from "./Menu.m.css";
 const factory = create({ icache });
 
 export default factory(function Menu({ middleware: { icache } }) {
-  const open_menu = icache.getOrSet("open", true);
+  const open_menu = icache.getOrSet("open", false);
 
   return v("div", {}, [
     w(
@@ -96,42 +96,8 @@ export default factory(function Menu({ middleware: { icache } }) {
           [w(Icon, { type: "barsIcon" })]
         ),
         actions: v("virtual", [
-          w(
-            Link,
-            {
-              to: "home",
-              classes: [css.link],
-              activeClasses: [css.selected],
-            },
-            ["Home"]
-          ),
-          w(
-            Link,
-            {
-              to: "about",
-              classes: [css.link],
-              activeClasses: [css.selected],
-            },
-            ["About"]
-          ),
-          w(
-            Link,
-            {
-              to: "profile",
-              classes: [css.link],
-              activeClasses: [css.selected],
-            },
-            ["Profile"]
-          ),
-          w(
-            Link,
-            {
-              to: "login",
-              classes: [css.link],
-              activeClasses: [css.selected],
-            },
-            ["Login"]
-          ),
+          v('i', {classes: ['fas fa-gas-pump']}),
+          v('i', {classes: ['fas fa-tools']})
         ]),
       },
     ]),

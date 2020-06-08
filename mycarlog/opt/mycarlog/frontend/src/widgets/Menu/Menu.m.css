@@ -5,6 +5,9 @@
 
 .link_container{
 	text-align: center;
+	padding: .5em;
+    border-bottom-style: solid;
+    border-color: cadetblue;
 }
 
 .link:hover {

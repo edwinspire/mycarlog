@@ -23,7 +23,7 @@ export default factory(function App({ middleware: { theme, icache } }) {
 
   var message = icache.getOrSet("message", "");
   var type = icache.getOrSet("type", undefined);
-  var OpenSnackBar = icache.getOrSet("OpenSnackBar", true);
+  var OpenSnackBar = icache.getOrSet("OpenSnackBar", false);
 
   window.GlobalStore.onChange(
     window.GlobalStore.path("root", "notifications"),
