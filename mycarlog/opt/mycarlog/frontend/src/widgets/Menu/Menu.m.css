@@ -3,8 +3,12 @@
 	overflow: hidden;
 }
 
+.link_container{
+	text-align: center;
+}
+
 .link:hover {
-	color: #ccddee;
+	color: #101c29;
 }
 
 .link {
@@ -13,7 +17,7 @@
 	text-transform: uppercase;
 	text-decoration: none;
 	padding: 18px;
-	color: white;
+	color: rgb(9, 3, 34);
 	box-sizing: border-box;
 }
 
