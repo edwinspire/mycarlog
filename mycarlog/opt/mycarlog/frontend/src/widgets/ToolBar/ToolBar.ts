@@ -2,18 +2,21 @@ import { v } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
 import * as css from "./ToolBar.m.css";
 //import TextInput from "@dojo/widgets/text-input";
-//import watch from "@dojo/framework/core/decorators/watch";
+import watch from "@dojo/framework/core/decorators/watch";
 
-export interface VehicleCardProperties {
-  idvehicle?: number;
+export interface ToolBarProperties {
+  title: string;
+  onSearch?(search: string): void;
 }
 
-export default class ToolBar extends WidgetBase<VehicleCardProperties> {
+export default class ToolBar extends WidgetBase<ToolBarProperties> {
   //private clase = "fa-car-side";
-  //@watch() private Data: VehicleCardProperties = this.properties;
+  @watch() private Data: ToolBarProperties = this.properties;
+  private text_search: string = "";
 
-  onAttach() {}
-
+  onAttach() {
+    console.log(this.properties, this.Data);
+  }
 
   protected render() {
     /*
@@ -29,13 +32,29 @@ export default class ToolBar extends WidgetBase<VehicleCardProperties> {
     */
 
     return v("div", { classes: css.topnav }, [
-      v("a", { classes: [css.active] }, ["Uno"]),
-      v("a", { classes: [] }, ["Dos"]),
-      v("a", { classes: [] }, ["Tres"]),
+      v("a", { classes: [css.active] }, [this.properties.title]),
+      // v("a", { classes: [] }, ["Dos"]),
       v("div", { classes: [css.topnav_right] }, [
-        v("a", { classes: [] }, ["Cuatro"]),
-        v("input", { classes: [] }),
-        v("a", { classes: [] }, ["Buscar"])
+        v("a", { classes: [] }, [v("i", { classes: ["fas fa-save"] })]),
+        v("input", {
+          classes: [],
+          oninput: (e: Event) => {
+            this.text_search = (e.target as HTMLInputElement).value;
+          },
+        }),
+        v("a", { classes: [] }, [
+          v(
+            "span",
+            {
+              onclick: (e: Event) => {
+                console.log("Click en buscar", this.text_search);
+                this.properties.onSearch &&
+                  this.properties.onSearch(this.text_search);
+              },
+            },
+            [v("i", { classes: ["fas fa-search"] })]
+          ),
+        ]),
       ]),
     ]);
   }

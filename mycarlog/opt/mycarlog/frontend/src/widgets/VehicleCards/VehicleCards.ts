@@ -1,18 +1,19 @@
 import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
-import TextInput from "@dojo/widgets/text-input";
+//import TextInput from "@dojo/widgets/text-input";
 import Menu from ".././Menu/Menu";
 import ToolBar from ".././ToolBar/ToolBar";
 import CardVehicle from ".././VehicleCard/VehicleCard";
+//import { searchIcon } from "@dojo/widgets/theme/dojo/icon.m.css";
 //import { toggleSwitch } from '@dojo/themes/dojo/checkbox.m.css';
 //import { add } from "@dojo/framework/stores/state/operations";
 
 export default class SelectVehicle extends WidgetBase {
   private Vehicles = [] as any[];
 
-  private TextSearch: string = "";
+  //private TextSearch: string = "";
 
-  async GetVehicles() {
+  async GetVehicles(text: string) {
     const { path } = window.GlobalStore;
     let idaccount = window.GlobalStore.get(path("root", "user", "idaccount"));
 
@@ -21,7 +22,7 @@ export default class SelectVehicle extends WidgetBase {
         method: "POST",
         body: JSON.stringify({
           idaccount: idaccount,
-          Search: this.TextSearch,
+          Search: text,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -63,8 +64,17 @@ export default class SelectVehicle extends WidgetBase {
   protected render() {
     return v("div", {}, [
       w(Menu, {}),
-      w(ToolBar, {}),
-      w(
+      w(ToolBar, {
+        title: "Vehículos",
+        onSearch: (text) => {
+          console.log(text);
+          this.GetVehicles(text).then(() => {
+            console.log("invalida al terminar de obtener los vehiculos");
+            this.invalidate();
+          });
+        },
+      }),
+     /*  w(
         TextInput,
         {
           value: this.TextSearch,
@@ -79,7 +89,7 @@ export default class SelectVehicle extends WidgetBase {
           },
         },
         [{ label: "Buscar" }]
-      ),
+      ), */
       v("div", {}, this.Vehicles),
     ]);
   }

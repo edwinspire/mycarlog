@@ -5,6 +5,7 @@ import TextInput from "@dojo/widgets/text-input";
 //import Textarea from "@dojo/widgets/text-area";
 //import SBar from "@dojo/widgets/snackbar";
 import watch from "@dojo/framework/core/decorators/watch";
+import ToolBar from ".././ToolBar/ToolBar";
 //import Icon from "../Icon/Icon";
 //import ToolBar from "@dojo/widgets/toolbar";
 
@@ -100,20 +101,9 @@ export default class VehicleSummary extends WidgetBase<
 
   protected render() {
     return v("div", {}, [
-      // w(ToolBar, { heading: this.Params.name, collapseWidth: 150 }, [
-      //   w(Icon, {
-      //     label: "Editar",
-      //     classes: ["fas", "fa-car"],
-      //     ShowLabel: true,
-      //     onClick: (e) => {
-      //       window.location.href =
-      //         "/#vehicle?idvehicle=" +
-      //         this.Params.idvehicle +
-      //         "&rowkey=0&idaccount=" +
-      //         this.Params.idaccount;
-      //     },
-      //   }),
-      // ]),
+      w(ToolBar, { title: this.Params.license_plate }, [
+        
+      ]),
       v("div", { classes: [] }, [
         v("div", { classes: [] }, [
           w(

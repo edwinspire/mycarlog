@@ -1,6 +1,6 @@
 import { create, w, v } from "@dojo/framework/core/vdom";
 import Link from "@dojo/framework/routing/ActiveLink";
-import Icon from "@dojo/widgets/icon";
+//import Icon from "@dojo/widgets/icon";
 import Header from "@dojo/widgets/header";
 import SlidePane from "@dojo/widgets/slide-pane";
 import icache from "@dojo/framework/core/middleware/icache";
@@ -93,7 +93,7 @@ export default factory(function Menu({ middleware: { icache } }) {
               icache.set("open", true);
             },
           },
-          [w(Icon, { type: "barsIcon" })]
+          [v('i', {classes: ['fas fa-bars']})]
         ),
         actions: v("virtual", [
           v('i', {classes: ['fas fa-gas-pump']}),
