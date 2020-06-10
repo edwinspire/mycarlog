@@ -15,6 +15,11 @@ export default [
 		outlet: 'main'
 	},
 	{
+		id: 'vehicle',
+		path: 'vehicle',
+		outlet: 'main'
+	},
+	{
 		id: 'register',
 		path: 'register',
 		outlet: 'main'

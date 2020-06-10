@@ -6,7 +6,7 @@ import ToolBar from ".././ToolBar/ToolBar";
 import CardVehicle from ".././VehicleCard/VehicleCard";
 //import { searchIcon } from "@dojo/widgets/theme/dojo/icon.m.css";
 //import { toggleSwitch } from '@dojo/themes/dojo/checkbox.m.css';
-//import { add } from "@dojo/framework/stores/state/operations";
+import Link from "@dojo/framework/routing/ActiveLink";
 
 export default class SelectVehicle extends WidgetBase {
   private Vehicles = [] as any[];
@@ -66,6 +66,18 @@ export default class SelectVehicle extends WidgetBase {
       w(Menu, {}),
       w(ToolBar, {
         title: "Vehículos",
+        ShowNew: true,
+        ShowSearch: true,
+        customActions: [
+          w(
+            Link,
+            {
+              to: "vehicle",
+              activeClasses: [],
+            },
+            ["NUEVO", v("i", { classes: ["fas fa-car"] })]
+          ),
+        ],
         onSearch: (text) => {
           console.log(text);
           this.GetVehicles(text).then(() => {
@@ -73,8 +85,10 @@ export default class SelectVehicle extends WidgetBase {
             this.invalidate();
           });
         },
+        onNew: () => {},
       }),
-     /*  w(
+
+      /*  w(
         TextInput,
         {
           value: this.TextSearch,

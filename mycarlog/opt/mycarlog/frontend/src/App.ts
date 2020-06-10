@@ -7,6 +7,7 @@ import AccountActivation from "./widgets/AccountActivation/AccountActivation";
 import Login from "./widgets/Login/Login";
 import Register from "./widgets/Register/Register";
 import VehicleCards from "./widgets/VehicleCards/VehicleCards";
+import Vehicle from "./widgets/Vehicle/Vehicle";
 import Home from "./widgets/Home";
 import About from "./widgets/About";
 import Profile from "./widgets/Profile";
@@ -53,7 +54,8 @@ export default factory(function App({ middleware: { theme, icache } }) {
 		about: w(About, {}),
 		login: w(Login, {}),
 		register: w(Register, {}),
-		account_activation: w(AccountActivation, {}),
+    account_activation: w(AccountActivation, {}),
+    vehicle: w(Vehicle, {}),
 		vehicle_cards: w(VehicleCards, {}),
         profile: w(Profile, { username: "Dojo User" }),
       },

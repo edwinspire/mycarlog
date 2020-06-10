@@ -1,6 +1,6 @@
 import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
-//import * as cssProfile from "../styles/Profile.m.css";
+import Link from "@dojo/framework/routing/ActiveLink";
 import TextInput from "@dojo/widgets/text-input";
 //import Textarea from "@dojo/widgets/text-area";
 //import SBar from "@dojo/widgets/snackbar";
@@ -99,9 +99,19 @@ export default class VehicleSummary extends WidgetBase<
     }
   }
 
+
   protected render() {
     return v("div", {}, [
-      w(ToolBar, { title: this.Params.license_plate }, [
+      w(ToolBar, { title: this.Params.license_plate, customActions: [
+        w(
+          Link,
+          {
+            to: "home",
+            activeClasses: []
+          },
+          ["PRUEBA"]
+        )
+      ] }, [
         
       ]),
       v("div", { classes: [] }, [
