@@ -31,6 +31,18 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
 
     console.log(this.properties);
 
+
+    tbActions.push(
+      v("div", { classes: ['select'] }, [
+        v(
+          "select", {    },
+          [v("option", {}, ['Uno']),
+          v("option", {}, ['Dos'])]
+        ),
+      ])
+    );
+
+
     if (this.properties.ShowNew) {
       tbActions.push(
         v("a", { classes: [] }, [
@@ -111,7 +123,7 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
     if (this.properties.ShowSearch) {
       tbActions.push(
         v("input", {
-          classes: [],
+          classes: ['input'],
           oninput: (e: Event) => {
             this.text_search = (e.target as HTMLInputElement).value;
           },
