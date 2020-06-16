@@ -31,7 +31,7 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
 
     console.log(this.properties);
 
-
+    /* 
     tbActions.push(
       v("div", { classes: ['select'] }, [
         v(
@@ -41,7 +41,7 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
         ),
       ])
     );
-
+ */
 
     if (this.properties.ShowNew) {
       tbActions.push(
@@ -123,7 +123,8 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
     if (this.properties.ShowSearch) {
       tbActions.push(
         v("input", {
-          classes: ['input'],
+          placeholder: "Buscar",
+          classes: ["input"],
           oninput: (e: Event) => {
             this.text_search = (e.target as HTMLInputElement).value;
           },
@@ -157,18 +158,6 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
   }
 
   protected render() {
-    /*
-    <div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <div class="topnav-right">
-    <a href="#search">Search</a>
-    <a href="#about">About</a>
-  </div>
-</div>
-    */
-
-    return v("div", { classes: css.topnav }, this.bottoms);
+      return v("div", { classes: css.topnav }, this.bottoms);
   }
 }
