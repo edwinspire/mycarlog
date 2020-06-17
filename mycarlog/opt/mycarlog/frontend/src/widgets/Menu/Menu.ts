@@ -75,6 +75,22 @@ export default factory(function Menu({ middleware: { icache } }) {
             ]),
           ]),
         ]),
+        v("a", { classes: ["navbar-item"] }, [
+          v("div", { classes: ["tags has-addons"] }, [
+            v("span", { classes: ["tag"] }, ["9"]), 
+            v("span", { classes: ["tag is-warning"] }, [
+              v("i", { classes: ["fas fa-gas-pump"] }),
+            ]),
+          ]),
+        ]),
+        v("a", { classes: ["navbar-item"] }, [
+          v("div", { classes: ["tags has-addons"] }, [
+            v("span", { classes: ["tag"] }, ["7"]), 
+            v("span", { classes: ["tag is-dark"] }, [
+              v("i", { classes: ["fas fa-gas-pump"] }),
+            ]),
+          ]),
+        ]),
         v(
           "a",
           {

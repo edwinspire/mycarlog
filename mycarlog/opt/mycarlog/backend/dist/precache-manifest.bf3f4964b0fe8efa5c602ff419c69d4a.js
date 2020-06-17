@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "url": "src/widgets/VehicleCards/VehicleCards.d5c191ed683156d4feba.bundle.js"
+    "url": "src/widgets/VehicleCards/VehicleCards.50b8831ddd8722122538.bundle.js"
   },
   {
     "url": "icon_36x36.ed1d92e026be1300d6ccc6ce46986423.png"
@@ -51,11 +51,11 @@ self.__precacheManifest = [
     "url": "src/widgets/AccountActivation/AccountActivation.8a82f067e415aa4b2b6f.bundle.js"
   },
   {
-    "revision": "f2c5da043f3a0934ef9f",
+    "revision": "40c4c9dc6e6f006dc4de",
     "url": "src/widgets/Home.5cabd3fbadbb72c20d99.bundle.css"
   },
   {
-    "url": "src/widgets/Home.f2c5da043f3a0934ef9f.bundle.js"
+    "url": "src/widgets/Home.40c4c9dc6e6f006dc4de.bundle.js"
   },
   {
     "revision": "1a9933a6120cd03aee5f",
@@ -86,7 +86,7 @@ self.__precacheManifest = [
     "url": "src/widgets/Vehicle/Vehicle.b8c30364d97757f46d30.bundle.js"
   },
   {
-    "revision": "d5c191ed683156d4feba",
+    "revision": "50b8831ddd8722122538",
     "url": "src/widgets/VehicleCards/VehicleCards.2fdf9574cc8081994acd.bundle.css"
   },
   {
@@ -99,7 +99,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "38a874303f567b1bec4ef402d1b9d301",
+    "revision": "e40c0a883dc27561bfa70070a52841f4",
     "url": "index.html"
   },
   {
@@ -107,7 +107,7 @@ self.__precacheManifest = [
     "url": "fa-solid-900.30zBJ5OP.woff2"
   },
   {
-    "revision": "7ea9badd41fc38d38937",
+    "revision": "237c87ceedcecb2cf7f6",
     "url": "bootstrap.35b8316eed44212818c6.bundle.css"
   },
   {
@@ -167,7 +167,8 @@ self.__precacheManifest = [
     "url": "fa-solid-900.ZtWMM2jN.svg"
   },
   {
-    "url": "bootstrap.7ea9badd41fc38d38937.bundle.js"
+    "revision": "0deb6ad52f78113aa47c8a4fbb042f4b",
+    "url": "favicon.1bbMiXjU.ico"
   },
   {
     "revision": "9d65ebbfd3f8e860aff82b7e8e7425d2",
@@ -180,8 +181,7 @@ self.__precacheManifest = [
     "url": "icon_144x144.ad137bff6e774fa1c00d0f9d5520cde6.png"
   },
   {
-    "revision": "0deb6ad52f78113aa47c8a4fbb042f4b",
-    "url": "favicon.1bbMiXjU.ico"
+    "url": "bootstrap.237c87ceedcecb2cf7f6.bundle.js"
   },
   {
     "revision": "1c0d71dafe5be2304fa510afc28d9524",
