@@ -14,7 +14,7 @@ export default factory(function Menu({ middleware: { icache } }) {
   const is_normal = "navbar-burger burger";
   var menu_class = is_normal;
 
-//  const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+  //  const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
   /** 
  <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -58,7 +58,16 @@ export default factory(function Menu({ middleware: { icache } }) {
     [
       v("div", { classes: ["navbar-brand"] }, [
         v("a", { classes: ["navbar-item"] }, [
-          v("img", { src: "https://bulma.io/images/bulma-logo.png" }),
+          v("span", {  }, ['MY CAR LOG']),
+        ]),
+        v("a", { classes: ["navbar-item"] }, [
+          v("i", { classes: ["fas fa-ambulance"] }),
+        ]),
+        v("a", { classes: ["navbar-item"] }, [
+          v("div", { classes: ["tags has-addons"] }, [
+            v("span", { classes: ["tag"] }, ["23400"]),
+            v("span", { classes: ["tag is-primary"] }, ["Km"]),
+          ]),
         ]),
         v(
           "a",
@@ -69,23 +78,22 @@ export default factory(function Menu({ middleware: { icache } }) {
             "aria-expanded": "false",
             "data-target": "navbarBasicExample",
             onclick: (e) => {
-           //   alert("Hola");
-             menu_class = is_active;
-             invalidator()
-             console.log(e, menu_class);
+              //   alert("Hola");
+              menu_class = is_active;
+              invalidator();
+              console.log(e, menu_class);
 
-             const target = e.target.dataset.target||'';
-             var target2 = document.getElementById(target);
-     
-             // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-             e.target.classList.toggle('is-active');
-             
-             if(target2){
-              target2.classList.toggle('is-active');
-             }
+              const target = e.target.dataset.target || "";
+              var target2 = document.getElementById(target);
 
-             //target.classList.toggle('is-active');
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              e.target.classList.toggle("is-active");
 
+              if (target2) {
+                target2.classList.toggle("is-active");
+              }
+
+              //target.classList.toggle('is-active');
             },
           },
           [
@@ -103,43 +111,52 @@ export default factory(function Menu({ middleware: { icache } }) {
               Link,
               {
                 to: "home",
-                classes: [css.link],
+                classes: [],
                 activeClasses: [css.selected],
               },
               ["Home"]
             ),
+          ]),
+          v("div", { classes: ["navbar-item"] }, [
             w(
               Link,
               {
                 to: "contacts",
-                classes: [css.link],
+                classes: [],
                 activeClasses: [css.selected],
               },
               ["CONTACTOS"]
             ),
+          ]),
+          v("div", { classes: ["navbar-item"] }, [
             w(
               Link,
               {
                 to: "vehicle_cards",
-                classes: [css.link],
+                classes: [],
                 activeClasses: [css.selected],
               },
               ["VEHICULOS"]
             ),
+          ]),
+          v("div", { classes: ["navbar-item"] }, [
             w(
               Link,
               {
                 to: "fuelling",
-                classes: [css.link],
+                classes: [],
                 activeClasses: [css.selected],
               },
               ["ABASTECIMIENTO"]
             ),
+          ]),
+
+          v("div", { classes: ["navbar-item"] }, [
             w(
               Link,
               {
                 to: "login",
-                classes: [css.link],
+                classes: [],
                 activeClasses: [css.selected],
               },
               ["SALIR"]
