@@ -1,16 +1,16 @@
 self.__precacheManifest = [
   {
-    "url": "src/widgets/VehicleCards/VehicleCards.50b8831ddd8722122538.bundle.js"
+    "url": "src/widgets/VehicleCards/VehicleCards.748330bfaae5b4595631.bundle.js"
   },
   {
     "url": "icon_36x36.ed1d92e026be1300d6ccc6ce46986423.png"
   },
   {
-    "revision": "fd1fbe00fe5cac5ec554",
-    "url": "main.98d3631586e5558a4d4b.bundle.css"
+    "revision": "3f6a4cf290015d5f1dda",
+    "url": "main.60d319aeec98f5a42860.bundle.css"
   },
   {
-    "url": "main.fd1fbe00fe5cac5ec554.bundle.js"
+    "url": "main.3f6a4cf290015d5f1dda.bundle.js"
   },
   {
     "url": "runtime/IntersectionObserver.2d2d7c9501165a53364d.bundle.js"
@@ -51,11 +51,11 @@ self.__precacheManifest = [
     "url": "src/widgets/AccountActivation/AccountActivation.8a82f067e415aa4b2b6f.bundle.js"
   },
   {
-    "revision": "40c4c9dc6e6f006dc4de",
+    "revision": "8fe0dada7db868db927e",
     "url": "src/widgets/Home.5cabd3fbadbb72c20d99.bundle.css"
   },
   {
-    "url": "src/widgets/Home.40c4c9dc6e6f006dc4de.bundle.js"
+    "url": "src/widgets/Home.8fe0dada7db868db927e.bundle.js"
   },
   {
     "revision": "1a9933a6120cd03aee5f",
@@ -86,7 +86,7 @@ self.__precacheManifest = [
     "url": "src/widgets/Vehicle/Vehicle.b8c30364d97757f46d30.bundle.js"
   },
   {
-    "revision": "50b8831ddd8722122538",
+    "revision": "748330bfaae5b4595631",
     "url": "src/widgets/VehicleCards/VehicleCards.2fdf9574cc8081994acd.bundle.css"
   },
   {
@@ -99,7 +99,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "e40c0a883dc27561bfa70070a52841f4",
+    "revision": "8245550183f9b0d64c25320783f306b0",
     "url": "index.html"
   },
   {
@@ -107,7 +107,7 @@ self.__precacheManifest = [
     "url": "fa-solid-900.30zBJ5OP.woff2"
   },
   {
-    "revision": "237c87ceedcecb2cf7f6",
+    "revision": "bdf63c204c1de2cc880b",
     "url": "bootstrap.35b8316eed44212818c6.bundle.css"
   },
   {
@@ -167,8 +167,7 @@ self.__precacheManifest = [
     "url": "fa-solid-900.ZtWMM2jN.svg"
   },
   {
-    "revision": "0deb6ad52f78113aa47c8a4fbb042f4b",
-    "url": "favicon.1bbMiXjU.ico"
+    "url": "bootstrap.bdf63c204c1de2cc880b.bundle.js"
   },
   {
     "revision": "9d65ebbfd3f8e860aff82b7e8e7425d2",
@@ -181,7 +180,8 @@ self.__precacheManifest = [
     "url": "icon_144x144.ad137bff6e774fa1c00d0f9d5520cde6.png"
   },
   {
-    "url": "bootstrap.237c87ceedcecb2cf7f6.bundle.js"
+    "revision": "0deb6ad52f78113aa47c8a4fbb042f4b",
+    "url": "favicon.1bbMiXjU.ico"
   },
   {
     "revision": "1c0d71dafe5be2304fa510afc28d9524",

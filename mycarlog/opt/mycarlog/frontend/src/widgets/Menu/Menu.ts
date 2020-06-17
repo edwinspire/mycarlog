@@ -10,9 +10,9 @@ const factory = create({ icache });
 
 export default factory(function Menu({ middleware: { icache } }) {
   //const open_menu = icache.getOrSet("open", false);
-  const is_active = "is-active";
-  const is_normal = "navbar-burger burger";
-  var menu_class = is_normal;
+  //const is_active = "is-active";
+  //const is_normal = "navbar-burger burger";
+  //var menu_class = is_normal;
 
   //  const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
@@ -51,16 +51,14 @@ export default factory(function Menu({ middleware: { icache } }) {
   return v(
     "nav",
     {
-      classes: ["navbar"],
+      classes: ["navbar is-dark"],
       role: "navigation",
       "aria-label": "main navigation",
     },
     [
       v("div", { classes: ["navbar-brand"] }, [
         v("a", { classes: ["navbar-item"] }, [v("span", {}, ["MY CAR LOG"])]),
-        v("a", { classes: ["navbar-item"] }, [
-          v("i", { classes: ["fas fa-ambulance"] }),
-        ]),
+
         v("a", { classes: ["navbar-item"] }, [
           v("div", { classes: ["tags has-addons"] }, [
             v("span", { classes: ["tag"] }, ["23400"]),
@@ -69,41 +67,26 @@ export default factory(function Menu({ middleware: { icache } }) {
         ]),
         v("a", { classes: ["navbar-item"] }, [
           v("div", { classes: ["tags has-addons"] }, [
-            v("span", { classes: ["tag"] }, ["1"]), 
+            v("span", { classes: ["tag"] }, ["3000"]),
             v("span", { classes: ["tag is-danger"] }, [
-              v("i", { classes: ["fas fa-gas-pump"] }),
+              v("i", { classes: ["fas fa-bell"] }),
             ]),
           ]),
         ]),
-        v("a", { classes: ["navbar-item"] }, [
-          v("div", { classes: ["tags has-addons"] }, [
-            v("span", { classes: ["tag"] }, ["9"]), 
-            v("span", { classes: ["tag is-warning"] }, [
-              v("i", { classes: ["fas fa-gas-pump"] }),
-            ]),
-          ]),
-        ]),
-        v("a", { classes: ["navbar-item"] }, [
-          v("div", { classes: ["tags has-addons"] }, [
-            v("span", { classes: ["tag"] }, ["7"]), 
-            v("span", { classes: ["tag is-dark"] }, [
-              v("i", { classes: ["fas fa-gas-pump"] }),
-            ]),
-          ]),
-        ]),
+
         v(
           "a",
           {
             role: "button",
-            classes: menu_class,
+            classes: ['navbar-burger burger'],
             "aria-label": "menu",
             "aria-expanded": "false",
             "data-target": "navbarBasicExample",
             onclick: (e) => {
               //   alert("Hola");
-              menu_class = is_active;
-              invalidator();
-              console.log(e, menu_class);
+              //menu_class = is_active;
+              
+              console.log(e);
 
               const target = e.target.dataset.target || "";
               var target2 = document.getElementById(target);
@@ -114,10 +97,10 @@ export default factory(function Menu({ middleware: { icache } }) {
               if (target2) {
                 target2.classList.toggle("is-active");
               }
-
+              invalidator();
               //target.classList.toggle('is-active');
             },
-          },
+          }, 
           [
             v("span", { "aria-hidden": "true" }),
             v("span", { "aria-hidden": "true" }),

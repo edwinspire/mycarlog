@@ -13,7 +13,7 @@
 }
 
 .topnav input {
-  float: left;
+  
  width: 6em;
  }
 
@@ -29,4 +29,5 @@
 
 .topnav_right {
   float: right;
+  padding: .2em;
 }

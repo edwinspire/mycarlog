@@ -75,7 +75,7 @@ export default class SelectVehicle extends WidgetBase {
               to: "vehicle",
               activeClasses: [],
             },
-            ["NUEVO", v("i", { classes: ["fas fa-car"] })]
+            [v("i", { classes: ["fas fa-car"] })]
           ),
         ],
         onSearch: (text) => {

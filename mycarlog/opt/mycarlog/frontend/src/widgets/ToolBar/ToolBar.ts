@@ -53,7 +53,7 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
                 this.properties.onNew && this.properties.onNew();
               },
             },
-            [v("i", { classes: ["fas fa-file"] })]
+            [v("i", { classes: ["fas fa-plus"] })]
           ),
         ])
       );
@@ -122,26 +122,35 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
 
     if (this.properties.ShowSearch) {
       tbActions.push(
-        v("input", {
-          placeholder: "Buscar",
-          classes: ["input"],
-          oninput: (e: Event) => {
-            this.text_search = (e.target as HTMLInputElement).value;
-          },
-        })
-      );
-      tbActions.push(
-        v("a", { classes: [] }, [
+        v("div", { classes: ["field has-addons"] }, [
+          v("div", { classes: ["control"] }, [
+            v("input", {
+              placeholder: "Buscar",
+              classes: ["input"],
+              oninput: (e: Event) => {
+                this.text_search = (e.target as HTMLInputElement).value;
+              },
+            }),
+          ]),
           v(
-            "span",
+            "div",
             {
+              classes: ["control"],
               onclick: (e: Event) => {
-                console.log("Click en buscar", this.text_search);
+                console.log(this.text_search);
                 this.properties.onSearch &&
                   this.properties.onSearch(this.text_search);
               },
             },
-            [v("i", { classes: ["fas fa-search"] })]
+            [
+              v(
+                "a",
+                {
+                  classes: ["button is-info"],
+                },
+                [v("i", { classes: ["fas fa-search"] })]
+              ),
+            ]
           ),
         ])
       );
@@ -149,7 +158,9 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
 
     if (this.properties.title) {
       this.bottoms.push(
-        v("a", { classes: [css.active] }, [this.properties.title])
+        v("div", {}, [
+          v("a", { classes: [css.active] }, [this.properties.title]),
+        ])
       );
     }
 
@@ -158,6 +169,6 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
   }
 
   protected render() {
-      return v("div", { classes: css.topnav }, this.bottoms);
+    return v("div", { classes: css.topnav }, this.bottoms);
   }
 }
