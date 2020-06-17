@@ -57,9 +57,7 @@ export default factory(function Menu({ middleware: { icache } }) {
     },
     [
       v("div", { classes: ["navbar-brand"] }, [
-        v("a", { classes: ["navbar-item"] }, [
-          v("span", {  }, ['MY CAR LOG']),
-        ]),
+        v("a", { classes: ["navbar-item"] }, [v("span", {}, ["MY CAR LOG"])]),
         v("a", { classes: ["navbar-item"] }, [
           v("i", { classes: ["fas fa-ambulance"] }),
         ]),
@@ -67,6 +65,14 @@ export default factory(function Menu({ middleware: { icache } }) {
           v("div", { classes: ["tags has-addons"] }, [
             v("span", { classes: ["tag"] }, ["23400"]),
             v("span", { classes: ["tag is-primary"] }, ["Km"]),
+          ]),
+        ]),
+        v("a", { classes: ["navbar-item"] }, [
+          v("div", { classes: ["tags has-addons"] }, [
+            v("span", { classes: ["tag"] }, ["1"]), 
+            v("span", { classes: ["tag is-danger"] }, [
+              v("i", { classes: ["fas fa-gas-pump"] }),
+            ]),
           ]),
         ]),
         v(

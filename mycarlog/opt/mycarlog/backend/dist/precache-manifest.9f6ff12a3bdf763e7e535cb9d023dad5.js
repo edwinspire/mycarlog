@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "url": "src/widgets/VehicleCards/VehicleCards.5812a94615b2ad1e6ccc.bundle.js"
+    "url": "src/widgets/VehicleCards/VehicleCards.d5c191ed683156d4feba.bundle.js"
   },
   {
     "url": "icon_36x36.ed1d92e026be1300d6ccc6ce46986423.png"
@@ -51,11 +51,11 @@ self.__precacheManifest = [
     "url": "src/widgets/AccountActivation/AccountActivation.8a82f067e415aa4b2b6f.bundle.js"
   },
   {
-    "revision": "8603d60baeee3a4c947c",
+    "revision": "f2c5da043f3a0934ef9f",
     "url": "src/widgets/Home.5cabd3fbadbb72c20d99.bundle.css"
   },
   {
-    "url": "src/widgets/Home.8603d60baeee3a4c947c.bundle.js"
+    "url": "src/widgets/Home.f2c5da043f3a0934ef9f.bundle.js"
   },
   {
     "revision": "1a9933a6120cd03aee5f",
@@ -86,7 +86,7 @@ self.__precacheManifest = [
     "url": "src/widgets/Vehicle/Vehicle.b8c30364d97757f46d30.bundle.js"
   },
   {
-    "revision": "5812a94615b2ad1e6ccc",
+    "revision": "d5c191ed683156d4feba",
     "url": "src/widgets/VehicleCards/VehicleCards.2fdf9574cc8081994acd.bundle.css"
   },
   {
@@ -99,7 +99,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "fc68e7b51a0c371fe840d1cd36e04568",
+    "revision": "38a874303f567b1bec4ef402d1b9d301",
     "url": "index.html"
   },
   {
@@ -107,7 +107,7 @@ self.__precacheManifest = [
     "url": "fa-solid-900.30zBJ5OP.woff2"
   },
   {
-    "revision": "a25e336d6fff3d2c0381",
+    "revision": "7ea9badd41fc38d38937",
     "url": "bootstrap.35b8316eed44212818c6.bundle.css"
   },
   {
@@ -167,7 +167,7 @@ self.__precacheManifest = [
     "url": "fa-solid-900.ZtWMM2jN.svg"
   },
   {
-    "url": "bootstrap.a25e336d6fff3d2c0381.bundle.js"
+    "url": "bootstrap.7ea9badd41fc38d38937.bundle.js"
   },
   {
     "revision": "9d65ebbfd3f8e860aff82b7e8e7425d2",
