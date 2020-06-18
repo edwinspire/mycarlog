@@ -8,7 +8,8 @@ import Textarea from "@dojo/widgets/text-area";
 //import SelectFromURL from "./SelectFromURL";
 //import SBar from "@dojo/widgets/snackbar";
 import watch from "@dojo/framework/core/decorators/watch";
-//import Icon from ".././Icon/Icon";
+import Menu from ".././Menu/Menu";
+import Input from ".././Input/Input";
 // import UserPreferences, {
 //   UserPreferencesProperties,
 // } from ".././UserPreferences/UserPreferences";
@@ -122,6 +123,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
 
   protected render() {
     return v("div", {}, [
+      w(Menu, {}),
       w(ToolBar, {
         title: "VEHÍCULO",
         ShowNew: true,
@@ -151,36 +153,6 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
         },
       }),
       v("div", { classes: [] }, [
-        // v("div", { classes: css.favorite_checkbox }, [
-        //   w(Checkbox, {
-        //     checked: false,
-        //     aria: { describedBy: "Predeterminado" },
-        //     label: "Predeterminado",
-        //     mode: Mode.toggle,
-        //     name: "Predeterminado",
-        //     //onLabel: 'Si',
-        //     //offLabel: 'No',
-        //     onValue: (value: string, checked: boolean) => {
-        //       if (Number(this.Params.idvehicle) > 0) {
-        //         this.checkbox_favorite = checked;
-        //         if (checked) {
-        //           this.favorite.preference = {
-        //             name: "default_idvehicle",
-        //             value: this.Params.idvehicle,
-        //           };
-        //         } else {
-        //           this.favorite.preference = {
-        //             name: "default_idvehicle",
-        //             value: 0,
-        //           };
-        //         }
-        //         this.invalidate();
-        //       } else {
-        //         this.SnackBar("Debe primero guardar el vehículo");
-        //       }
-        //     },
-        //   }),
-        // ]),
         v("div", { classes: [] }, [
           /* w(
             SelectFromURL,
@@ -196,6 +168,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
             []
           ), */
         ]),
+        w(Input, {label: 'Mi primer input'}),
         v("div", { classes: [] }, [
           v("div", { classes: [] }, [
             w(
