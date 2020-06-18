@@ -1,16 +1,16 @@
 self.__precacheManifest = [
   {
-    "url": "src/widgets/VehicleCards/VehicleCards.748330bfaae5b4595631.bundle.js"
+    "url": "src/widgets/VehicleCards/VehicleCards.e3ba57e9eba841252796.bundle.js"
   },
   {
     "url": "icon_36x36.ed1d92e026be1300d6ccc6ce46986423.png"
   },
   {
-    "revision": "3f6a4cf290015d5f1dda",
-    "url": "main.60d319aeec98f5a42860.bundle.css"
+    "revision": "3ef76cfd629daecda74c",
+    "url": "main.6d19c3bc9af5b81268fe.bundle.css"
   },
   {
-    "url": "main.3f6a4cf290015d5f1dda.bundle.js"
+    "url": "main.3ef76cfd629daecda74c.bundle.js"
   },
   {
     "url": "runtime/IntersectionObserver.2d2d7c9501165a53364d.bundle.js"
@@ -51,11 +51,11 @@ self.__precacheManifest = [
     "url": "src/widgets/AccountActivation/AccountActivation.8a82f067e415aa4b2b6f.bundle.js"
   },
   {
-    "revision": "8fe0dada7db868db927e",
+    "revision": "55f6fdf718a66b911a28",
     "url": "src/widgets/Home.5cabd3fbadbb72c20d99.bundle.css"
   },
   {
-    "url": "src/widgets/Home.8fe0dada7db868db927e.bundle.js"
+    "url": "src/widgets/Home.55f6fdf718a66b911a28.bundle.js"
   },
   {
     "revision": "1a9933a6120cd03aee5f",
@@ -86,7 +86,7 @@ self.__precacheManifest = [
     "url": "src/widgets/Vehicle/Vehicle.b8c30364d97757f46d30.bundle.js"
   },
   {
-    "revision": "748330bfaae5b4595631",
+    "revision": "e3ba57e9eba841252796",
     "url": "src/widgets/VehicleCards/VehicleCards.2fdf9574cc8081994acd.bundle.css"
   },
   {
@@ -99,7 +99,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "8245550183f9b0d64c25320783f306b0",
+    "revision": "084f267844ce3a6029dd569a5d217082",
     "url": "index.html"
   },
   {
@@ -107,8 +107,8 @@ self.__precacheManifest = [
     "url": "fa-solid-900.30zBJ5OP.woff2"
   },
   {
-    "revision": "bdf63c204c1de2cc880b",
-    "url": "bootstrap.35b8316eed44212818c6.bundle.css"
+    "revision": "766720c93fc0d1339602",
+    "url": "bootstrap.6ee8ea5ad3ff7b5d6e9b.bundle.css"
   },
   {
     "revision": "261d666b0147c6c5cda07265f98b8f8c",
@@ -167,7 +167,7 @@ self.__precacheManifest = [
     "url": "fa-solid-900.ZtWMM2jN.svg"
   },
   {
-    "url": "bootstrap.bdf63c204c1de2cc880b.bundle.js"
+    "url": "bootstrap.766720c93fc0d1339602.bundle.js"
   },
   {
     "revision": "9d65ebbfd3f8e860aff82b7e8e7425d2",

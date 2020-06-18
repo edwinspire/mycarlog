@@ -122,11 +122,12 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
 
     if (this.properties.ShowSearch) {
       tbActions.push(
-        v("div", { classes: ["field has-addons"] }, [
+        
+        v("div", { classes: ["field has-addons", css.topnav_right_search] }, [
           v("div", { classes: ["control"] }, [
             v("input", {
               placeholder: "Buscar",
-              classes: ["input"],
+              classes: ["input is-small"],
               oninput: (e: Event) => {
                 this.text_search = (e.target as HTMLInputElement).value;
               },
@@ -146,7 +147,7 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
               v(
                 "a",
                 {
-                  classes: ["button is-info"],
+                  classes: ["button is-info is-small"],
                 },
                 [v("i", { classes: ["fas fa-search"] })]
               ),

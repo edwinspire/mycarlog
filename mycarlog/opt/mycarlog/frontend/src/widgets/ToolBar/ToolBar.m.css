@@ -1,6 +1,6 @@
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: #363636;
 }
 
 .topnav a {
@@ -13,9 +13,8 @@
 }
 
 .topnav input {
-  
- width: 6em;
- }
+  width: 6em;
+}
 
 .topnav a:hover {
   background-color: #ddd;
@@ -29,5 +28,9 @@
 
 .topnav_right {
   float: right;
-  padding: .2em;
+}
+
+.topnav_right_search {
+  padding-top: 5px;
+  padding-right: 5px;
 }

@@ -9,6 +9,36 @@ import * as css from "./Menu.m.css";
 const factory = create({ icache });
 
 export default factory(function Menu({ middleware: { icache } }) {
+  //var OpenMenu = false;
+  //var ClassMenuBurger = "navbar-burger burger";
+  //var ClassMenu = "navbar-menu";
+  var idBurger = 'MenuBurger'+(Math.floor(Math.random() * 100000) + 1);
+  var idMenu = 'MenuBurger'+(Math.floor(Math.random() * 100000) + 1);
+
+  function ClickMenu(e: any) {
+    console.log(e.target);
+
+    var M = document.getElementById(idMenu);
+    var B = document.getElementById(idBurger);
+    if(M && B){
+      M.classList.toggle("is-active");
+      B.classList.toggle("is-active");
+    }
+    /*
+  const target = e.target.dataset.target || "";
+  var target2 = document.getElementById(target);
+ 
+  // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+  e.target.classList.toggle("is-active");
+ 
+  if (target2) {
+    target2.classList.toggle("is-active");
+  }
+  */
+    invalidator();
+    //target.classList.toggle('is-active');
+  }
+
   //const open_menu = icache.getOrSet("open", false);
   //const is_active = "is-active";
   //const is_normal = "navbar-burger burger";
@@ -75,41 +105,25 @@ export default factory(function Menu({ middleware: { icache } }) {
         ]),
 
         v(
-          "a",
+          "div",
           {
             role: "button",
+            id: idBurger,
             classes: ['navbar-burger burger'],
             "aria-label": "menu",
             "aria-expanded": "false",
-            "data-target": "navbarBasicExample",
-            onclick: (e) => {
-              //   alert("Hola");
-              //menu_class = is_active;
-              
-              console.log(e);
-
-              const target = e.target.dataset.target || "";
-              var target2 = document.getElementById(target);
-
-              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-              e.target.classList.toggle("is-active");
-
-              if (target2) {
-                target2.classList.toggle("is-active");
-              }
-              invalidator();
-              //target.classList.toggle('is-active');
-            },
-          }, 
+      //      "data-target": "navbarBasicExample",
+            onclick: ClickMenu,
+          },
           [
             v("span", { "aria-hidden": "true" }),
             v("span", { "aria-hidden": "true" }),
-            v("span", { "aria-hidden": "true" }),
+            v("span", { "aria-hidden": "true"}),
           ]
         ),
       ]),
 
-      v("div", { id: "navbarBasicExample", classes: ["navbar-menu"] }, [
+      v("div", { id: idMenu, classes: ['navbar-menu'] }, [
         v("div", { classes: ["navbar-end"] }, [
           v("div", { classes: ["navbar-item"] }, [
             w(

@@ -5,7 +5,8 @@ import { Store } from "@dojo/framework/stores/Store";
 import { add } from "@dojo/framework/stores/state/operations";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "bulma/css/bulma.css";
-
+//import "./main.css";
+ 
 import routes from "./routes";
 import App from "./App";
 

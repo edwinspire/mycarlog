@@ -29,34 +29,34 @@ export default factory(function App({ middleware: { theme, icache } }) {
   window.GlobalStore.onChange(
     window.GlobalStore.path("root", "notifications"),
     () => {
-      console.log("Notificación ha cambiado", icache.get('message'));
+      console.log("Notificación ha cambiado", icache.get("message"));
 
       let notification = window.GlobalStore.get(
         window.GlobalStore.path("root", "notifications")
       );
 
-	  console.log(notification); 
+      console.log(notification);
       icache.set("message", notification.message);
       icache.set("type", notification.type);
-	  icache.set("OpenSnackBar", true);
+      icache.set("OpenSnackBar", true);
       setTimeout(() => {
         icache.set("OpenSnackBar", false);
       }, 4000);
     }
   );
 
-  return v("div", { classes: [css.root] }, [
+  return v("div", { classes: [css.root, "has-background-dark"] }, [
     w(Snackbar, { open: OpenSnackBar, type: type }, [{ message: message }]),
-//    w(Menu, {}),
+    //    w(Menu, {}),
     w(Outlet, { id: "main" }, [
       {
         home: w(Home, {}),
-		about: w(About, {}),
-		login: w(Login, {}),
-		register: w(Register, {}),
-    account_activation: w(AccountActivation, {}),
-    vehicle: w(Vehicle, {}),
-		vehicle_cards: w(VehicleCards, {}),
+        about: w(About, {}),
+        login: w(Login, {}),
+        register: w(Register, {}),
+        account_activation: w(AccountActivation, {}),
+        vehicle: w(Vehicle, {}),
+        vehicle_cards: w(VehicleCards, {}),
         profile: w(Profile, { username: "Dojo User" }),
       },
     ]),
