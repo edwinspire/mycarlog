@@ -18,7 +18,7 @@ export default class Input extends WidgetBase<InputProperties> {
       },
       [
         v("div", { classes: ["field"] }, [
-          v("label", { classes: ["label"] }, ["Hola"]),
+          v("label", { classes: ["label", 'is-small'] }, ["Hola"]),
           v("div", { classes: ["control", 'is-small'] }, [
             v("input", { placeholder: 'Prueba input',  classes: ["input", 'is-small'] }),
           ]),

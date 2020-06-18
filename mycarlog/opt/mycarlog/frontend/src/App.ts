@@ -45,7 +45,7 @@ export default factory(function App({ middleware: { theme, icache } }) {
     }
   );
 
-  return v("div", { classes: [css.root, "has-background-dark"] }, [
+  return v("div", { classes: [css.root] }, [
     w(Snackbar, { open: OpenSnackBar, type: type }, [{ message: message }]),
     //    w(Menu, {}),
     w(Outlet, { id: "main" }, [

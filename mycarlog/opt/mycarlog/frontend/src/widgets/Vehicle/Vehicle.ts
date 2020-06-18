@@ -168,6 +168,25 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
             []
           ), */
         ]),
+v('div', {classes: ['columns is-mobile']}, [
+v('div', {classes: ['column']}, [
+  w(Input, {label: 'Mi primer input'})
+]),
+v('div', {classes: ['column']}, [
+  w(Input, {label: 'Mi Segundo input'})
+]),
+v('div', {classes: ['column']}, [
+  w(Input, {label: 'Mi tercer input'})
+]),
+v('div', {classes: ['column']}, [
+  w(Input, {label: 'Mi cuerto input'})
+]),
+v('div', {classes: ['column']}, [
+  w(Input, {label: 'Mi quinto input'})
+])
+
+]),
+
         w(Input, {label: 'Mi primer input'}),
         v("div", { classes: [] }, [
           v("div", { classes: [] }, [

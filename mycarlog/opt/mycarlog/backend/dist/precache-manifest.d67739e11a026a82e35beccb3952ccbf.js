@@ -7,11 +7,11 @@ self.__precacheManifest = [
     "url": "icon_36x36.ed1d92e026be1300d6ccc6ce46986423.png"
   },
   {
-    "revision": "a34f87e57b6f0122c725",
+    "revision": "a569d033f174fcea8b13",
     "url": "main.9b49e6a0c65a6c0f15ae.bundle.css"
   },
   {
-    "url": "main.a34f87e57b6f0122c725.bundle.js"
+    "url": "main.a569d033f174fcea8b13.bundle.js"
   },
   {
     "url": "runtime/IntersectionObserver.c65b7f49433173be96e4.bundle.js"
@@ -76,11 +76,11 @@ self.__precacheManifest = [
     "url": "src/widgets/Register/Register.f0d90e70383416effc58.bundle.js"
   },
   {
-    "revision": "7ab5c2f4880d81af4b54",
+    "revision": "38d9b171e9f2f15f2734",
     "url": "src/widgets/Vehicle/Vehicle.63bff411b087c12f172b.bundle.css"
   },
   {
-    "url": "src/widgets/Vehicle/Vehicle.7ab5c2f4880d81af4b54.bundle.js"
+    "url": "src/widgets/Vehicle/Vehicle.38d9b171e9f2f15f2734.bundle.js"
   },
   {
     "revision": "42b99f3a633706834eab",
@@ -99,7 +99,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "a2d59e1017b5c875f73c556740a65936",
+    "revision": "bd7376dee3d02ec5b86ee33155545fb0",
     "url": "index.html"
   },
   {
@@ -173,11 +173,11 @@ self.__precacheManifest = [
     "url": "externals/./src/sw/service-worker-app.js"
   },
   {
-    "revision": "4b27dc0739ceeef1f031",
-    "url": "bootstrap.6ee8ea5ad3ff7b5d6e9b.bundle.css"
+    "url": "bootstrap.a051307e6197a924d737.bundle.js"
   },
   {
-    "url": "bootstrap.4b27dc0739ceeef1f031.bundle.js"
+    "revision": "a051307e6197a924d737",
+    "url": "bootstrap.82c71bd9f1a84dee17ca.bundle.css"
   },
   {
     "revision": "1c0d71dafe5be2304fa510afc28d9524",
