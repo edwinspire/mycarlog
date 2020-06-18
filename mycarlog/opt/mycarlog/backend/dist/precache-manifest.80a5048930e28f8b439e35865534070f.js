@@ -1,16 +1,16 @@
 self.__precacheManifest = [
   {
-    "url": "src/widgets/VehicleCards/VehicleCards.e3ba57e9eba841252796.bundle.js"
+    "url": "src/widgets/VehicleCards/VehicleCards.480466201cbca28c8b51.bundle.js"
   },
   {
     "url": "icon_36x36.ed1d92e026be1300d6ccc6ce46986423.png"
   },
   {
-    "revision": "3ef76cfd629daecda74c",
+    "revision": "768ac938ae3ae511d365",
     "url": "main.6d19c3bc9af5b81268fe.bundle.css"
   },
   {
-    "url": "main.3ef76cfd629daecda74c.bundle.js"
+    "url": "main.768ac938ae3ae511d365.bundle.js"
   },
   {
     "url": "runtime/IntersectionObserver.2d2d7c9501165a53364d.bundle.js"
@@ -37,57 +37,57 @@ self.__precacheManifest = [
     "url": "runtime/pointerEvents.1a82e1351ac1f8793275.bundle.js"
   },
   {
-    "revision": "8d5821cb56c1345af429",
+    "revision": "95eeb9a56075615e6127",
     "url": "src/widgets/About.bf9d0cfbd19a6acaa7ef.bundle.css"
   },
   {
-    "url": "src/widgets/About.8d5821cb56c1345af429.bundle.js"
+    "url": "src/widgets/About.95eeb9a56075615e6127.bundle.js"
   },
   {
-    "revision": "8a82f067e415aa4b2b6f",
+    "revision": "9837ef80d76596ce3baa",
     "url": "src/widgets/AccountActivation/AccountActivation.687c1b4ce9e7cc074180.bundle.css"
   },
   {
-    "url": "src/widgets/AccountActivation/AccountActivation.8a82f067e415aa4b2b6f.bundle.js"
+    "url": "src/widgets/AccountActivation/AccountActivation.9837ef80d76596ce3baa.bundle.js"
   },
   {
-    "revision": "55f6fdf718a66b911a28",
-    "url": "src/widgets/Home.5cabd3fbadbb72c20d99.bundle.css"
+    "revision": "3735a08c9ad89fa61c90",
+    "url": "src/widgets/Home.0916125c82dc43c6cc09.bundle.css"
   },
   {
-    "url": "src/widgets/Home.55f6fdf718a66b911a28.bundle.js"
+    "url": "src/widgets/Home.3735a08c9ad89fa61c90.bundle.js"
   },
   {
-    "revision": "1a9933a6120cd03aee5f",
+    "revision": "99753e9ee0b5309eda86",
     "url": "src/widgets/Login/Login.1b2e8b4d2d58dc637d24.bundle.css"
   },
   {
-    "url": "src/widgets/Login/Login.1a9933a6120cd03aee5f.bundle.js"
+    "url": "src/widgets/Login/Login.99753e9ee0b5309eda86.bundle.js"
   },
   {
-    "revision": "c8be8f51baa5ed663b03",
+    "revision": "3db9ca71443f85284515",
     "url": "src/widgets/Profile.1b96abc13c4dc1598cb0.bundle.css"
   },
   {
-    "url": "src/widgets/Profile.c8be8f51baa5ed663b03.bundle.js"
+    "url": "src/widgets/Profile.3db9ca71443f85284515.bundle.js"
   },
   {
-    "revision": "c7efa1ee03675203e637",
+    "revision": "8432f574b03d652d5fd1",
     "url": "src/widgets/Register/Register.4dfe7e09044d1cec0f86.bundle.css"
   },
   {
-    "url": "src/widgets/Register/Register.c7efa1ee03675203e637.bundle.js"
+    "url": "src/widgets/Register/Register.8432f574b03d652d5fd1.bundle.js"
   },
   {
-    "revision": "b8c30364d97757f46d30",
+    "revision": "8d92fcfde1a4a4aac346",
     "url": "src/widgets/Vehicle/Vehicle.63bff411b087c12f172b.bundle.css"
   },
   {
-    "url": "src/widgets/Vehicle/Vehicle.b8c30364d97757f46d30.bundle.js"
+    "url": "src/widgets/Vehicle/Vehicle.8d92fcfde1a4a4aac346.bundle.js"
   },
   {
-    "revision": "e3ba57e9eba841252796",
-    "url": "src/widgets/VehicleCards/VehicleCards.2fdf9574cc8081994acd.bundle.css"
+    "revision": "480466201cbca28c8b51",
+    "url": "src/widgets/VehicleCards/VehicleCards.e1f7c5faf5e84e6045f2.bundle.css"
   },
   {
     "url": "icon_48x48.f09d828f7dd9896e985e794524da9cb4.png"
@@ -99,7 +99,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "084f267844ce3a6029dd569a5d217082",
+    "revision": "3b537ff89435fc88bb1dca3d8e96a825",
     "url": "index.html"
   },
   {
@@ -107,7 +107,7 @@ self.__precacheManifest = [
     "url": "fa-solid-900.30zBJ5OP.woff2"
   },
   {
-    "revision": "766720c93fc0d1339602",
+    "revision": "01ce5b27c724866caa35",
     "url": "bootstrap.6ee8ea5ad3ff7b5d6e9b.bundle.css"
   },
   {
@@ -167,7 +167,8 @@ self.__precacheManifest = [
     "url": "fa-solid-900.ZtWMM2jN.svg"
   },
   {
-    "url": "bootstrap.766720c93fc0d1339602.bundle.js"
+    "revision": "0deb6ad52f78113aa47c8a4fbb042f4b",
+    "url": "favicon.1bbMiXjU.ico"
   },
   {
     "revision": "9d65ebbfd3f8e860aff82b7e8e7425d2",
@@ -180,8 +181,7 @@ self.__precacheManifest = [
     "url": "icon_144x144.ad137bff6e774fa1c00d0f9d5520cde6.png"
   },
   {
-    "revision": "0deb6ad52f78113aa47c8a4fbb042f4b",
-    "url": "favicon.1bbMiXjU.ico"
+    "url": "bootstrap.01ce5b27c724866caa35.bundle.js"
   },
   {
     "revision": "1c0d71dafe5be2304fa510afc28d9524",

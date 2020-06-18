@@ -7,4 +7,4 @@
  * 
  */
 (window.dojoWebpackJsonpmycarlog3=window.dojoWebpackJsonpmycarlog3||[]).push([["src/widgets/Profile"],{286:function(o,e,r){o.exports={" _key":"mycarlog3/Profile",root:"Profile-m__root__e9fe79180X4"}},292:function(o,e,r){"use strict";r.r(e);var t=r(20),c=r(286);const s=Object(t.a)().properties();e.default=s(function({properties:o}){const{username:e}=o();return Object(t.i)("h1",{classes:[c.root]},[`Welcome ${e}!`])})}}]);
-//# sourceMappingURL=Profile.c8be8f51baa5ed663b03.bundle.js.map
+//# sourceMappingURL=Profile.3db9ca71443f85284515.bundle.js.map
