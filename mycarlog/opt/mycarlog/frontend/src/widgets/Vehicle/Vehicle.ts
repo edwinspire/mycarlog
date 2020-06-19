@@ -2,7 +2,7 @@ import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
 import * as css from "../Vehicle/Vehicle.m.css";
 //import * as cssProfile from "../styles/Profile.m.css";
-import TextInput from "@dojo/widgets/text-input";
+//import TextInput from "@dojo/widgets/text-input";
 //import Checkbox, { Mode } from "@dojo/widgets/checkbox";
 import Textarea from "@dojo/widgets/text-area";
 import Select from "../SelectRemoteSource/SelectRemoteSource";
@@ -154,187 +154,140 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
         },
       }),
       v("div", { classes: [] }, [
-        v("div", { classes: [] }, [
-          /* w(
-            SelectFromURL,
-            {
+        v("div", { classes: ["columns is-mobile", css.spacing] }, [
+          v("div", { classes: ["column"] }, [
+            w(Select, {
               label: "Propietario",
-              value: this.Params.idcontact,
               url: "/toselect/contacts",
-              onSelect: (label, value, disabled) => {
+              onValue: (label, value, disabled) => {
                 console.log("onSelect", label, value, disabled);
                 this.Params.idcontact = value;
               },
-            },
-            []
-          ), */
+            }),
+          ]),
+          v("div", { classes: ["column"] }, [
+            w(Input, {
+              label: "Placa",
+              onValue: (d) => {
+                this.Params.license_plate = d as string;
+                this.invalidate();
+              },
+            }),
+          ]),
         ]),
         v("div", { classes: ["columns is-mobile", css.spacing] }, [
           v("div", { classes: ["column"] }, [
-            w(Select, { label: "Propietario", url: '/toselect/contacts' }),
+            w(Select, {
+              label: "Marca",
+              value: this.Params.idmark,
+              url: "/toselect/marks",
+              onValue: (label, value, disabled) => {
+                console.log("onSelect", label, value, disabled);
+                this.Params.idmark = value;
+              },
+            }),
           ]),
           v("div", { classes: ["column"] }, [
-            w(Input, { label: "Mi quinto input" }), 
+            w(
+              Select,
+              {
+                label: "Modelo",
+                value: this.Params.idmodel,
+                url: "/toselect/models",
+                onValue: (label, value, disabled) => {
+                  console.log("onSelect", label, value, disabled);
+                  this.Params.idfuel_tank_capacitytype = value;
+                },
+              },
+              []
+            ),
           ]),
         ]),
         v("div", { classes: ["columns is-mobile", css.spacing] }, [
           v("div", { classes: ["column"] }, [
-            w(Input, { label: "Mi primer input" }),
+            w(Input, {
+              label: 'Año',
+              value: this.Params.year as any,
+              onValue: (v) => {
+                this.Params.year = v as string;
+                this.invalidate();
+              },
+            }),
           ]),
           v("div", { classes: ["column"] }, [
-            w(Input, { label: "Mi quinto input" }),
+            w(Input, {
+              label: 'VIN',
+              value: this.Params.vin as any,
+              onValue: (v) => {
+                this.Params.vin = v as string;
+                this.invalidate();
+              },
+            }),
           ]),
         ]),
-        w(Input, { label: "Mi primer input" }),
-        v("div", { classes: [] }, [
-          v("div", { classes: [] }, [
-            w(
-              TextInput,
-              {
-                type: "text",
-
-                disabled: false,
-                readOnly: false,
-                required: true,
-                placeholder: "Placa",
-                value: this.Params.license_plate,
-                onValue: (d) => {
-                  this.Params.license_plate = d as string;
-                  this.invalidate();
-                },
+        v("div", { classes: ["columns is-mobile", css.spacing] }, [
+          v("div", { classes: ["column"] }, [
+            w(Select, {
+              label: "Color",
+              url: "/toselect/colors",
+              value: this.Params.idcolor,
+              onValue: (label, value, disabled) => {
+                console.log("onSelect", label, value, disabled);
+                this.Params.idcolor = value;
               },
-              [{ label: "Placa" }]
-            ),
+            }),
           ]),
-          v("div", { classes: [] }, [
-            /* w(
-              SelectFromURL,
-              {
-                label: "Marca",
-                value: this.Params.idmark,
-                url: "/toselect/marks",
-                onSelect: (label, value, disabled) => {
-                  console.log("onSelect", label, value, disabled);
-                  this.Params.idmark = value;
-                },
+          v("div", { classes: ["column"] }, [
+            w(Select, {
+              label: "Tipo de combustible",
+              url: "/toselect/fueltypes",
+              value: this.Params.idfueltype,
+              onValue: (label, value, disabled) => {
+                console.log("onSelect", label, value, disabled);
+                this.Params.idfueltype = value;
               },
-              []
-            ), */
+            }),
           ]),
         ]),
-        /*v('div',{ classes: [css.entrada] }, [
-					w(SelectFromURL, {label: 'Modelo', value: this.Params.idmodel, url: '/toselect/models',
-						onSelect:(label, value, disabled)=>{
-							console.log('onSelect', label, value, disabled);
-							this.Params.idfuel_tank_capacitytype = value;	
-						}
-					}, []),
-					]
-					),		
-					*/
-        v("div", { classes: [] }, [
-          v("div", { classes: [] }, [
-            w(
-              TextInput,
-              {
-                type: "number",
 
-                disabled: false,
-                readOnly: false,
-                value: this.Params.year as any,
-                onValue: (v) => {
-                  this.Params.year = v as string;
-                  this.invalidate();
-                },
+        v("div", { classes: ["columns is-mobile", css.spacing] }, [
+          v("div", { classes: ["column"] }, [
+            w(Input, {
+              label: "Capacidad Tanque",
+              value: this.Params.fuel_tank_capacity as any,
+              onValue: (v) => {
+                this.Params.fuel_tank_capacity = v as string;
+                this.invalidate();
               },
-              [{ label: "Año" }]
-            ),
+            }),
           ]),
-          v("div", { classes: [] }, [
+          v("div", { classes: ["column"] }, [
             w(
-              TextInput,
-              {
-                type: "text",
-
-                disabled: false,
-                readOnly: false,
-                value: this.Params.vin as any,
-                onValue: (v) => {
-                  this.Params.vin = v as string;
-                  this.invalidate();
-                },
-              },
-              [{ label: "VIN" }]
-            ),
-          ]),
-        ]),
-        v("div", { classes: "" }, [
-          v("div", { classes: [] }, [
-            /* w(
-              SelectFromURL,
-              {
-                label: "Color",
-                url: "/toselect/colors",
-                value: this.Params.idcolor,
-                onSelect: (label, value, disabled) => {
-                  console.log("onSelect", label, value, disabled);
-                  this.Params.idcolor = value;
-                },
-              },
-              []
-            ), */
-          ]),
-          v("div", { classes: [] }, [
-            /* w(
-              SelectFromURL,
-              {
-                label: "Tipo de combustible",
-                url: "/toselect/fueltypes",
-                value: this.Params.idfueltype,
-                onSelect: (label, value, disabled) => {
-                  console.log("onSelect", label, value, disabled);
-                  this.Params.idfueltype = value;
-                },
-              },
-              []
-            ), */
-          ]),
-        ]),
-        v("div", { classes: "" }, [
-          v("div", { classes: [] }, [
-            w(
-              TextInput,
-              {
-                key: "t6",
-                type: "number",
-
-                disabled: false,
-                readOnly: false,
-                value: this.Params.fuel_tank_capacity as any,
-                onValue: (v) => {
-                  this.Params.fuel_tank_capacity = v as string;
-                  this.invalidate();
-                },
-              },
-              [{ label: "Capacidad del tanque" }]
-            ),
-          ]),
-          v("div", { classes: [] }, [
-            /* w(
-              SelectFromURL,
+              Select,
               {
                 label: "Unidad de medida del tanque",
                 url: "/toselect/unit_measure_fuel_tanks",
                 value: this.Params.idunit_measure_fuel_tank,
-                onSelect: (label, value, disabled) => {
+                onValue: (label, value, disabled) => {
                   console.log("onSelect", label, value, disabled);
                   this.Params.idunit_measure_fuel_tank = value;
                 },
               },
               []
-            ), */
+            ),
           ]),
         ]),
+
+        v("div", { classes: ["columns is-mobile", css.spacing] }, [
+          v("div", { classes: ["column"] }, []),
+          v("div", { classes: ["column"] }, []),
+        ]),
+
+        v("div", { classes: ["columns is-mobile", css.spacing] }, [
+          v("div", { classes: ["column"] }, []),
+          v("div", { classes: ["column"] }, []),
+        ]),
+
         v("div", { classes: [""] }, [
           w(Textarea, {
             columns: 40,
@@ -349,12 +302,6 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
             },
           }),
         ]),
-        /* w(SBar, {
-          open: this._openSnack,
-          leading: false,
-          type: "error",
-          messageRenderer: () => this._MsgSnackBar,
-        }), */
       ]),
     ]);
   }

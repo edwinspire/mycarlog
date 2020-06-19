@@ -7,7 +7,7 @@ export interface SelectRemoteSourceProperties {
   label: string;
   value?: string;
   params?: any;
-  onSelect?(
+  onValue?(
     OptionLabel: string,
     OptionValue: string,
     OptionDisabled: boolean
@@ -66,7 +66,7 @@ export default class SelectRemoteSource extends WidgetBase<
       },
       [
         v("div", { classes: ["field"] }, [
-          v("label", { classes: ["label", "is-small"] }, ["Hola"]),
+          v("label", { classes: ["label", "is-small"] }, [this.properties.label]),
           v("div", { classes: ["control", "is-small"] }, [
             v("div", { classes: ["select is-small", css.full_width] }, [
               v("select", {}, this.Options),

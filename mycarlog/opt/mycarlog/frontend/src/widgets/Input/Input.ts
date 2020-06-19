@@ -3,6 +3,8 @@ import WidgetBase from "@dojo/framework/core/WidgetBase";
 
 export interface InputProperties {
   label?: string;
+  value?: string;
+  onValue?(value: any): void;
 }
 
 export default class Input extends WidgetBase<InputProperties> {
@@ -18,9 +20,12 @@ export default class Input extends WidgetBase<InputProperties> {
       },
       [
         v("div", { classes: ["field"] }, [
-          v("label", { classes: ["label", 'is-small'] }, ["Hola"]),
-          v("div", { classes: ["control", 'is-small'] }, [
-            v("input", { placeholder: 'Prueba input',  classes: ["input", 'is-small'] }),
+          v("label", { classes: ["label", "is-small"] }, [this.properties.label]),
+          v("div", { classes: ["control", "is-small"] }, [
+            v("input", {
+              placeholder: "Prueba input",
+              classes: ["input", "is-small"], 
+            }),
           ]),
         ]),
       ]
