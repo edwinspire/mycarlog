@@ -1,11 +1,11 @@
 import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
-//import * as css from "../styles/Vehicle.m.css";
+import * as css from "../Vehicle/Vehicle.m.css";
 //import * as cssProfile from "../styles/Profile.m.css";
 import TextInput from "@dojo/widgets/text-input";
 //import Checkbox, { Mode } from "@dojo/widgets/checkbox";
 import Textarea from "@dojo/widgets/text-area";
-//import SelectFromURL from "./SelectFromURL";
+import Select from "../SelectRemoteSource/SelectRemoteSource";
 //import SBar from "@dojo/widgets/snackbar";
 import watch from "@dojo/framework/core/decorators/watch";
 import Menu from ".././Menu/Menu";
@@ -14,6 +14,7 @@ import Input from ".././Input/Input";
 //   UserPreferencesProperties,
 // } from ".././UserPreferences/UserPreferences";
 import ToolBar from "../../widgets/ToolBar/ToolBar";
+//import { select } from '@dojo/widgets/theme/dojo/native-select.m.css';
 
 export interface VehicleProperties {
   idvehicle?: string;
@@ -168,26 +169,23 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
             []
           ), */
         ]),
-v('div', {classes: ['columns is-mobile']}, [
-v('div', {classes: ['column']}, [
-  w(Input, {label: 'Mi primer input'})
-]),
-v('div', {classes: ['column']}, [
-  w(Input, {label: 'Mi Segundo input'})
-]),
-v('div', {classes: ['column']}, [
-  w(Input, {label: 'Mi tercer input'})
-]),
-v('div', {classes: ['column']}, [
-  w(Input, {label: 'Mi cuerto input'})
-]),
-v('div', {classes: ['column']}, [
-  w(Input, {label: 'Mi quinto input'})
-])
-
-]),
-
-        w(Input, {label: 'Mi primer input'}),
+        v("div", { classes: ["columns is-mobile", css.spacing] }, [
+          v("div", { classes: ["column"] }, [
+            w(Select, { label: "Propietario", url: '/toselect/contacts' }),
+          ]),
+          v("div", { classes: ["column"] }, [
+            w(Input, { label: "Mi quinto input" }), 
+          ]),
+        ]),
+        v("div", { classes: ["columns is-mobile", css.spacing] }, [
+          v("div", { classes: ["column"] }, [
+            w(Input, { label: "Mi primer input" }),
+          ]),
+          v("div", { classes: ["column"] }, [
+            w(Input, { label: "Mi quinto input" }),
+          ]),
+        ]),
+        w(Input, { label: "Mi primer input" }),
         v("div", { classes: [] }, [
           v("div", { classes: [] }, [
             w(
@@ -234,13 +232,13 @@ v('div', {classes: ['column']}, [
 					]
 					),		
 					*/
-        v("div", { classes: []}, [
+        v("div", { classes: [] }, [
           v("div", { classes: [] }, [
             w(
               TextInput,
               {
                 type: "number",
-                
+
                 disabled: false,
                 readOnly: false,
                 value: this.Params.year as any,
@@ -249,7 +247,7 @@ v('div', {classes: ['column']}, [
                   this.invalidate();
                 },
               },
-              [{label: "Año"}]
+              [{ label: "Año" }]
             ),
           ]),
           v("div", { classes: [] }, [
@@ -257,7 +255,7 @@ v('div', {classes: ['column']}, [
               TextInput,
               {
                 type: "text",
-                
+
                 disabled: false,
                 readOnly: false,
                 value: this.Params.vin as any,
@@ -266,11 +264,11 @@ v('div', {classes: ['column']}, [
                   this.invalidate();
                 },
               },
-              [{label: "VIN"}]
+              [{ label: "VIN" }]
             ),
           ]),
         ]),
-        v("div", { classes: ''}, [
+        v("div", { classes: "" }, [
           v("div", { classes: [] }, [
             /* w(
               SelectFromURL,
@@ -302,14 +300,14 @@ v('div', {classes: ['column']}, [
             ), */
           ]),
         ]),
-        v("div", { classes: ''}, [
+        v("div", { classes: "" }, [
           v("div", { classes: [] }, [
             w(
               TextInput,
               {
                 key: "t6",
                 type: "number",
-                
+
                 disabled: false,
                 readOnly: false,
                 value: this.Params.fuel_tank_capacity as any,
@@ -318,7 +316,7 @@ v('div', {classes: ['column']}, [
                   this.invalidate();
                 },
               },
-              [{label: "Capacidad del tanque"}]
+              [{ label: "Capacidad del tanque" }]
             ),
           ]),
           v("div", { classes: [] }, [
@@ -337,12 +335,12 @@ v('div', {classes: ['column']}, [
             ), */
           ]),
         ]),
-        v("div", { classes: [''] }, [
+        v("div", { classes: [""] }, [
           w(Textarea, {
             columns: 40,
             rows: 5,
             placeholder: "Notas",
-            
+
             key: "text-area",
             value: this.Params.note,
             onValue: (value: string) => {

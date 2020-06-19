@@ -1,0 +1,8 @@
+.full_width{
+width: 100%;
+}
+
+.full_width select{
+	width: inherit;
+}
+

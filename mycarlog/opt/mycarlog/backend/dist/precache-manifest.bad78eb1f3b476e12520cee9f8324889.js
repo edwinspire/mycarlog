@@ -7,11 +7,11 @@ self.__precacheManifest = [
     "url": "icon_36x36.ed1d92e026be1300d6ccc6ce46986423.png"
   },
   {
-    "revision": "a569d033f174fcea8b13",
+    "revision": "59b5c66bbc9b8885da62",
     "url": "main.9b49e6a0c65a6c0f15ae.bundle.css"
   },
   {
-    "url": "main.a569d033f174fcea8b13.bundle.js"
+    "url": "main.59b5c66bbc9b8885da62.bundle.js"
   },
   {
     "url": "runtime/IntersectionObserver.c65b7f49433173be96e4.bundle.js"
@@ -38,56 +38,56 @@ self.__precacheManifest = [
     "url": "runtime/pointerEvents.13d907808dcc8510e5bc.bundle.js"
   },
   {
-    "revision": "e191c40b2670c5e16248",
+    "revision": "a4621f579db1ab16e8cb",
     "url": "src/widgets/About.bf9d0cfbd19a6acaa7ef.bundle.css"
   },
   {
-    "url": "src/widgets/About.e191c40b2670c5e16248.bundle.js"
+    "url": "src/widgets/About.a4621f579db1ab16e8cb.bundle.js"
   },
   {
-    "revision": "9283ee2900350b179ac2",
+    "revision": "753a2b93f8258d2e1a64",
     "url": "src/widgets/AccountActivation/AccountActivation.687c1b4ce9e7cc074180.bundle.css"
   },
   {
-    "url": "src/widgets/AccountActivation/AccountActivation.9283ee2900350b179ac2.bundle.js"
+    "url": "src/widgets/AccountActivation/AccountActivation.753a2b93f8258d2e1a64.bundle.js"
   },
   {
-    "url": "src/widgets/Home.feb1a9b5af88e11c4b79.bundle.js"
+    "url": "src/widgets/Home.add22c8aee6aeddd4bd9.bundle.js"
   },
   {
-    "revision": "1f40d9040b7bc99f910a",
+    "revision": "7ce8c66a6dc93ff8a4e1",
     "url": "src/widgets/Login/Login.1b2e8b4d2d58dc637d24.bundle.css"
   },
   {
-    "url": "src/widgets/Login/Login.1f40d9040b7bc99f910a.bundle.js"
+    "url": "src/widgets/Login/Login.7ce8c66a6dc93ff8a4e1.bundle.js"
   },
   {
-    "revision": "721d8eee4aac01e618b2",
-    "url": "src/widgets/Profile.1b96abc13c4dc1598cb0.bundle.css"
+    "revision": "6cb317a8fb843b5362af",
+    "url": "src/widgets/Profile.74b74c13cbd46dce2de8.bundle.css"
   },
   {
-    "url": "src/widgets/Profile.721d8eee4aac01e618b2.bundle.js"
+    "url": "src/widgets/Profile.6cb317a8fb843b5362af.bundle.js"
   },
   {
-    "revision": "f0d90e70383416effc58",
+    "revision": "f1f9bcd0f7d7595420b7",
     "url": "src/widgets/Register/Register.4dfe7e09044d1cec0f86.bundle.css"
   },
   {
-    "url": "src/widgets/Register/Register.f0d90e70383416effc58.bundle.js"
+    "url": "src/widgets/Register/Register.f1f9bcd0f7d7595420b7.bundle.js"
   },
   {
-    "revision": "38d9b171e9f2f15f2734",
-    "url": "src/widgets/Vehicle/Vehicle.63bff411b087c12f172b.bundle.css"
+    "revision": "37dcba32cc30806ecff4",
+    "url": "src/widgets/Vehicle/Vehicle.d7f180ca8dc79fbc7a95.bundle.css"
   },
   {
-    "url": "src/widgets/Vehicle/Vehicle.38d9b171e9f2f15f2734.bundle.js"
+    "url": "src/widgets/Vehicle/Vehicle.37dcba32cc30806ecff4.bundle.js"
   },
   {
-    "revision": "42b99f3a633706834eab",
-    "url": "src/widgets/VehicleCards/VehicleCards.8113b0087c89addd5c70.bundle.css"
+    "revision": "72ed0300ea921609b786",
+    "url": "src/widgets/VehicleCards/VehicleCards.f102df898e07b98f8f96.bundle.css"
   },
   {
-    "url": "src/widgets/VehicleCards/VehicleCards.42b99f3a633706834eab.bundle.js"
+    "url": "src/widgets/VehicleCards/VehicleCards.72ed0300ea921609b786.bundle.js"
   },
   {
     "url": "icon_48x48.f09d828f7dd9896e985e794524da9cb4.png"
@@ -99,7 +99,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "bd7376dee3d02ec5b86ee33155545fb0",
+    "revision": "5c576b115c430a2012b2bb217026e2e4",
     "url": "index.html"
   },
   {
@@ -173,10 +173,10 @@ self.__precacheManifest = [
     "url": "externals/./src/sw/service-worker-app.js"
   },
   {
-    "url": "bootstrap.a051307e6197a924d737.bundle.js"
+    "url": "bootstrap.e0587340ed822880abcc.bundle.js"
   },
   {
-    "revision": "a051307e6197a924d737",
+    "revision": "e0587340ed822880abcc",
     "url": "bootstrap.82c71bd9f1a84dee17ca.bundle.css"
   },
   {
