@@ -59,9 +59,9 @@ export default class SelectRemoteSource extends WidgetBase<
             v(
               "select",
               {
-                onchange: (e: Event) => {
+                onchange: (e) => {
                   this.properties.onValue &&
-                    this.properties.onValue(e.returnValue as any);
+                    this.properties.onValue(e.target.value as any);
                   console.log("Click", e.target, e);
                 },
               },

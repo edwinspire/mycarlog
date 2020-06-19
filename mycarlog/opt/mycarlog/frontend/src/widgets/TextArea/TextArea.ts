@@ -9,32 +9,25 @@ export interface TextareaProperties {
 
 export default class Textarea extends WidgetBase<TextareaProperties> {
   protected render() {
-    return v(
-      "span",
-      {
-        classes: [],
-        onclick: (e: Event) => {
-          //this.properties.onClick && this.properties.onClick(e);
-          console.log("Click");
-        },
-      },
-      [
-        v("div", { classes: ["field"] }, [
-          v("label", { classes: ["label", "is-small"] }, [
-            this.properties.label,
-          ]),
-          v("div", { classes: ["control"] }, [
-            v(
-              "textarea",
-              {
-                placeholder: "Prueba Textarea",
-                classes: ["input", "is-small"],
+    return v("span", {}, [
+      v("div", { classes: ["field"] }, [
+        v("label", { classes: ["label", "is-small"] }, [this.properties.label]),
+        v("div", { classes: ["control"] }, [
+          v(
+            "textarea",
+            {
+              placeholder: "Prueba Textarea",
+              classes: ["input", "is-small"],
+              onchange: (e) => {
+                this.properties.onValue &&
+                  this.properties.onValue(e.target.value);
+                console.log("Click");
               },
-              [this.properties.value]
-            ),
-          ]),
+            },
+            [this.properties.value]
+          ),
         ]),
-      ]
-    );
+      ]),
+    ]);
   }
 }

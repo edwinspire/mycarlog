@@ -79,11 +79,11 @@ self.__precacheManifest = [
     "url": "src/widgets/Register/Register.9cc8c9aed7ea58ba8519.bundle.js"
   },
   {
-    "revision": "606cf7f7397f3632196f",
+    "revision": "ca770abfee8e859ee882",
     "url": "src/widgets/Vehicle/Vehicle.31a239b7e5e1d0511c7d.bundle.css"
   },
   {
-    "url": "src/widgets/Vehicle/Vehicle.606cf7f7397f3632196f.bundle.js"
+    "url": "src/widgets/Vehicle/Vehicle.ca770abfee8e859ee882.bundle.js"
   },
   {
     "revision": "82857e0d65e3eda109a5",
@@ -99,7 +99,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "e6f3fe8ce7d1e126b1c74ce95170f9e0",
+    "revision": "8379df2a85a0f08883d0a12e86939fac",
     "url": "index.html"
   },
   {
@@ -107,7 +107,7 @@ self.__precacheManifest = [
     "url": "fa-solid-900.30zBJ5OP.woff2"
   },
   {
-    "revision": "61c8862c3082f8bfedf2",
+    "revision": "0adfd4f89651497271ed",
     "url": "bootstrap.82c71bd9f1a84dee17ca.bundle.css"
   },
   {
@@ -181,7 +181,7 @@ self.__precacheManifest = [
     "url": "icon_144x144.ad137bff6e774fa1c00d0f9d5520cde6.png"
   },
   {
-    "url": "bootstrap.61c8862c3082f8bfedf2.bundle.js"
+    "url": "bootstrap.0adfd4f89651497271ed.bundle.js"
   },
   {
     "revision": "1c0d71dafe5be2304fa510afc28d9524",

@@ -55,6 +55,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
   }
 
   private async Save() {
+    console.log(this.Params);
     if (Number(this.Params.idcontact) > 0) {
       if (this.Params.license_plate.length > 0) {
         let resp = await fetch("/vehicle_cu", {
