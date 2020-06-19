@@ -9,26 +9,20 @@ export interface InputProperties {
 
 export default class Input extends WidgetBase<InputProperties> {
   protected render() {
-    return v(
-      "span",
-      {
-        classes: [],
-        onclick: (e: Event) => {
-          //this.properties.onClick && this.properties.onClick(e);
-          console.log("Click");
-        },
-      },
-      [
-        v("div", { classes: ["field"] }, [
-          v("label", { classes: ["label", "is-small"] }, [this.properties.label]),
-          v("div", { classes: ["control", "is-small"] }, [
-            v("input", {
-              placeholder: "Prueba input",
-              classes: ["input", "is-small"], 
-            }),
-          ]),
+    return v("span", {}, [
+      v("div", { classes: ["field"] }, [
+        v("label", { classes: ["label", "is-small"] }, [this.properties.label]),
+        v("div", { classes: ["control", "is-small"] }, [
+          v("input", {
+            placeholder: "Prueba input",
+            classes: ["input", "is-small"],
+            onchange: (e) => {
+              console.log(e);
+              this.properties.onValue && this.properties.onValue(e.target.value);
+            },
+          }),
         ]),
-      ]
-    );
+      ]),
+    ]);
   }
 }

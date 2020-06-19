@@ -4,7 +4,7 @@ import * as css from "../Vehicle/Vehicle.m.css";
 //import * as cssProfile from "../styles/Profile.m.css";
 //import TextInput from "@dojo/widgets/text-input";
 //import Checkbox, { Mode } from "@dojo/widgets/checkbox";
-import Textarea from "@dojo/widgets/text-area";
+import Textarea from "../TextArea/TextArea";
 import Select from "../SelectRemoteSource/SelectRemoteSource";
 //import SBar from "@dojo/widgets/snackbar";
 import watch from "@dojo/framework/core/decorators/watch";
@@ -159,8 +159,8 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
             w(Select, {
               label: "Propietario",
               url: "/toselect/contacts",
-              onValue: (label, value, disabled) => {
-                console.log("onSelect", label, value, disabled);
+              onValue: (value) => {
+                console.log("onSelect", value);
                 this.Params.idcontact = value;
               },
             }),
@@ -181,8 +181,8 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
               label: "Marca",
               value: this.Params.idmark,
               url: "/toselect/marks",
-              onValue: (label, value, disabled) => {
-                console.log("onSelect", label, value, disabled);
+              onValue: (value) => {
+                console.log("onSelect", value);
                 this.Params.idmark = value;
               },
             }),
@@ -194,8 +194,8 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
                 label: "Modelo",
                 value: this.Params.idmodel,
                 url: "/toselect/models",
-                onValue: (label, value, disabled) => {
-                  console.log("onSelect", label, value, disabled);
+                onValue: (value) => {
+                  console.log("onSelect", value);
                   this.Params.idfuel_tank_capacitytype = value;
                 },
               },
@@ -206,7 +206,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
         v("div", { classes: ["columns is-mobile", css.spacing] }, [
           v("div", { classes: ["column"] }, [
             w(Input, {
-              label: 'Año',
+              label: "Año",
               value: this.Params.year as any,
               onValue: (v) => {
                 this.Params.year = v as string;
@@ -216,7 +216,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
           ]),
           v("div", { classes: ["column"] }, [
             w(Input, {
-              label: 'VIN',
+              label: "VIN",
               value: this.Params.vin as any,
               onValue: (v) => {
                 this.Params.vin = v as string;
@@ -231,8 +231,8 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
               label: "Color",
               url: "/toselect/colors",
               value: this.Params.idcolor,
-              onValue: (label, value, disabled) => {
-                console.log("onSelect", label, value, disabled);
+              onValue: (value) => {
+                console.log("onSelect", value);
                 this.Params.idcolor = value;
               },
             }),
@@ -242,8 +242,8 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
               label: "Tipo de combustible",
               url: "/toselect/fueltypes",
               value: this.Params.idfueltype,
-              onValue: (label, value, disabled) => {
-                console.log("onSelect", label, value, disabled);
+              onValue: (value) => {
+                console.log("onSelect", value);
                 this.Params.idfueltype = value;
               },
             }),
@@ -257,6 +257,9 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
               value: this.Params.fuel_tank_capacity as any,
               onValue: (v) => {
                 this.Params.fuel_tank_capacity = v as string;
+
+                console.log(this.Params.fuel_tank_capacity);
+
                 this.invalidate();
               },
             }),
@@ -268,8 +271,8 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
                 label: "Unidad de medida del tanque",
                 url: "/toselect/unit_measure_fuel_tanks",
                 value: this.Params.idunit_measure_fuel_tank,
-                onValue: (label, value, disabled) => {
-                  console.log("onSelect", label, value, disabled);
+                onValue: (value) => {
+                  console.log("onSelect", value);
                   this.Params.idunit_measure_fuel_tank = value;
                 },
               },
@@ -277,7 +280,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
             ),
           ]),
         ]),
-
+        /*
         v("div", { classes: ["columns is-mobile", css.spacing] }, [
           v("div", { classes: ["column"] }, []),
           v("div", { classes: ["column"] }, []),
@@ -287,14 +290,10 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
           v("div", { classes: ["column"] }, []),
           v("div", { classes: ["column"] }, []),
         ]),
-
+*/
         v("div", { classes: [""] }, [
           w(Textarea, {
-            columns: 40,
-            rows: 5,
-            placeholder: "Notas",
-
-            key: "text-area",
+            label: "Notas",
             value: this.Params.note,
             onValue: (value: string) => {
               this.Params.note = value;

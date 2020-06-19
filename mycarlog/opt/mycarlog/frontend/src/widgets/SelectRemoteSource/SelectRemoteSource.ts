@@ -7,11 +7,7 @@ export interface SelectRemoteSourceProperties {
   label: string;
   value?: string;
   params?: any;
-  onValue?(
-    OptionLabel: string,
-    OptionValue: string,
-    OptionDisabled: boolean
-  ): void;
+  onValue?(Value: any): void;
 }
 
 export interface SelectOption {
@@ -55,25 +51,25 @@ export default class SelectRemoteSource extends WidgetBase<
   }
 
   protected render() {
-    return v(
-      "span",
-      {
-        classes: [],
-        onclick: (e: Event) => {
-          //this.properties.onClick && this.properties.onClick(e);
-          console.log("Click");
-        },
-      },
-      [
-        v("div", { classes: ["field"] }, [
-          v("label", { classes: ["label", "is-small"] }, [this.properties.label]),
-          v("div", { classes: ["control", "is-small"] }, [
-            v("div", { classes: ["select is-small", css.full_width] }, [
-              v("select", {}, this.Options),
-            ]),
+    return v("span", {}, [
+      v("div", { classes: ["field"] }, [
+        v("label", { classes: ["label", "is-small"] }, [this.properties.label]),
+        v("div", { classes: ["control", "is-small"] }, [
+          v("div", { classes: ["select is-small", css.full_width] }, [
+            v(
+              "select",
+              {
+                onchange: (e: Event) => {
+                  this.properties.onValue &&
+                    this.properties.onValue(e.returnValue as any);
+                  console.log("Click", e.target, e);
+                },
+              },
+              this.Options 
+            ),
           ]),
         ]),
-      ]
-    );
+      ]),
+    ]);
   }
 }
