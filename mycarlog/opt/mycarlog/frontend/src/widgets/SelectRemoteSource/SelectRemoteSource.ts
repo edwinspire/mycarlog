@@ -7,6 +7,7 @@ export interface SelectRemoteSourceProperties {
   label: string;
   value?: string;
   params?: any;
+  required?: boolean;
   onValue?(Value: any): void;
 }
 
@@ -59,6 +60,7 @@ export default class SelectRemoteSource extends WidgetBase<
             v(
               "select",
               {
+                required: this.properties.required,
                 onchange: (e) => {
                   this.properties.onValue &&
                     this.properties.onValue(e.target.value as any);

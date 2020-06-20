@@ -4,6 +4,10 @@ import WidgetBase from "@dojo/framework/core/WidgetBase";
 export interface TextareaProperties {
   label?: string;
   value?: string;
+  rows?: number;
+  cols?: number;
+  required?: boolean;
+  placeholder?: string;
   onValue?(value: any): void;
 }
 
@@ -16,8 +20,12 @@ export default class Textarea extends WidgetBase<TextareaProperties> {
           v(
             "textarea",
             {
-              placeholder: "Prueba Textarea",
-              classes: ["input", "is-small"],
+              rows: this.properties.rows,
+              cols: this.properties.cols,
+              required: this.properties.required,
+              placeholder: this.properties.placeholder,
+              classes: ["textarea", "is-small"],
+              value: this.properties.value,
               onchange: (e) => {
                 this.properties.onValue &&
                   this.properties.onValue(e.target.value);

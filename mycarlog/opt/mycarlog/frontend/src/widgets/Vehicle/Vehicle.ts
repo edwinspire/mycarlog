@@ -1,20 +1,12 @@
 import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
 import * as css from "../Vehicle/Vehicle.m.css";
-//import * as cssProfile from "../styles/Profile.m.css";
-//import TextInput from "@dojo/widgets/text-input";
-//import Checkbox, { Mode } from "@dojo/widgets/checkbox";
 import Textarea from "../TextArea/TextArea";
 import Select from "../SelectRemoteSource/SelectRemoteSource";
-//import SBar from "@dojo/widgets/snackbar";
 import watch from "@dojo/framework/core/decorators/watch";
 import Menu from ".././Menu/Menu";
 import Input from ".././Input/Input";
-// import UserPreferences, {
-//   UserPreferencesProperties,
-// } from ".././UserPreferences/UserPreferences";
 import ToolBar from "../../widgets/ToolBar/ToolBar";
-//import { select } from '@dojo/widgets/theme/dojo/native-select.m.css';
 
 export interface VehicleProperties {
   idvehicle?: string;
@@ -33,8 +25,8 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
     vin: "",
     idvehicletype: "0",
     idmark: "0",
-    idmodel: "0",
-    idcolor: "0",
+    model: "",
+    color: "0",
     idfueltype: "0",
     idunit_measure_fuel_tank: "0",
     note: "",
@@ -146,8 +138,8 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
             vin: "",
             idvehicletype: "0",
             idmark: "0",
-            idmodel: "0",
-            idcolor: "0",
+            model: "",
+            color: "",
             idfueltype: "0",
             idunit_measure_fuel_tank: "0",
             note: "",
@@ -190,14 +182,12 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
           ]),
           v("div", { classes: ["column"] }, [
             w(
-              Select,
+              Input,
               {
                 label: "Modelo",
-                value: this.Params.idmodel,
-                url: "/toselect/models",
+                value: this.Params.model,
                 onValue: (value) => {
-                  console.log("onSelect", value);
-                  this.Params.idfuel_tank_capacitytype = value;
+                  this.Params.model = value;
                 },
               },
               []
@@ -208,6 +198,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
           v("div", { classes: ["column"] }, [
             w(Input, {
               label: "Año",
+              type: 'number',
               value: this.Params.year as any,
               onValue: (v) => {
                 this.Params.year = v as string;
@@ -228,13 +219,12 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
         ]),
         v("div", { classes: ["columns is-mobile", css.spacing] }, [
           v("div", { classes: ["column"] }, [
-            w(Select, {
+            w(Input, {
               label: "Color",
-              url: "/toselect/colors",
-              value: this.Params.idcolor,
+              type: "color",
+              value: this.Params.color,
               onValue: (value) => {
-                console.log("onSelect", value);
-                this.Params.idcolor = value;
+                this.Params.color = value;
               },
             }),
           ]),
@@ -255,6 +245,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
           v("div", { classes: ["column"] }, [
             w(Input, {
               label: "Capacidad Tanque",
+              type: 'number',
               value: this.Params.fuel_tank_capacity as any,
               onValue: (v) => {
                 this.Params.fuel_tank_capacity = v as string;
@@ -295,6 +286,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
         v("div", { classes: [""] }, [
           w(Textarea, {
             label: "Notas",
+            rows: 5, 
             value: this.Params.note,
             onValue: (value: string) => {
               this.Params.note = value;
