@@ -58,7 +58,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
               this.SnackBar("Guardado", "success");
               setTimeout(() => {
                 window.location.href =
-                  "/vehicle_cards?idvehicle=" +
+                  "/#vehicle_cards?idvehicle=" +
                   data.idvehicle +
                   "&idaccount=" +
                   this.Params.idaccount; 
