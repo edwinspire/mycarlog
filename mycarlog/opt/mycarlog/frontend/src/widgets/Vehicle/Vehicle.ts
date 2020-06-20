@@ -7,6 +7,7 @@ import watch from "@dojo/framework/core/decorators/watch";
 import Menu from ".././Menu/Menu";
 import Input from ".././Input/Input";
 import ToolBar from "../../widgets/ToolBar/ToolBar";
+import SnackBarT from "../../widgets/SnackBarTime/SnackBarTime";
 
 export interface VehicleProperties {
   idvehicle?: string;
@@ -32,51 +33,52 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
     note: "",
   };
 
-  //@watch() private _openSnack = false;
-  //private _MsgSnackBar = "-";
+  private Message = "";
+  private MessageType = undefined;
 
-  private SnackBar(msg: string) {
-    /* console.log("SnackBar " + msg);
-    this._openSnack = true;
-    this._MsgSnackBar = msg;
-    this.invalidate();
-    setTimeout(() => {
-      this._openSnack = false;
-      this.invalidate();
-    }, 4000); */
+  private SnackBar(message: string, type?: any) {
+    this.MessageType = type;
+    this.Message = message;
   }
 
   private async Save() {
     console.log(this.Params);
-    if (Number(this.Params.idcontact) > 0) {
-      if (this.Params.license_plate.length > 0) {
-        let resp = await fetch("/vehicle_cu", {
-          method: "POST",
-          body: JSON.stringify(this.Params),
-          headers: { "Content-Type": "application/json" },
-        });
-        let data = await resp.json();
-        if (resp.status == 200) {
-          console.log(data);
-          if (data.idvehicle > 0) {
-            window.location.href =
-              "/#vehicles?idvehicle=" +
-              data.idvehicle +
-              "&idaccount=" +
-              this.Params.idaccount;
+    if (this.Params.idaccount && this.Params.idaccount > 0) {
+      if (Number(this.Params.idcontact) > 0) {
+        if (this.Params.license_plate.length > 0) {
+          let resp = await fetch("/vehicle_cu", {
+            method: "POST",
+            body: JSON.stringify(this.Params),
+            headers: { "Content-Type": "application/json" },
+          });
+          let data = await resp.json();
+          if (resp.status == 200) {
+            console.log(data);
+            if (data.idvehicle > 0) {
+              this.SnackBar("Guardado", "success");
+              setTimeout(() => {
+                window.location.href =
+                  "/#vehicles?idvehicle=" +
+                  data.idvehicle +
+                  "&idaccount=" +
+                  this.Params.idaccount; 
+              }, 2000);
+            } else {
+              this.SnackBar("No se pudo guardar", "error");
+            }
+          } else if (resp.status == 401) {
+            window.location.href = "/#login";
           } else {
-            this.SnackBar("No se pudo guardar");
+            this.SnackBar("No se pudo guardar " + resp.status, "error");
           }
-        } else if (resp.status == 401) {
-          window.location.href = "/#login";
         } else {
-          this.SnackBar("No se pudo guardar " + resp.status);
+          this.SnackBar("Complete los campos que son requeridos", "error");
         }
       } else {
-        this.SnackBar("Complete los campos que son requeridos");
+        this.SnackBar("Debe seleccionar un Propietario", "error");
       }
     } else {
-      this.SnackBar("Debe seleccionar un Propietario");
+      this.SnackBar("No se encuentra una cuenta válida", "error");
     }
 
     this.invalidate();
@@ -117,6 +119,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
 
   protected render() {
     return v("div", {}, [
+      w(SnackBarT, { message: this.Message, type: this.MessageType }),
       w(Menu, {}),
       w(ToolBar, {
         title: "VEHÍCULO",
@@ -198,7 +201,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
           v("div", { classes: ["column"] }, [
             w(Input, {
               label: "Año",
-              type: 'number',
+              type: "number",
               value: this.Params.year as any,
               onValue: (v) => {
                 this.Params.year = v as string;
@@ -245,7 +248,7 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
           v("div", { classes: ["column"] }, [
             w(Input, {
               label: "Capacidad Tanque",
-              type: 'number',
+              type: "number",
               value: this.Params.fuel_tank_capacity as any,
               onValue: (v) => {
                 this.Params.fuel_tank_capacity = v as string;
@@ -283,10 +286,10 @@ export default class Vehicle extends WidgetBase<VehicleProperties> {
           v("div", { classes: ["column"] }, []),
         ]),
 */
-        v("div", { classes: [""] }, [
+        v("div", { classes: [css.spacing] }, [
           w(Textarea, {
             label: "Notas",
-            rows: 5, 
+            rows: 5,
             value: this.Params.note,
             onValue: (value: string) => {
               this.Params.note = value;
