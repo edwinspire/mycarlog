@@ -84,7 +84,7 @@ export default factory(function Menu({ middleware: { icache } }) {
                 classes: [],
                 activeClasses: [css.selected],
               },
-              ["Home"]
+              ["HOME"]
             ),
           ]),
           v("div", { classes: ["navbar-item"] }, [
@@ -113,7 +113,7 @@ export default factory(function Menu({ middleware: { icache } }) {
             w(
               Link,
               {
-                to: "fuelling",
+                to: "fueling",
                 classes: [],
                 activeClasses: [css.selected],
               },

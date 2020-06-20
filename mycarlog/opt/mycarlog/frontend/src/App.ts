@@ -8,6 +8,7 @@ import Login from "./widgets/Login/Login";
 import Register from "./widgets/Register/Register";
 import VehicleCards from "./widgets/VehicleCards/VehicleCards";
 import Vehicle from "./widgets/Vehicle/Vehicle";
+import Fueling from "./widgets/Fueling/Fueling";
 import Home from "./widgets/Home";
 import About from "./widgets/About";
 import Profile from "./widgets/Profile";
@@ -56,9 +57,10 @@ export default factory(function App({ middleware: { theme, icache } }) {
         register: w(Register, {}),
         account_activation: w(AccountActivation, {}),
         vehicle: w(Vehicle, {}),
+        fueling: w(Fueling, {}),
         vehicle_cards: w(VehicleCards, {}),
         profile: w(Profile, { username: "Dojo User" }),
-      },
+       },
     ]),
   ]);
 });

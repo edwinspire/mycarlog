@@ -10,8 +10,8 @@ export default [
 		outlet: 'main'
 	},
 	{
-		id: 'profile',
-		path: 'profile',
+		id: 'fueling',
+		path: 'fueling',
 		outlet: 'main'
 	},
 	{
