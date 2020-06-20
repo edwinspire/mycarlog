@@ -79,11 +79,11 @@ self.__precacheManifest = [
     "url": "src/widgets/Register/Register.6688212906e7cb4944f0.bundle.js"
   },
   {
-    "revision": "80e8395d22b64f46b527",
+    "revision": "2ebb056bcb3f0f431eca",
     "url": "src/widgets/Vehicle/Vehicle.c0c1dbdde638b60c5306.bundle.css"
   },
   {
-    "url": "src/widgets/Vehicle/Vehicle.80e8395d22b64f46b527.bundle.js"
+    "url": "src/widgets/Vehicle/Vehicle.2ebb056bcb3f0f431eca.bundle.js"
   },
   {
     "revision": "d556951344a86d3189b4",
@@ -99,7 +99,7 @@ self.__precacheManifest = [
     "url": "icon_96x96.e42c16208a240c921e6f47acbcda02ad.png"
   },
   {
-    "revision": "71eedc1f9fb2de04a579379678db37fd",
+    "revision": "29573cad6c315635f92087968096ab46",
     "url": "index.html"
   },
   {
@@ -107,7 +107,7 @@ self.__precacheManifest = [
     "url": "fa-solid-900.30zBJ5OP.woff2"
   },
   {
-    "revision": "70f4d3c47302727ee858",
+    "revision": "8f56efc5bbba2c0942cc",
     "url": "bootstrap.82c71bd9f1a84dee17ca.bundle.css"
   },
   {
@@ -167,8 +167,7 @@ self.__precacheManifest = [
     "url": "fa-solid-900.ZtWMM2jN.svg"
   },
   {
-    "revision": "0deb6ad52f78113aa47c8a4fbb042f4b",
-    "url": "favicon.1bbMiXjU.ico"
+    "url": "bootstrap.8f56efc5bbba2c0942cc.bundle.js"
   },
   {
     "revision": "9d65ebbfd3f8e860aff82b7e8e7425d2",
@@ -181,7 +180,8 @@ self.__precacheManifest = [
     "url": "icon_144x144.ad137bff6e774fa1c00d0f9d5520cde6.png"
   },
   {
-    "url": "bootstrap.70f4d3c47302727ee858.bundle.js"
+    "revision": "0deb6ad52f78113aa47c8a4fbb042f4b",
+    "url": "favicon.1bbMiXjU.ico"
   },
   {
     "revision": "1c0d71dafe5be2304fa510afc28d9524",
