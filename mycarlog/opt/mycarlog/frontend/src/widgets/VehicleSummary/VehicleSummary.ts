@@ -1,13 +1,10 @@
 import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
 import Link from "@dojo/framework/routing/ActiveLink";
-import TextInput from "@dojo/widgets/text-input";
-//import Textarea from "@dojo/widgets/text-area";
-//import SBar from "@dojo/widgets/snackbar";
+import Input from "../Input/Input";
+import * as css from "./VehicleSummary.m.css";
 import watch from "@dojo/framework/core/decorators/watch";
 import ToolBar from ".././ToolBar/ToolBar";
-//import Icon from "../Icon/Icon";
-//import ToolBar from "@dojo/widgets/toolbar";
 
 export interface VehicleSummaryProperties {
   idvehicle: number;
@@ -47,9 +44,6 @@ export default class VehicleSummary extends WidgetBase<
     idunit_measure_fuel_tank: "",
     unit_measure_fuel_tank_label: "",
   };
-
-  // @watch() private _openSnack = false;
-  // private _MsgSnackBar = "-";
 
   private SnackBar(msg: string) {
     console.log("SnackBar " + msg);
@@ -99,42 +93,40 @@ export default class VehicleSummary extends WidgetBase<
     }
   }
 
-
   protected render() {
     return v("div", {}, [
-      w(ToolBar, { title: this.Params.license_plate, customActions: [
-        w(
-          Link,
-          {
-            to: "home",
-            activeClasses: []
-          },
-          ["PRUEBA"]
-        )
-      ] }, [
-        
-      ]),
-      v("div", { classes: [] }, [
-        v("div", { classes: [] }, [
-          w(
-            TextInput,
-            {
-              type: "text",
-              value: this.Params.lastname + " " + this.Params.firstname,
-              readOnly: true,
-            },
-            [{ label: "Propietario" }]
-          ),
-        ]),
-        v("div", { classes: [] }, [
-          v("div", { classes: [] }, [
+      w(
+        ToolBar,
+        {
+          title: this.Params.license_plate,
+          customActions: [
             w(
-              TextInput,
+              Link,
               {
+                to: "home",
+                activeClasses: [],
+              },
+              ["PRUEBA"]
+            ),
+          ],
+        },
+        []
+      ),
+      v("div", { classes: [] }, [
+        v("div", { classes: ["box"] }, [
+          v("div", { classes: ["columns is-mobile", css.spacing] }, [
+            v("div", { classes: ["column"] }, [
+              w(Input, {
+                label: "Propietario",
                 type: "text",
-
+                value: this.Params.lastname + " " + this.Params.firstname,
+              }),
+            ]),
+            v("div", { classes: ["column"] }, [
+              w(Input, {
+                type: "text",
+                label: "Placa",
                 //                disabled: false,
-                readOnly: true,
                 //              required: true,
                 placeholder: "Placa",
                 value: this.Params.license_plate,
@@ -142,99 +134,76 @@ export default class VehicleSummary extends WidgetBase<
                   this.Params.license_plate = d as string;
                   this.invalidate();
                 },
-              },
-              [{ label: "Placa" }]
-            ),
+              }),
+            ]),
           ]),
-          v("div", { classes: [] }, [
-            w(
-              TextInput,
-              {
+
+          v("div", { classes: ["columns is-mobile", css.spacing] }, [
+            v("div", { classes: ["column"] }, [
+              w(Input, {
                 value: this.Params.mark_label,
-                readOnly: true,
-              },
-              [{ label: "Marca" }]
-            ),
-          ]),
-        ]),
-        v("div", {}, [
-          v("div", {}, [
-            w(
-              TextInput,
-              {
+                label: "Marca",
+              }),
+            ]),
+            v("div", { classes: ["column"] }, [
+              w(Input, {
                 type: "number",
-
+                label: "Año",
                 //disabled: false,
-                readOnly: true,
+
                 value: this.Params.year as any,
-              },
-              [{ label: "Año" }]
-            ),
+              }),
+            ]),
           ]),
-          v("div", { classes: [] }, [
-            w(
-              TextInput,
-              {
-                type: "text",
 
-                //disabled: false,
-                readOnly: true,
+          v("div", { classes: ["columns is-mobile", css.spacing] }, [
+            v("div", { classes: ["column"] }, [
+              w(Input, {
+                type: "text",
+                label: "VIN",
+
+
                 value: this.Params.vin as any,
-              },
-              [{ label: "VIN" }]
-            ),
-          ]),
-        ]),
-        v("div", {}, [
-          v("div", { classes: [] }, [
-            w(
-              TextInput,
-              {
-                //type: "color",
-                readOnly: true,
+              }),
+            ]),
+            v("div", { classes: ["column"] }, [
+              w(Input, {
+
+                label: "Color",
                 value: this.Params.color,
-              },
-              [{ label: "Color" }]
-            ),
+              }),
+            ]),
           ]),
-          v("div", { classes: [] }, [
-            w(
-              TextInput,
-              {
+
+          v("div", { classes: ["columns is-mobile", css.spacing] }, [
+            v("div", { classes: ["column"] }, [
+              w(Input, {
                 value: this.Params.fueltype_label,
-                readOnly: true,
-              },
-              [{ label: "Tipo de combustible" }]
-            ),
-          ]),
-        ]),
-        v("div", {}, [
-          v("div", { classes: [] }, [
-            w(
-              TextInput,
-              {
+                label: "Tipo de combustible",
+              }),
+            ]),
+            v("div", { classes: ["column"] }, [
+              w(Input, {
                 //                key: "t6",
                 type: "text",
 
                 //                disabled: false,
-                readOnly: true,
+                label: "Capacidad del tanque",
                 value:
                   (this.Params.fuel_tank_capacity as any) +
                   " " +
                   this.Params.unit_measure_fuel_tank_label,
-              },
-              [{ label: "Capacidad del tanque" }]
-            ),
+              }),
+            ]),
           ]),
-          v("div", { classes: [] }, [
-            w(
-              TextInput,
-              {
-                readOnly: true,
+          v("div", { classes: ["columns is-mobile", css.spacing] }, [
+            v("div", { classes: ["column"] }, [
+              w(Input, {
+                label: "Unidad de medida del tanque",
                 value: "this.Params.unit_measure_fuel_tank_label",
-              },
-              [{ label: "Unidad de medida del tanque" }]
-            ),
+              }),
+            ]),
+            v("div", { classes: ["column"] }, []),
           ]),
         ]),
       ]),

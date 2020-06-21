@@ -40,17 +40,17 @@ export default factory(function Menu({ middleware: { icache } }) {
           w(Tag, {
             left: { label: "123" },
             rigth: {
-              label: v("i", { classes: ["fas fa-bell"] }),
-              class: "is-primary",
+              label: 'km',
+              class: "is-info",
             },
           }),
         ]),
         v("a", { classes: ["navbar-item"] }, [
           w(Tag, {
-            left: { label: "123" },
+            left: { label: "0" },
             rigth: {
               label: v("i", { classes: ["fas fa-bell"] }),
-              class: "is-primary",
+              class: "is-danger",
             },
           }),
         ]),

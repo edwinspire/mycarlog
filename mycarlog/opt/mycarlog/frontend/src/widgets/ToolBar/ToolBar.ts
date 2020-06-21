@@ -122,7 +122,6 @@ export default class ToolBar extends WidgetBase<ToolBarProperties> {
 
     if (this.properties.ShowSearch) {
       tbActions.push(
-        
         v("div", { classes: ["field has-addons", css.topnav_right_search] }, [
           v("div", { classes: ["control"] }, [
             v("input", {
