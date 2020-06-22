@@ -22,7 +22,11 @@
 }
 
 .topnav a.active {
-  background-color: #3d81af;
+  background: rgb(54,54,54);
+  background: -moz-linear-gradient(270deg, rgba(54,54,54,1) 0%, rgba(43,98,135,1) 51%);
+  background: -webkit-linear-gradient(270deg, rgba(54,54,54,1) 0%, rgba(43,98,135,1) 51%);
+  background: linear-gradient(270deg, rgba(54,54,54,1) 0%, rgba(43,98,135,1) 51%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#363636",endColorstr="#2b6287",GradientType=1);
   color: white;
 }
 

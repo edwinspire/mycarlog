@@ -3,8 +3,9 @@ import WidgetBase from "@dojo/framework/core/WidgetBase";
 import Input from "../Input/Input";
 import ToolBar from "../ToolBar/ToolBar";
 import Select from "../SelectRemoteSource/SelectRemoteSource";
-import Checkbox from "@dojo/widgets/checkbox";
+//import Checkbox from "@dojo/widgets/checkbox";
 import Textarea from "../TextArea/TextArea";
+import CheckBox from "../CheckBox/CheckBox";
 import watch from "@dojo/framework/core/decorators/watch";
 import TitlePane from "@dojo/widgets/title-pane";
 import Menu from ".././Menu/Menu";
@@ -186,7 +187,7 @@ export default class Fueling extends WidgetBase<FuelingProperties> {
       w(
         ToolBar,
         {
-          title: 'Abastecimiento',
+          title: "Abastecimiento",
           ShowSave: true,
           onSave: () => {
             this.Save();
@@ -197,24 +198,15 @@ export default class Fueling extends WidgetBase<FuelingProperties> {
       v("div", {}, [
         v("div", { classes: ["columns is-mobile", css.spacing] }, [
           v("div", { classes: ["column"] }, [
-            w(
-              Checkbox,
-              {
-                checked: this.Params.full_tank,
-                aria: { describedBy: "Tanque lleno" },
-
-                //mode: Mode.toggle,
-                name: "full_tank",
-                //onLabel: "Si",
-                //offLabel: "No",
-                onValue: (checked: boolean) => {
-                  this.Params.full_tank = checked;
-                  console.log(this.Params.full_tank);
-                  this.invalidate();
-                },
+            w(CheckBox, {
+              label: "Tanque lleno",
+              value: this.Params.full_tank,
+              onValue: (checked: boolean) => {
+                this.Params.full_tank = checked;
+                console.log(this.Params.full_tank);
+                this.invalidate();
               },
-              ["Tanque lleno"]
-            ),
+            }),
           ]),
           v("div", { classes: ["column"] }, [
             w(Input, {
@@ -312,23 +304,15 @@ export default class Fueling extends WidgetBase<FuelingProperties> {
 
         v("div", { classes: ["columns is-mobile", css.spacing] }, [
           v("div", { classes: ["column"] }, [
-            w(
-              Checkbox,
-              {
-                checked: this.Params.last_lost,
-                aria: { describedBy: "Última recarga perdida" },
-
-                //mode: Mode.toggle,
-                name: "last_lost",
-
-                onValue: (checked: boolean) => {
-                  this.Params.last_lost = checked;
-                  console.log(this.Params.last_lost);
-                  this.invalidate();
-                },
+            w(CheckBox, {
+              value: this.Params.last_lost,
+              label: "Última recarga perdida",
+              onValue: (checked: boolean) => {
+                this.Params.last_lost = checked;
+                console.log(this.Params.last_lost);
+                this.invalidate();
               },
-              ["Última recarga perdida"]
-            ),
+            }),
           ]),
           v("div", { classes: ["column"] }, []),
         ]),
@@ -345,45 +329,50 @@ export default class Fueling extends WidgetBase<FuelingProperties> {
           v("div", { classes: ["column"] }, []),
         ]),
 */
-
-        v("div", { styles: { gridColumnEnd: "span 3" } }, [
-          w(
-            TitlePane,
-            {
-              name: "Punto de abastecimiento",
-              open: this._openAddress,
-              onOpen: () => {
-                this._openAddress = true;
-                this.getLocation();
-                console.log("Abrió pane");
+        v("div", { classes: ["columns is-mobile", css.spacing] }, [
+          v("div", { classes: ["column"] }, [
+            w(
+              TitlePane,
+              {
+                name: "Punto de abastecimiento",
+                open: this._openAddress,
+                onOpen: () => {
+                  this._openAddress = true;
+                  this.getLocation();
+                  console.log("Abrió pane");
+                },
+                onClose: () => {
+                  this._openAddress = false;
+                  console.log("Cerró pane");
+                },
               },
-              onClose: () => {
-                this._openAddress = false;
-                console.log("Cerró pane");
-              },
-            },
-            [
-              v("div", {}, [
-                v("div", { classes: "css.grid2 " }, [
-                  w(Input, {
-                    type: "number",
-                    label: "Coordenada Y",
-                    value: this.Params.geoy as any,
-                    onValue: (v) => {
-                      this.Params.geoy = 0;
-                      this.invalidate();
-                    },
-                  }),
-                  w(Input, {
-                    type: "number",
-                    label: "Coordenada X",
-                    value: this.Params.geox as any,
-                    onValue: (v) => {
-                      this.Params.geox = 0;
-                      this.invalidate();
-                    },
-                  }),
-                  v("div", { styles: { gridColumnEnd: "span 2" } }, [
+              [
+                v("div", {}, [
+                  v("div", { classes: ["columns is-mobile", css.spacing] }, [
+                    v("div", { classes: ["column"] }, [
+                      w(Input, {
+                        type: "number",
+                        label: "Coordenada Y",
+                        value: this.Params.geoy as any,
+                        onValue: (v) => {
+                          this.Params.geoy = 0;
+                          this.invalidate();
+                        },
+                      }),
+                    ]),
+                    v("div", { classes: ["column"] }, [
+                      w(Input, {
+                        type: "number",
+                        label: "Coordenada X",
+                        value: this.Params.geox as any,
+                        onValue: (v) => {
+                          this.Params.geox = 0;
+                          this.invalidate();
+                        },
+                      }),
+                    ]),
+                  ]),
+                  v("div", { classes: css.spacing }, [
                     w(Textarea, {
                       label: "Dirección",
                       rows: 3,
@@ -396,11 +385,12 @@ export default class Fueling extends WidgetBase<FuelingProperties> {
                     }),
                   ]),
                 ]),
-              ]),
-            ]
-          ),
+              ]
+            ),
+          ]),
         ]),
-        v("div", { classes: [], styles: { gridColumnEnd: "span 3" } }, [
+
+        v("div", { classes: [css.spacing] }, [
           w(Textarea, {
             rows: 5,
             placeholder: "Notas",
