@@ -2,11 +2,11 @@ import { v, w } from "@dojo/framework/core/vdom";
 import WidgetBase from "@dojo/framework/core/WidgetBase";
 import Grid from "@dojo/widgets/grid";
 import { createFetcher } from "@dojo/widgets/grid/utils";
-import ToolBar from "@dojo/widgets/toolbar";
-import IconX from ".././Icon/Icon";
+import ToolBar from "../ToolBar/ToolBar";
+//import IconX from ".././Icon/Icon";
 
 export interface FuelingLogProperties {
-  idvehicle: string;
+  idvehicle?: string;
 }
 
 export default class FuelingLog extends WidgetBase<FuelingLogProperties> {
@@ -142,16 +142,9 @@ export default class FuelingLog extends WidgetBase<FuelingLogProperties> {
 
   protected render() {
     return v("div", {}, [
-      w(ToolBar, { heading: "ABASTECIMIENTOS", collapseWidth: 150 }, [
-        w(IconX, {
-          label: "NUEVO",
-          classes: ["fas", "fa-user-plus"],
-          ShowLabel: true,
-          onClick: (e) => {
-            window.location.href = "/#fueling?idfueling=0&rowkey=0";
-          },
-        }),
-      ]),
+      w(ToolBar, { title: "ABASTECIMIENTOS", ShowSave: true, onSave: ()=>{
+        window.location.href = "/#fueling?idfueling=0&rowkey=0";
+      }}),
       v("div", {}, [
         this._fetcher
           ? w(Grid, {

@@ -120,7 +120,17 @@ export default factory(function Menu({ middleware: { icache } }) {
               ["ABASTECIMIENTO"]
             ),
           ]),
-
+          v("div", { classes: ["navbar-item"] }, [
+            w(
+              Link,
+              {
+                to: "fuelinglog",
+                classes: [],
+                activeClasses: [css.selected],
+              },
+              ["ABASTECIMIENTOS"]
+            ),
+          ]),
           v("div", { classes: ["navbar-item"] }, [
             w(
               Link,

@@ -36,6 +36,11 @@ export default [
 		outlet: 'main'
 	},
 	{
+		id: 'fuelinglog',
+		path: 'fuelinglog',
+		outlet: 'main'
+	},
+	{
 		id: 'account_activation',
 		path: 'account_activation',
 		outlet: 'main'
