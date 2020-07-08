@@ -73,7 +73,7 @@
   </span>
 </ToolBar>
 
-<div class="columns is-multiline is-mobile root">
+<div class="columns is-multiline is-desktop root">
   {#await promise}
     <p>...waiting</p>
   {:then datas}
