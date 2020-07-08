@@ -1,0 +1,45 @@
+<script>
+  import { onMount } from "svelte";
+  import Menu from "../components/Menu.svelte";
+  import ToolBar from "../components/ToolBar.svelte";
+  import Summary from "../components/Summary.svelte";
+  import {
+    IdVehicle,
+    APPLocalStorage,
+    LicensePlate,
+    MarkLabel,
+  } from "../components/Stores.js";
+
+  export let segment;
+  let id = 909;
+
+
+  function ClickService() {
+    window.location.href = "/service";
+  }
+
+
+  onMount(async () => {
+    let x = new APPLocalStorage();
+    id = x.getPreferences().idvehicle;
+    console.log({ $IdVehicle }, x.getPreferences());
+  });
+</script>
+
+<style>
+
+</style>
+
+<Menu {segment} />
+<ToolBar>
+  <span slot="left">{$MarkLabel} {$LicensePlate}</span>
+  <span slot="right">
+    <span class="icon" on:click={ClickService}>
+      <i class="fas fa-tools"></i>
+    </span>
+    <span class="icon" >
+      <i class="fas fa-gas-pump"></i>
+    </span>
+  </span>
+</ToolBar>
+<Summary />

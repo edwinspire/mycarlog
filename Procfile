@@ -1,1 +1,1 @@
-web: node ./mycarlog/opt/mycarlog/backend/index.js
+web: node ./__sapper__/build/index.js
