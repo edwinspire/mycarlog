@@ -20,5 +20,9 @@ getPreferences(){
     return this.getUser().preferences;
 }
 
+setUser(user){
+    localStorage.setItem('User', JSON.stringify(user));
+}
+
 }
 //export const IdVehicle = writable();

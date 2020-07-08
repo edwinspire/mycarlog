@@ -1,11 +1,14 @@
 <script>
-  import { User, IdVehicle} from ".././components/Stores.js";
+  import { User, APPLocalStorage, IdVehicle} from ".././components/Stores.js";
   let username = "";
   let password = "";
 
   function Login(event) {
     (async () => {
       try {
+
+        let AppST = new APPLocalStorage();
+
         let res = await fetch("/api/login", {
           method: "POST",
           body: JSON.stringify({ username: username, pwd: password }),
@@ -18,8 +21,8 @@
           if (!data.login) {
             // this.SnackBar(data.message);
           } else {
+            AppST.setUser(data);
             await User.set(data);
-            alert();
             window.location.href = "/home";
           }
         } else {
