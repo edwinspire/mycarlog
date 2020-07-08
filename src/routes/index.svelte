@@ -19,6 +19,7 @@
             // this.SnackBar(data.message);
           } else {
             await User.set(data);
+            alert();
             window.location.href = "/home";
           }
         } else {
