@@ -117,7 +117,7 @@
   </span>
 </ToolBar>
 
-<div class="columns is-multiline is-mobile root">
+<div class="columns is-multiline is-desktop root">
 
   <form >
     <article class="root">
