@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { IdVehicle, APPLocalStorage, MarkLabel, LicensePlate} from ".././components/Stores.js";
+  import { IdVehicle, APPLocalStorage} from ".././components/Stores.js";
 
   let idvehicle = "999",
    idaccount = 0,

@@ -24,7 +24,7 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(compression());
 app.use(virtual_route);
 app.use(
   compression({ threshold: 0 }),

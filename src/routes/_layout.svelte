@@ -1,41 +1,29 @@
 <script>
   import { onMount } from "svelte";
-  import {
-    User,
-    IdUser,
-    IdAccount,
-    IdVehicle,
-    LicensePlate,
-    MarkLabel,
-    NameVehicle,
-    Vin,
-    UserFullName,
-  } from ".././components/Stores.js";
+  import { User, IdAccount, IdVehicle } from ".././components/Stores.js";
 
   onMount(async () => {
     console.log("Inicio Layout");
 
     function SavePreferences() {
-console.log('Aqui se debe enviar los cambios de preferencias al servidor');
+      console.log(
+        "Aqui se debe enviar los cambios de preferencias al servidor"
+      );
     }
 
     if (typeof Storage !== "undefined") {
-      let DataUser = JSON.parse(localStorage.getItem("User"));
-      await User.set(DataUser);
-      await IdUser.set(DataUser.iduser);
-      await IdAccount.set(DataUser.idacount);
-      await IdVehicle.set(DataUser.preferences.idvehicle);
-/*
-      await LicensePlate.set(
-        DataUser.preferences.last_vehicle_selected.license_plate
-      );
-      await MarkLabel.set(
-        DataUser.preferences.last_vehicle_selected.mark_label
-      );
-      await NameVehicle.set(DataUser.preferences.last_vehicle_selected.name);
-      await Vin.set(DataUser.preferences.last_vehicle_selected.vin);
-      */
-      await UserFullName.set(DataUser.fullname);
+      let storageUser = localStorage.getItem("User");
+
+      console.log(storageUser);
+      if (storageUser !== "undefined") {
+        let DataUser = JSON.parse(storageUser);
+        if (DataUser) {
+          await User.set(DataUser);
+          await IdAccount.set(DataUser.idacount);
+          await IdVehicle.set(DataUser.preferences.idvehicle);
+          await UserFullName.set(DataUser.fullname);
+        }
+      }
 
       const unsubscribe = User.subscribe((valueUser) => {
         console.log("El Store se ha actualizado USER");
@@ -44,7 +32,7 @@ console.log('Aqui se debe enviar los cambios de preferencias al servidor');
 
       const unsubscribe2 = IdVehicle.subscribe((valueUser) => {
         console.log("El Store se ha actualizado VEHI", valueUser, {
-          $IdVehicle
+          $IdVehicle,
         });
         SavePreferences();
       });

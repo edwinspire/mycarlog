@@ -5,9 +5,7 @@
   import Summary from "../components/Summary.svelte";
   import {
     IdVehicle,
-    APPLocalStorage,
-    LicensePlate,
-    MarkLabel,
+    APPLocalStorage
   } from "../components/Stores.js";
 
   export let segment;
@@ -31,7 +29,7 @@
 
 <Menu {segment} />
 <ToolBar>
-  <span slot="left">{$MarkLabel} {$LicensePlate}</span>
+  <span slot="left">'Vehículo'</span>
   <span slot="right">
     <span class="icon">
       <i class="fas fa-tools" />
