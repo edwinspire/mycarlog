@@ -37,6 +37,7 @@ module.exports = {
 		},
 		mode,
 		plugins: [
+
 			new WebpackPwaManifest({
 				name: 'My Car Log',
 				short_name: 'MyCarLog',
@@ -47,13 +48,37 @@ module.exports = {
 				ios: true,
 				orientation: "any",
 				display: "standalone",
-				icons: [
-                    {src: "./static/favicon/android-icon-36x36.png", sizes: "36x36", type: "image/png"},
-                    {src: "./static/favicon/android-icon-48x48.png",     sizes: "48x48",       type: "image/png"},
-                    {src: "./static/favicon/android-icon-72x72.png",     sizes: "72x72",       type: "image/png"},
-                    {src: "./static/favicon/android-icon-96x96.png",     sizes: "96x96",       type: "image/png"},
-                    {src: "./static/favicon/android-icon-144x144.png",       sizes: "144x144",     type: "image/png"},
-                    {src: "./static/favicon/android-icon-192x192.png",       sizes: "192x192",     type: "image/png" }]
+				icons: [{
+						src: "./static/favicon/android-icon-36x36.png",
+						sizes: "36x36",
+						type: "image/png"
+					},
+					{
+						src: "./static/favicon/android-icon-48x48.png",
+						sizes: "48x48",
+						type: "image/png"
+					},
+					{
+						src: "./static/favicon/android-icon-72x72.png",
+						sizes: "72x72",
+						type: "image/png"
+					},
+					{
+						src: "./static/favicon/android-icon-96x96.png",
+						sizes: "96x96",
+						type: "image/png"
+					},
+					{
+						src: "./static/favicon/android-icon-144x144.png",
+						sizes: "144x144",
+						type: "image/png"
+					},
+					{
+						src: "./static/favicon/android-icon-192x192.png",
+						sizes: "192x192",
+						type: "image/png"
+					}
+				]
 			}),
 			// pending https://github.com/sveltejs/svelte/issues/2377
 			// dev && new webpack.HotModuleReplacementPlugin(),

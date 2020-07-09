@@ -13,11 +13,9 @@ const cookieParser = require("cookie-parser");
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === "development";
 
-
+//console.log(process.env);
 //const PORT = process.env.PORT || 5000 // Esto lo define Heroku
 //process.env.DATABASE_URL =  'postgresql://dbuser:secretpassword@database.server.com:3211/mydb';
-
-
 
 const app = express(); //instancia de express
 app.use(morgan("dev"));

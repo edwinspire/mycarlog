@@ -1,4 +1,5 @@
 <script>
+  
   import { onMount } from "svelte";
   import { User, IdAccount, IdVehicle } from ".././components/Stores.js";
 
@@ -32,7 +33,7 @@
 
       const unsubscribe2 = IdVehicle.subscribe((valueUser) => {
         console.log("El Store se ha actualizado VEHI", valueUser, {
-          $IdVehicle,
+          $IdVehicle
         });
         SavePreferences();
       });
