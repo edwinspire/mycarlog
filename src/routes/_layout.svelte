@@ -22,7 +22,7 @@
           await User.set(DataUser);
           await IdAccount.set(DataUser.idacount);
           await IdVehicle.set(DataUser.preferences.idvehicle);
-          await UserFullName.set(DataUser.fullname);
+          //await UserFullName.set(DataUser.fullname);
         }
       }
 

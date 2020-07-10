@@ -1,5 +1,5 @@
 <script>
-  let Edit = false;
+  export const Edit = false;
   let Save = false;
   let Delete = false;
   let Search = false;
@@ -12,22 +12,8 @@
   }
 </style>
 
-<!-- <nav class="topnav">
-  <div class="active topnav_left">
-    <slot name="left">
-      <span class="missing">Unknown name</span>
-    </slot>
-  </div>
-
-  <div class="topnav_right">
-    <slot name="right">
-      <span class="missing">Unknown name</span>
-    </slot>
-  </div>
-
-</nav> -->
 <!-- Main container -->
-<nav class="level root">
+<nav class="is-mobile  level root">
   <!-- Left side -->
   <div class="level-left">
     <div class="level-item">
@@ -61,6 +47,5 @@
     <p class="level-item">
       <slot name="Rigth5" />
     </p>
-
   </div>
 </nav>

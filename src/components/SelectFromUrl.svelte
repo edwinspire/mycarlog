@@ -31,7 +31,7 @@
           <option disabled>Cargando...</option>
         {:then datas}
           {#each datas as { label, value, disabled }, i}
-            {#if {value}.toString() == {selected}.toString()}
+            {#if {value}.toString().localeCompare({selected}.toString())}
               <option {disabled} {value} selected="selected">{label}</option>
             {:else}
               <option {disabled} {value}>{label}</option>

@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Menu from "../components/Menu.svelte";
-  import ToolBar from "../components/ToolBar.svelte";
+  //  import ToolBar from "../components/ToolBar.svelte";
 
   import { IdAccount, APPLocalStorage } from "../components/Stores.js";
 
@@ -10,8 +10,8 @@
   let idaccount = 0;
   let search = "";
 
-  function ClickAddContact() {
-    window.location.href = "/vehicle?idvehicle=" + idvehicle;
+  function ClickAddVehicle() {
+    window.location.href = "/vehicle?idvehicle=0";
   }
 
   function handleClickSearch() {
@@ -45,49 +45,70 @@
   .root {
     padding: 0.5em;
   }
+  .input_search{
+    width: 7em;
+  }
 </style>
 
 <Menu {segment} />
-<ToolBar Search="true">
-  <span slot="Title">VEHICULOS</span>
-  <span slot="Rigth3" on:click={ClickAddContact}>
-    <a href="/vehicle?idvehicle=0">
-      <i class="fas fa-car fa-lg icon"/> Agregar
-    </a>
-  </span>
-  <span slot="Rigth5">
-    <div class="field has-addons">
-      <p class="control">
-        <input
-          class="input is-small"
-          type="text"
-          placeholder="Buscar"
-          bind:value={search} />
-      </p>
-      <p class="control">
-        <button class="button is-small" on:click={handleClickSearch}>
-          <i class="fas fa-search" />
-        </button>
+
+<nav class="is-mobile level root">
+  <!-- Left side -->
+  <div class="level-left">
+    <div class="level-item">
+      <p class="subtitle is-5">
+        <b>VEHICULOS</b>
       </p>
     </div>
-  </span>
-</ToolBar>
+
+  </div>
+
+  <!-- Right side -->
+  <div class="level-right">
+
+    <p class="level-item" on:click={ClickAddVehicle}>
+
+      <a class="icon" href="/vehicle?idvehicle=0">
+        <i class="fas fa-car fa-lg " />
+      </a>
+
+    </p>
+
+    <p class="level-item">
+      <span class="field has-addons">
+        <p class="control">
+          <input
+            class="input is-small input_search"
+            type="text"
+            placeholder="Buscar"
+            bind:value={search} />
+        </p>
+        <p class="control">
+          <button class="button is-small" on:click={handleClickSearch}>
+            <i class="fas fa-search" />
+          </button>
+        </p>
+      </span>
+
+    </p>
+
+  </div>
+
+</nav>
 
 <div class="columns is-multiline is-desktop root">
   {#await promise}
     <p>...waiting</p>
   {:then datas}
-    {#each datas as {name_vehicle, name, idcontact, flname, mark_label, license_plate, year, idvehicle}, i}
+    {#each datas as { name_vehicle, name, idcontact, flname, mark_label, license_plate, year, idvehicle }, i}
       <div class="column is-one-quarter">
 
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title">
-              {name_vehicle.toUpperCase()}
-            </p>
+            <p class="card-header-title">{name_vehicle.toUpperCase()}</p>
             <span class="card-header-icon" aria-label="more options">
               <span class="icon">
-                <i class="fas fa-car"></i>
+                <i class="fas fa-car" />
               </span>
             </span>
           </header>
@@ -124,7 +145,12 @@
             </div>
           </div>
           <footer class="card-footer">
-            <a href="/#" class="card-footer-item"><span class="icon"><i class="fas fa-check"></i></span> Seleccionar</a>
+            <a href="/#" class="card-footer-item">
+              <span class="icon">
+                <i class="fas fa-check" />
+              </span>
+              Seleccionar
+            </a>
             <a href="/vehicle?idvehicle={idvehicle}" class="card-footer-item">
               Editar
             </a>
