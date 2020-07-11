@@ -1,12 +1,21 @@
 <script>
-  import { User, APPLocalStorage, IdVehicle} from ".././components/Stores.js";
+  import { User, APPLocalStorage, IdVehicle } from ".././components/Stores.js";
   let username = "";
   let password = "";
+
+  async function digestMessage(message) {
+    const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
+    const hashBuffer = await crypto.subtle.digest("SHA-256", msgUint8); // hash the message
+    const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
+    const hashHex = hashArray
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join(""); // convert bytes to hex string
+    return hashHex;
+  }
 
   function Login(event) {
     (async () => {
       try {
-
         let AppST = new APPLocalStorage();
 
         let res = await fetch("/api/login", {
@@ -21,8 +30,18 @@
           if (!data.login) {
             // this.SnackBar(data.message);
           } else {
+            const digestHex = await digestMessage(password);
+            console.log(digestHex);
+            data.hexpwd = digestHex;
             AppST.setUser(data);
             await User.set(data);
+            /*
+            let cachelg = await caches.open('cachelg');
+            cachelg.add('/api/login').then(async ()=>{
+await cachelg.put('/api/login', new Response(JSON.stringify (data)));
+window.location.href = "/home";
+            });
+            */
             window.location.href = "/home";
           }
         } else {

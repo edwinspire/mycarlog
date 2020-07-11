@@ -117,6 +117,7 @@ vehicle.idaccount = idaccount;
 <form>
 
 <input type="reset" value="RESET">
+<input type="submit" value="SUBMIT">
 
 <div class="columns is-multiline is-mobile root">
 

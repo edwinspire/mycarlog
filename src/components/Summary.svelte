@@ -90,8 +90,8 @@
           unit_measure_fuel_tank_label =
             dataresult.unit_measure_fuel_tank_label;
 
-            MarkLabel.set(mark_label);
-            LicensePlate.set(license_plate);
+            //MarkLabel.set(mark_label);
+            //LicensePlate.set(license_plate);
 
         } else {
           alert("No se ha encontrado datos");

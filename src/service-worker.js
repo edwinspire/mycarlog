@@ -1,4 +1,28 @@
-import { timestamp, files, shell, routes } from '@sapper/service-worker';
+import {
+	timestamp,
+	files,
+	shell,
+	routes
+} from '@sapper/service-worker';
+
+async function ApiToCache(event) {
+
+let cache = await caches.open('myapi-cache');
+let response = await cache.match(event.request);
+let resp = response || await fetch(event.request);
+await cache.put(event.request, resp.clone());
+return resp;
+/*
+	caches.open('myapi-cache').then((cache) => {
+		return cache.match(event.request).then((response) => {
+			return response || fetch(event.request).then((response) => {
+				cache.put(event.request, response.clone());
+				return response;
+			});
+		});
+	})
+	*/
+}
 
 const ASSETS = `cache${timestamp}`;
 
@@ -10,11 +34,11 @@ const cached = new Set(to_cache);
 self.addEventListener('install', event => {
 	event.waitUntil(
 		caches
-			.open(ASSETS)
-			.then(cache => cache.addAll(to_cache))
-			.then(() => {
-				self.skipWaiting();
-			})
+		.open(ASSETS)
+		.then(cache => cache.addAll(to_cache))
+		.then(() => {
+			self.skipWaiting();
+		})
 	);
 });
 
@@ -31,19 +55,18 @@ self.addEventListener('activate', event => {
 	);
 });
 
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', async (event) => {
+
 	if (event.request.method !== 'GET' || event.request.headers.has('range')) return;
-
 	const url = new URL(event.request.url);
-
 	// don't try to handle e.g. data: URIs
 	if (!url.protocol.startsWith('http')) return;
-
 	// ignore dev server requests
 	if (url.hostname === self.location.hostname && url.port !== self.location.port) return;
 
 	// always serve static files and bundler-generated assets from cache
 	if (url.host === self.location.host && cached.has(url.pathname)) {
+
 		event.respondWith(caches.match(event.request));
 		return;
 	}
@@ -65,18 +88,23 @@ self.addEventListener('fetch', event => {
 	// might prefer a cache-first approach to a network-first one.)
 	event.respondWith(
 		caches
-			.open(`offline${timestamp}`)
-			.then(async cache => {
-				try {
-					const response = await fetch(event.request);
-					cache.put(event.request, response.clone());
-					return response;
-				} catch(err) {
-					const response = await cache.match(event.request);
-					if (response) return response;
+		.open(`offline${timestamp}`)
+		.then(async cache => {
+			try {
+				const response = await fetch(event.request);
+				cache.put(event.request, response.clone());
+				return response;
+			} catch (err) {
+				const response = await cache.match(event.request);
+				if (response) return response;
 
-					throw err;
-				}
-			})
+				throw err;
+			}
+		})
 	);
+
+
+	await event.respondWith(ApiToCache(event));
+
+
 });
