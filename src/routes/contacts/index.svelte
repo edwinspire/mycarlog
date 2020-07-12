@@ -53,7 +53,9 @@
 <ToolBar Search="true">
   <span slot="Title">CONTACTOS</span>
   <span slot="Rigth4" on:click={ClickAddContact}>
-    <a href="/#" class="icon">
+    
+<!-- svelte-ignore a11y-missing-attribute -->
+    <a class="icon">
       <i class="fas fa-user-plus fa-lg" />
     </a>
   </span>

@@ -5,8 +5,7 @@
 
 
   onMount(async () => {
-    console.log("Inicio Layout");
-
+    
     function SavePreferences() {
       console.log(
         "Aqui se debe enviar los cambios de preferencias al servidor"
@@ -16,7 +15,7 @@
     if (typeof Storage !== "undefined") {
       let storageUser = localStorage.getItem("User");
 
-      console.log(storageUser);
+      
       if (storageUser !== "undefined") {
         let DataUser = JSON.parse(storageUser);
         if (DataUser) {
@@ -28,14 +27,16 @@
       }
 
       const unsubscribe = User.subscribe((valueUser) => {
-        console.log("El Store se ha actualizado USER");
+        //console.log("El Store se ha actualizado USER");
         localStorage.setItem("User", JSON.stringify(valueUser));
       });
 
       const unsubscribe2 = IdVehicle.subscribe((valueUser) => {
+        /*
         console.log("El Store se ha actualizado VEHI", valueUser, {
           $IdVehicle
         });
+        */
         SavePreferences();
       });
 

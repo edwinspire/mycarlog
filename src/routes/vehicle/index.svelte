@@ -111,7 +111,7 @@
   <span slot="Title">VEHICULO</span>
   <span slot="Rigth3" on:click={ClickAddVehicle}>
     <!-- svelte-ignore a11y-missing-attribute -->
-    <a href="/vehicle?idvehicle=0" on:click={ClickAddVehicle}>
+    <a on:click={ClickAddVehicle}>
       <i class="fas fa-car fa-lg icon" />
       NUEVO
     </a>

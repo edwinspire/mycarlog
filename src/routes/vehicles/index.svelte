@@ -78,7 +78,8 @@
 
     <p class="level-item" on:click={ClickAddVehicle}>
 
-      <a class="icon" href="/vehicle?idvehicle=0">
+<!-- svelte-ignore a11y-missing-attribute -->
+      <a class="icon">
         <i class="fas fa-car fa-lg " />
       </a>
 
