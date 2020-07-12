@@ -5,6 +5,7 @@
   import { IdAccount, APPLocalStorage } from "../../components/Stores.js";
 
   let FData = new FetchData();
+  let AppLS = new APPLocalStorage();
 
   export let segment;
   let promise = Promise.resolve([]);
@@ -13,6 +14,14 @@
 
   function ClickAddVehicle() {
     window.location.href = "/vehicle?idvehicle=0";
+  }
+
+  function ClickVehicleSelected(id) {
+    console.log(id);
+    let user = AppLS.getUser();
+    user.preferences.idvehicle = id;
+    AppLS.setUser(user);
+    window.location.href = "/home";
   }
 
   function handleClickSearch() {
@@ -46,7 +55,7 @@
   }
 
   onMount(async () => {
-    let AppLS = new APPLocalStorage();
+    AppLS = new APPLocalStorage();
     idaccount = AppLS.getUser().idaccount;
   });
 </script>
@@ -162,11 +171,12 @@
             </div>
           </div>
           <footer class="card-footer">
-            <a href="/#" class="card-footer-item">
+            <!-- svelte-ignore a11y-missing-attribute -->
+            <a class="card-footer-item" on:click={ClickVehicleSelected(idvehicle)}>
               <span class="icon">
                 <i class="fas fa-check" />
               </span>
-              Seleccionar
+              
             </a>
             <a href="/vehicle?idvehicle={idvehicle}" class="card-footer-item">
               Editar

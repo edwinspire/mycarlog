@@ -38,7 +38,7 @@
     let aps = new APPLocalStorage();
     idvehicle = aps.getPreferences().idvehicle;
     idaccount = aps.getUser().idaccount;
-    console.log(idaccount, idvehicle, { $IdVehicle }, aps.getPreferences());
+    console.log(idaccount, idvehicle);
 
     if (idvehicle > 0) {
       var url = "/api/vehicle_summary";
@@ -155,7 +155,7 @@
       //console.log(data);
     } else {
       alert("Debe seleccionar un vehículo");
-      window.location.href = "/vehicle_cards";
+      window.location.href = "/vehicles";
     }
   });
 </script>
