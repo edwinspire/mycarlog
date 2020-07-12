@@ -75,12 +75,17 @@
   </span>
 </ToolBar>
 
-<div class="columns is-multiline is-desktop root">
+<div class="columns is-multiline is-mobile root">
   {#await promise}
     <p>...waiting</p>
   {:then datas}
     {#each datas as { idcontact, flname, lastname, lfname, identification, identificationtype_label }, i}
-      <div class="column is-one-quarter">
+      <div class="column 
+is-half-mobile
+is-one-third-tablet 
+      is-one-quarter-fullhd 
+      is-one-quarter-widescreen
+      is-one-quarter-desktop">
 
         <div class="card">
           <header class="card-header">
@@ -92,33 +97,28 @@
             </span>
           </header>
           <div class="card-content">
-            <div class="content">
-              <div class="columns">
-
-                <div class="column" />
-                <div class="field">
-                  <label class="label is-small">Identificación</label>
-                  <div class="control is-small">
-                    <input
-                      type="text"
-                      class="input is-small"
-                      value={identification}
-                      readonly />
-                  </div>
-                </div>
-
-                <div class="column" />
-                <div class="field">
-                  <label class="label is-small">Tipo Identificación</label>
-                  <div class="control is-small">
-                    <input
-                      type="text"
-                      class="input is-small"
-                      value={identificationtype_label}
-                      readonly />
-                  </div>
-                </div>
-
+            <div class="columns is-multiline is-mobile">
+              <div class="column is-half-tablet is-half-mobile
+              is-half-fullhd is-half-widescreen
+              is-half-desktop">
+                  <span class="field">
+                      <label class="label is-small">Identificación</label>
+                      <span class="control is-small">
+                          <input type="text" class="input is-small" value={identification} readonly />
+                      </span>
+                  </span>
+              
+              </div>
+              
+              <div class="column is-half-tablet is-half-mobile
+              is-half-fullhd is-half-widescreen
+              is-half-desktop">
+                  <span class="field">
+                      <label class="label is-small">Tipo Identificación</label>
+                      <div class="control is-small">
+                          <input type="text" class="input is-small" value={identificationtype_label} readonly />
+                      </div>
+                  </span>
               </div>
 
             </div>

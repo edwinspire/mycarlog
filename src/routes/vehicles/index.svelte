@@ -106,12 +106,14 @@
 
 </nav>
 
-<div class="columns is-multiline is-desktop root">
+<div class="columns is-multiline is-mobile root">
   {#await promise}
     <p>...waiting</p>
   {:then datas}
     {#each datas as { name_vehicle, name, idcontact, flname, mark_label, license_plate, year, idvehicle }, i}
-      <div class="column is-one-quarter">
+      <div
+        class="column is-half-mobile is-one-third-tablet is-one-quarter-fullhd
+        is-one-quarter-widescreen is-one-quarter-desktop">
 
         <div class="card">
           <header class="card-header">
@@ -123,10 +125,12 @@
             </span>
           </header>
           <div class="card-content">
-            <div class="content">
-              <div class="columns">
 
-                <div class="column" />
+            <div class="columns is-multiline is-mobile">
+
+              <div
+                class="column is-half-tablet is-half-mobile is-half-fullhd
+                is-half-widescreen is-half-desktop">
                 <div class="field">
                   <label class="label is-small">Marca</label>
                   <div class="control is-small">
@@ -137,8 +141,11 @@
                       readonly />
                   </div>
                 </div>
+              </div>
 
-                <div class="column" />
+              <div
+                class="column is-half-tablet is-half-mobile is-half-fullhd
+                is-half-widescreen is-half-desktop">
                 <div class="field">
                   <label class="label is-small">Año</label>
                   <div class="control is-small">
@@ -149,7 +156,6 @@
                       readonly />
                   </div>
                 </div>
-
               </div>
 
             </div>
