@@ -3,19 +3,16 @@
   import Menu from "../../components/Menu.svelte";
   import ToolBar from "../../components/ToolBar.svelte";
   import Summary from "../../components/Summary.svelte";
-  import {
-    IdVehicle,
-    APPLocalStorage
-  } from "../../components/Stores.js";
+  import { IdVehicle, APPLocalStorage } from "../../components/Stores.js";
+  
 
   export let segment;
   let id = 909;
-
+  
 
   function ClickService() {
     window.location.href = "/service";
   }
-
 
   onMount(async () => {
     let x = new APPLocalStorage();
@@ -33,10 +30,10 @@
   <span slot="left">Vehículo</span>
   <span slot="right">
     <span class="icon" on:click={ClickService}>
-      <i class="fas fa-tools"></i>
+      <i class="fas fa-tools" />
     </span>
-    <span class="icon" >
-      <i class="fas fa-gas-pump"></i>
+    <span class="icon">
+      <i class="fas fa-gas-pump" />
     </span>
   </span>
 </ToolBar>

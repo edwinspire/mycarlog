@@ -1,9 +1,11 @@
 <script>
   import { onMount } from "svelte";
-  import { IdVehicle, APPLocalStorage} from ".././components/Stores.js";
+  import { IdVehicle, APPLocalStorage } from ".././components/Stores.js";
+  import { FetchData } from "../components/FetchData.js";
 
+  let FData = new FetchData();
   let idvehicle = "999",
-   idaccount = 0,
+    idaccount = 0,
     account = "",
     date_start = "",
     date_end = "",
@@ -32,9 +34,7 @@
     idunit_measure_fuel_tank = "",
     unit_measure_fuel_tank_label = "";
 
-
-
-  onMount(() => {
+  onMount(async () => {
     let aps = new APPLocalStorage();
     idvehicle = aps.getPreferences().idvehicle;
     idaccount = aps.getUser().idaccount;
@@ -43,6 +43,59 @@
     if (idvehicle > 0) {
       var url = "/api/vehicle_summary";
 
+      let res = await FData.get(
+        url,
+        {
+          idaccount: idaccount,
+          idvehicle: idvehicle,
+        },
+        {
+          "Content-Type": "application/json",
+        }
+      );
+
+      let data = await res.json();
+      console.log(data);
+      if (data.length > 0) {
+        let dataresult = data[0];
+
+        idvehicle = dataresult.idvehicle;
+        idaccount = dataresult.idaccount;
+        account = dataresult.account;
+        date_start = dataresult.date_start;
+        date_end = dataresult.date_end;
+        license_plate = dataresult.license_plate;
+        year = dataresult.year;
+        color = dataresult.color;
+        fuel_tank_capacity = dataresult.fuel_tank_capacity;
+        vin = dataresult.vin;
+        name = dataresult.name;
+        idmark = dataresult.idmark;
+        mark_label = dataresult.mark_label;
+        idmodel = dataresult.idmodel;
+        model_label = dataresult.model_label;
+        idcontact = dataresult.idcontact;
+        firstname = dataresult.firstname;
+        lastname = dataresult.lastname;
+        identification = dataresult.identification;
+        birthday = dataresult.birthday;
+        lfname = dataresult.lfname;
+        idcontacttype = dataresult.idcontacttype;
+        contacttype_label = dataresult.contacttype_label;
+        idgender = dataresult.idgender;
+        gender_label = dataresult.gender_label;
+        idfueltype = dataresult.idfueltype;
+        fueltype_label = dataresult.fueltype_label;
+        idunit_measure_fuel_tank = dataresult.idunit_measure_fuel_tank;
+        unit_measure_fuel_tank_label = dataresult.unit_measure_fuel_tank_label;
+
+        //MarkLabel.set(mark_label);
+        //LicensePlate.set(license_plate);
+      } else {
+        alert("No se ha encontrado datos");
+      }
+
+      /*
       (async () => {
         const res = await fetch(url, {
           method: "POST",
@@ -90,13 +143,14 @@
           unit_measure_fuel_tank_label =
             dataresult.unit_measure_fuel_tank_label;
 
-            //MarkLabel.set(mark_label);
-            //LicensePlate.set(license_plate);
-
+          //MarkLabel.set(mark_label);
+          //LicensePlate.set(license_plate);
         } else {
           alert("No se ha encontrado datos");
         }
       })();
+
+      */
 
       //console.log(data);
     } else {
@@ -107,14 +161,13 @@
 </script>
 
 <style>
-  .root {
-    margin: 0.5em;
-  }
+  
 </style>
 
-<article class="root">
-  <div class="columns is-mobile spacing">
-    <div class="column">
+<article class="container is-fluid">
+  <div class="columns is-multiline is-mobile">
+    <div class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+    is-one-quarter-widescreen is-one-quarter-desktop">
       <span>
         <div class="field">
           <label class="label is-small">Propietario</label>
@@ -124,7 +177,8 @@
         </div>
       </span>
     </div>
-    <div class="column">
+    <div class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+    is-one-quarter-widescreen is-one-quarter-desktop">
       <span>
         <div class="field">
           <label class="label is-small">Placa</label>
@@ -139,9 +193,8 @@
         </div>
       </span>
     </div>
-  </div>
-  <div class="columns is-mobile spacing">
-    <div class="column">
+    <div class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+    is-one-quarter-widescreen is-one-quarter-desktop">
       <span>
         <div class="field">
           <label class="label is-small">Marca</label>
@@ -155,7 +208,8 @@
         </div>
       </span>
     </div>
-    <div class="column">
+    <div class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+    is-one-quarter-widescreen is-one-quarter-desktop">
       <span>
         <div class="field">
           <label class="label is-small">Año</label>
@@ -165,9 +219,8 @@
         </div>
       </span>
     </div>
-  </div>
-  <div class="columns is-mobile spacing">
-    <div class="column">
+    <div class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+    is-one-quarter-widescreen is-one-quarter-desktop">
       <span>
         <div class="field">
           <label class="label is-small">VIN</label>
@@ -177,7 +230,8 @@
         </div>
       </span>
     </div>
-    <div class="column">
+    <div class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+    is-one-quarter-widescreen is-one-quarter-desktop">
       <span>
         <div class="field">
           <label class="label is-small">Color</label>
@@ -187,9 +241,8 @@
         </div>
       </span>
     </div>
-  </div>
-  <div class="columns is-mobile spacing">
-    <div class="column">
+    <div class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+    is-one-quarter-widescreen is-one-quarter-desktop">
       <span>
         <div class="field">
           <label class="label is-small">Tipo de combustible</label>
@@ -203,7 +256,8 @@
         </div>
       </span>
     </div>
-    <div class="column">
+    <div class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+    is-one-quarter-widescreen is-one-quarter-desktop">
       <span>
         <div class="field">
           <label class="label is-small">Capacidad del tanque</label>
@@ -217,9 +271,8 @@
         </div>
       </span>
     </div>
-  </div>
-  <div class="columns is-mobile spacing">
-    <div class="column">
+    <div class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+    is-one-quarter-widescreen is-one-quarter-desktop">
       <span>
         <div class="field">
           <label class="label is-small">Unidad de medida del tanque</label>
@@ -233,6 +286,10 @@
         </div>
       </span>
     </div>
-    <div class="column" />
+
+
   </div>
+ 
+ 
+
 </article>

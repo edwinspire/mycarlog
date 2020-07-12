@@ -1,6 +1,5 @@
 <script>
   import { get_binding_group_value } from "svelte/internal";
-
   import { onMount } from "svelte";
   import Menu from "../../components/Menu.svelte";
   import ToolBar from "../../components/ToolBar.svelte";
@@ -17,7 +16,6 @@
   function ClickAddVehicle() {
     console.log(vehicle);
     let idaccount = vehicle.idaccount;
-
     vehicle = {};
     vehicle.idvehicle = 0;
     vehicle.idaccount = idaccount;
@@ -57,7 +55,9 @@
   async function GetData() {
     let AppLS = new APPLocalStorage();
     vehicle.idaccount = AppLS.getUser().idaccount;
-    let searchParams = new URLSearchParams(new URL(window.location.href).search);
+    let searchParams = new URLSearchParams(
+      new URL(window.location.href).search
+    );
     let idvehicle = searchParams.get("idvehicle") || "-2";
 
     /*
@@ -103,9 +103,7 @@
 </script>
 
 <style>
-  .root {
-    padding: 0.5em;
-  }
+
 </style>
 
 <Menu {segment} />
@@ -126,155 +124,161 @@
     </a>
   </span>
 </ToolBar>
+<hr />
 
-<form>
+<form class="container is-fluid">
 
-  <div class="columns is-multiline is-mobile root">
-
-    <article class="root">
-      <div class="columns is-mobile spacing">
-        <div class="column">
-          <span>
-            <div class="field">
-              <label class="label is-small">Propietario</label>
-              <div class="control is-small">
-                <SelectFromUrl
-                  url="/api/toselect/contacts"
-                  query={{ idaccount: vehicle.idaccount }}
-                  bind:selected={vehicle.idcontact} />
-              </div>
-            </div>
-          </span>
+  <div class="columns is-multiline is-mobile">
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Propietario</label>
+          <div class="control is-small">
+            <SelectFromUrl
+              url="/api/toselect/contacts"
+              query={{ idaccount: vehicle.idaccount }}
+              bind:selected={vehicle.idcontact} />
+          </div>
         </div>
-        <div class="column">
-          <span>
-            <div class="field">
-              <label class="label is-small">Placa</label>
-              <div class="control is-small">
-                <input
-                  placeholder="Placa"
-                  type="text"
-                  required={true}
-                  class="input is-small"
-                  bind:value={vehicle.license_plate} />
-              </div>
-            </div>
-          </span>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Placa</label>
+          <div class="control is-small">
+            <input
+              placeholder="Placa"
+              type="text"
+              required={true}
+              class="input is-small"
+              bind:value={vehicle.license_plate} />
+          </div>
         </div>
-        <div class="column">
-          <span>
-            <div class="field">
-              <label class="label is-small">Auto</label>
-              <div class="control is-small">
-                <input
-                  placeholder="Auto"
-                  type="text"
-                  class="input is-small"
-                  bind:value={vehicle.name} />
-              </div>
-            </div>
-          </span>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Auto</label>
+          <div class="control is-small">
+            <input
+              placeholder="Auto"
+              type="text"
+              class="input is-small"
+              bind:value={vehicle.name} />
+          </div>
         </div>
-      </div>
-      <div class="columns is-mobile spacing">
-        <div class="column">
-          <span>
-            <div class="field">
-              <label class="label is-small">Marca</label>
-              <div class="control is-small">
-                <SelectFromUrl
-                  url="/api/toselect/marks"
-                  bind:selected={vehicle.idmark} />
-              </div>
-            </div>
-          </span>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Marca</label>
+          <div class="control is-small">
+            <SelectFromUrl
+              url="/api/toselect/marks"
+              bind:selected={vehicle.idmark} />
+          </div>
         </div>
-        <div class="column">
-          <span>
-            <div class="field">
-              <label class="label is-small">Año</label>
-              <div class="control is-small">
-                <input
-                  type="number"
-                  class="input is-small"
-                  bind:value={vehicle.year} />
-              </div>
-            </div>
-          </span>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Año</label>
+          <div class="control is-small">
+            <input
+              type="number"
+              class="input is-small"
+              bind:value={vehicle.year} />
+          </div>
         </div>
-      </div>
-      <div class="columns is-mobile spacing">
-        <div class="column">
-          <span>
-            <div class="field">
-              <label class="label is-small">VIN</label>
-              <div class="control is-small">
-                <input
-                  type="text"
-                  class="input is-small"
-                  bind:value={vehicle.vin} />
-              </div>
-            </div>
-          </span>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">VIN</label>
+          <div class="control is-small">
+            <input
+              type="text"
+              class="input is-small"
+              bind:value={vehicle.vin} />
+          </div>
         </div>
-        <div class="column">
-          <span>
-            <div class="field">
-              <label class="label is-small">Color</label>
-              <div class="control is-small">
-                <input
-                  type="color"
-                  class="input is-small"
-                  bind:value={vehicle.color} />
-              </div>
-            </div>
-          </span>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Color</label>
+          <div class="control is-small">
+            <input
+              type="color"
+              class="input is-small"
+              bind:value={vehicle.color} />
+          </div>
         </div>
-      </div>
-      <div class="columns is-mobile spacing">
-        <div class="column">
-          <span>
-            <div class="field">
-              <label class="label is-small">Tipo de combustible</label>
-              <div class="control is-small">
-                <SelectFromUrl
-                  url="/api/toselect/fueltypes"
-                  bind:selected={vehicle.idfueltype} />
-              </div>
-            </div>
-          </span>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Tipo de combustible</label>
+          <div class="control is-small">
+            <SelectFromUrl
+              url="/api/toselect/fueltypes"
+              bind:selected={vehicle.idfueltype} />
+          </div>
         </div>
-        <div class="column">
-          <span>
-            <div class="field">
-              <label class="label is-small">Capacidad del tanque</label>
-              <div class="control is-small">
-                <input
-                  type="text"
-                  class="input is-small"
-                  bind:value={vehicle.fuel_tank_capacity} />
-              </div>
-            </div>
-          </span>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Capacidad del tanque</label>
+          <div class="control is-small">
+            <input
+              type="text"
+              class="input is-small"
+              bind:value={vehicle.fuel_tank_capacity} />
+          </div>
         </div>
-      </div>
-      <div class="columns is-mobile spacing">
-        <div class="column">
-          <span>
-            <div class="field">
-              <label class="label is-small">Unidad de medida del tanque</label>
-              <div class="control is-small">
-                <SelectFromUrl
-                  url="/api/toselect/unit_measure_fuel_tanks"
-                  bind:selected={vehicle.idunit_measure_fuel_tank} />
-              </div>
-            </div>
-          </span>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Unidad de medida del tanque</label>
+          <div class="control is-small">
+            <SelectFromUrl
+              url="/api/toselect/unit_measure_fuel_tanks"
+              bind:selected={vehicle.idunit_measure_fuel_tank} />
+          </div>
         </div>
-        <div class="column" />
-      </div>
-    </article>
-
+      </span>
+    </div>
   </div>
 
 </form>

@@ -33,10 +33,16 @@
   }
 </script>
 
+<style>
+  .full{
+    width: 100%;
+  }
+</style>
+
 <div class="field">
   <div class="control">
-    <div class="select is-small">
-      <select bind:value={selected}>
+    <div class="select is-small full">
+      <select class="full" bind:value={selected}>
 
         {#await promise}
           <option disabled>Cargando...</option>

@@ -2,11 +2,12 @@
   import { onMount } from "svelte";
   import Menu from "../../components/Menu.svelte";
   import ToolBar from "../../components/ToolBar.svelte";
-
+  import { FetchData } from "../../components/FetchData.js";
   import { IdAccount, APPLocalStorage } from "../../components/Stores.js";
   import { space } from "svelte/internal";
 
   export let segment;
+  let FData = new FetchData();
   let promise = Promise.resolve([]);
   let idaccount = 0;
   let search = "";
@@ -21,13 +22,13 @@
 
   async function GetData(search) {
     console.log(idaccount, search);
-    const res = await fetch("/api/contacts_r", {
-      method: "POST",
-      body: JSON.stringify({ idaccount: idaccount, search: search }),
-      headers: {
+    const res = await FData.get(
+      "/api/contacts_r",
+      { idaccount: idaccount, search: search },
+      {
         "Content-Type": "application/json",
-      },
-    });
+      }
+    );
 
     if (res.ok) {
       return res.json();
