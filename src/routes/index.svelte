@@ -16,13 +16,13 @@
     return hashHex;
   }
 
-  async function  Login(event) {
+  async function Login(event) {
     let data = await FData.login("/api/login", username, password);
-console.log(data);
+    console.log(data);
     if (!data.login) {
-
-    }else{
-
+      alert("No tiene permisos para ingresar");
+    } else {
+      window.location.href = "/home";
     }
 
     /*
