@@ -1,12 +1,12 @@
 <script>
-  import SelectFromUrl from "../components/SelectFromUrl.svelte";
+  import SelectFromUrl from "../../components/SelectFromUrl.svelte";
 
   import { onMount } from "svelte";
-  import Menu from "../components/Menu.svelte";
-  import ToolBar from "../components/ToolBar.svelte";
+  import Menu from "../../components/Menu.svelte";
+  import ToolBar from "../../components/ToolBar.svelte";
 
 
-  import { IdAccount, APPLocalStorage } from "../components/Stores.js";
+  import { IdAccount, APPLocalStorage } from "../../components/Stores.js";
 
   export let segment;
   let promise = Promise.resolve([]);

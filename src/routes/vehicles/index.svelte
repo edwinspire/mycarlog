@@ -1,9 +1,10 @@
 <script>
   import { onMount } from "svelte";
-  import Menu from "../components/Menu.svelte";
-  //  import ToolBar from "../components/ToolBar.svelte";
+  import Menu from "../../components/Menu.svelte";
+  import { FetchData } from "../../components/FetchData.js";
+  import { IdAccount, APPLocalStorage } from "../../components/Stores.js";
 
-  import { IdAccount, APPLocalStorage } from "../components/Stores.js";
+  let FData = new FetchData();
 
   export let segment;
   let promise = Promise.resolve([]);
@@ -19,7 +20,12 @@
   }
 
   async function GetData(search) {
-    let obj = { idaccount: idaccount, search: search };
+    let query = { idaccount: idaccount, search: search };
+    const res = await FData.get("/api/vehicles", query, {
+      "Content-Type": "application/json",
+    });
+
+    /*
     let searchURL = new URLSearchParams(obj);
     let url = "/api/vehicles?" + searchURL.toString();
     console.log(idaccount, search, url);
@@ -30,6 +36,7 @@
         "Content-Type": "application/json",
       },
     });
+    */
 
     if (res.ok) {
       return res.json();

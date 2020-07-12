@@ -5,6 +5,7 @@ import {
 	routes
 } from '@sapper/service-worker';
 
+/*
 async function ApiToCache(event) {
 
 let cache = await caches.open('myapi-cache');
@@ -12,17 +13,9 @@ let response = await cache.match(event.request);
 let resp = response || await fetch(event.request);
 await cache.put(event.request, resp.clone());
 return resp;
-/*
-	caches.open('myapi-cache').then((cache) => {
-		return cache.match(event.request).then((response) => {
-			return response || fetch(event.request).then((response) => {
-				cache.put(event.request, response.clone());
-				return response;
-			});
-		});
-	})
-	*/
+
 }
+*/
 
 const ASSETS = `cache${timestamp}`;
 
@@ -104,7 +97,7 @@ self.addEventListener('fetch', async (event) => {
 	);
 
 
-	await event.respondWith(ApiToCache(event));
+	//await event.respondWith(ApiToCache(event));
 
 
 });

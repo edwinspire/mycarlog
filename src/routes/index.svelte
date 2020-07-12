@@ -1,7 +1,10 @@
 <script>
   import { User, APPLocalStorage, IdVehicle } from ".././components/Stores.js";
+  import { FetchData } from "../components/FetchData.js";
+
   let username = "";
   let password = "";
+  let FData = new FetchData();
 
   async function digestMessage(message) {
     const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
@@ -13,18 +16,29 @@
     return hashHex;
   }
 
-  function Login(event) {
+  async function  Login(event) {
+    let data = await FData.login("/api/login", username, password);
+console.log(data);
+    if (!data.login) {
+
+    }else{
+
+    }
+
+    /*
     (async () => {
       try {
         let AppST = new APPLocalStorage();
 
-        let res = await fetch("/api/login", {
-          method: "POST",
-          body: JSON.stringify({ username: username, pwd: password }),
-          headers: { "Content-Type": "application/json" },
-        });
+        let res = await FData.login(
+          "/api/login",
+          { username: username, pwd: password },
+          { "Content-Type": "application/json" }
+        );
         var data = await res.json();
         console.log(data);
+
+        alert("");
 
         if (res.status == 200) {
           if (!data.login) {
@@ -35,13 +49,7 @@
             data.hexpwd = digestHex;
             AppST.setUser(data);
             await User.set(data);
-            /*
-            let cachelg = await caches.open('cachelg');
-            cachelg.add('/api/login').then(async ()=>{
-await cachelg.put('/api/login', new Response(JSON.stringify (data)));
-window.location.href = "/home";
-            });
-            */
+           
             window.location.href = "/home";
           }
         } else {
@@ -51,6 +59,7 @@ window.location.href = "/home";
         console.log(error, "error");
       }
     })();
+    */
   }
 </script>
 

@@ -1,18 +1,29 @@
 <script>
   export let url;
+  export let query;
   export let selected;
+  import { FetchData } from "./FetchData.js";
 
+  let FData = new FetchData();
   let promise = fetchData(url);
 
   async function fetchData() {
-    console.log(url, selected);
+    console.log(url, selected, query);
 
+    const res = await FData.get(url, query, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    /*
     const res = await fetch(url, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     });
+    */
 
     if (res.ok) {
       return res.json();
@@ -31,7 +42,7 @@
           <option disabled>Cargando...</option>
         {:then datas}
           {#each datas as { label, value, disabled }, i}
-            {#if {value}.toString().localeCompare({selected}.toString())}
+            {#if { value }.toString().localeCompare({ selected }.toString())}
               <option {disabled} {value} selected="selected">{label}</option>
             {:else}
               <option {disabled} {value}>{label}</option>

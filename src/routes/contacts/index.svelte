@@ -1,9 +1,9 @@
 <script>
   import { onMount } from "svelte";
-  import Menu from "../components/Menu.svelte";
-  import ToolBar from "../components/ToolBar.svelte";
+  import Menu from "../../components/Menu.svelte";
+  import ToolBar from "../../components/ToolBar.svelte";
 
-  import { IdAccount, APPLocalStorage } from "../components/Stores.js";
+  import { IdAccount, APPLocalStorage } from "../../components/Stores.js";
   import { space } from "svelte/internal";
 
   export let segment;
