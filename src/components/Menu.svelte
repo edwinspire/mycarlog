@@ -32,7 +32,7 @@
 </style>
 
 <!-- svelte-ignore a11y-missing-attribute -->
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+<nav class="navbar is-white is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item">
       <span>MY CAR LOG</span>
