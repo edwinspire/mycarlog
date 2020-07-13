@@ -20,8 +20,10 @@
         let DataUser = JSON.parse(storageUser);
         if (DataUser) {
           await User.set(DataUser);
-          await IdAccount.set(DataUser.idacount);
+          if(DataUser.idacount && DataUser.preferences && DataUser.preferences.idvehicle){
+            await IdAccount.set(DataUser.idacount);
           await IdVehicle.set(DataUser.preferences.idvehicle);
+          }
           //await UserFullName.set(DataUser.fullname);
         }
       }
