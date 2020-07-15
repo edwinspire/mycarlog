@@ -16,8 +16,9 @@
     window.location.href = "/contact?idaccount=" + idaccount;
   }
 
-  function handleClickSearch() {
-    promise = GetData(search);
+  function handleClickSearch(e) {
+    console.log(e);
+    promise = GetData(e.detail.text);
   }
 
   async function GetData(search) {
@@ -47,47 +48,37 @@
   .root {
     padding: 0.5em;
   }
+  .icon_link a {
+    color: white;
+  }
+
+  .icon_link a:hover {
+    color: rgb(255, 102, 0);
+  }
 </style>
 
-<Menu {segment} />
-<ToolBar Search="true">
-  <span slot="Title">CONTACTOS</span>
-  <span slot="Rigth4" on:click={ClickAddContact}>
-    
-<!-- svelte-ignore a11y-missing-attribute -->
+<Menu {segment} on:search={handleClickSearch} ShowSearch="true" ShowR5="true">
+  <span slot="Title">
+    <i class="fas fa-users fa-lg " />
+    CONTACTOS
+  </span>
+
+  <span slot="R5" class="icon_link" on:click={ClickAddContact}>
+    <!-- svelte-ignore a11y-missing-attribute -->
     <a class="icon">
-      <i class="fas fa-user-plus fa-lg" />
+      <i class="fas fa-plus fa-lg" />
     </a>
   </span>
-  <span slot="Rigth5">
-    <div class="field has-addons">
-      <p class="control">
-        <input
-          class="input is-small"
-          type="text"
-          placeholder="Buscar"
-          bind:value={search} />
-      </p>
-      <p class="control">
-        <button class="button is-small" on:click={handleClickSearch}>
-          <i class="fas fa-search" />
-        </button>
-      </p>
-    </div>
-  </span>
-</ToolBar>
+</Menu>
 
 <div class="columns is-multiline is-mobile root">
   {#await promise}
     <p>...waiting</p>
   {:then datas}
     {#each datas as { idcontact, flname, lastname, lfname, identification, identificationtype_label }, i}
-      <div class="column 
-is-half-mobile
-is-one-third-tablet 
-      is-one-quarter-fullhd 
-      is-one-quarter-widescreen
-      is-one-quarter-desktop">
+      <div
+        class="column is-half-mobile is-one-third-tablet is-one-quarter-fullhd
+        is-one-quarter-widescreen is-one-quarter-desktop">
 
         <div class="card">
           <header class="card-header">
@@ -100,27 +91,35 @@ is-one-third-tablet
           </header>
           <div class="card-content">
             <div class="columns is-multiline is-mobile">
-              <div class="column is-half-tablet is-half-mobile
-              is-half-fullhd is-half-widescreen
-              is-half-desktop">
-                  <span class="field">
-                      <label class="label is-small">Identificación</label>
-                      <span class="control is-small">
-                          <input type="text" class="input is-small" value={identification} readonly />
-                      </span>
+              <div
+                class="column is-half-tablet is-half-mobile is-half-fullhd
+                is-half-widescreen is-half-desktop">
+                <span class="field">
+                  <label class="label is-small">Identificación</label>
+                  <span class="control is-small">
+                    <input
+                      type="text"
+                      class="input is-small"
+                      value={identification}
+                      readonly />
                   </span>
-              
+                </span>
+
               </div>
-              
-              <div class="column is-half-tablet is-half-mobile
-              is-half-fullhd is-half-widescreen
-              is-half-desktop">
-                  <span class="field">
-                      <label class="label is-small">Tipo Identificación</label>
-                      <div class="control is-small">
-                          <input type="text" class="input is-small" value={identificationtype_label} readonly />
-                      </div>
-                  </span>
+
+              <div
+                class="column is-half-tablet is-half-mobile is-half-fullhd
+                is-half-widescreen is-half-desktop">
+                <span class="field">
+                  <label class="label is-small">Tipo Identificación</label>
+                  <div class="control is-small">
+                    <input
+                      type="text"
+                      class="input is-small"
+                      value={identificationtype_label}
+                      readonly />
+                  </div>
+                </span>
               </div>
 
             </div>

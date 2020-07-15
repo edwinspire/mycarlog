@@ -10,7 +10,6 @@
   export let segment;
   let promise = Promise.resolve([]);
   let idaccount = 0;
-  let search = "";
 
   function ClickAddVehicle() {
     window.location.href = "/vehicle?idvehicle=0";
@@ -24,8 +23,8 @@
     window.location.href = "/home";
   }
 
-  function handleClickSearch() {
-    promise = GetData(search);
+  function handleClickSearch(e) {
+    promise = GetData(e.detail.text);
   }
 
   async function GetData(search) {
@@ -33,19 +32,6 @@
     const res = await FData.get("/api/vehicles", query, {
       "Content-Type": "application/json",
     });
-
-    /*
-    let searchURL = new URLSearchParams(obj);
-    let url = "/api/vehicles?" + searchURL.toString();
-    console.log(idaccount, search, url);
-    const res = await fetch(url, {
-      method: "GET",
-      //body: JSON.stringify({ idaccount: idaccount, search: search }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    */
 
     if (res.ok) {
       return res.json();
@@ -61,60 +47,30 @@
 </script>
 
 <style>
-  .root {
-    padding: 0.5em;
+  .icon_link a {
+    color: white;
   }
-  .input_search {
-    width: 7em;
+
+  .icon_link a:hover {
+    color: rgb(255, 102, 0);
   }
 </style>
 
-<Menu {segment} />
+<Menu {segment} ShowSearch="true" ShowR5="true" on:search={handleClickSearch}>
+  <span slot="Title">
+    <i class="fas fa-car fa-lg " />
+    VEHICULOS
+  </span>
+  <span slot="R5" class="icon_link" on:click={ClickAddVehicle}>
 
-<nav class="is-mobile level root">
-  <!-- Left side -->
-  <div class="level-left">
-    <div class="level-item">
-      <p class="subtitle is-5">
-        <b>VEHICULOS</b>
-      </p>
-    </div>
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <a class="icon">
+      <i class="fas fa-plus fa-lg" />
+    </a>
 
-  </div>
+  </span>
 
-  <!-- Right side -->
-  <div class="level-right">
-
-    <p class="level-item" on:click={ClickAddVehicle}>
-
-<!-- svelte-ignore a11y-missing-attribute -->
-      <a class="icon">
-        <i class="fas fa-car fa-lg " />
-      </a>
-
-    </p>
-
-    <p class="level-item">
-      <span class="field has-addons">
-        <p class="control">
-          <input
-            class="input is-small input_search"
-            type="text"
-            placeholder="Buscar"
-            bind:value={search} />
-        </p>
-        <p class="control">
-          <button class="button is-small" on:click={handleClickSearch}>
-            <i class="fas fa-search" />
-          </button>
-        </p>
-      </span>
-
-    </p>
-
-  </div>
-
-</nav>
+</Menu>
 
 <div class="columns is-multiline is-mobile root">
   {#await promise}
@@ -172,11 +128,13 @@
           </div>
           <footer class="card-footer">
             <!-- svelte-ignore a11y-missing-attribute -->
-            <a class="card-footer-item" on:click={ClickVehicleSelected(idvehicle)}>
+            <a
+              class="card-footer-item"
+              on:click={ClickVehicleSelected(idvehicle)}>
               <span class="icon">
                 <i class="fas fa-check" />
               </span>
-              
+
             </a>
             <a href="/vehicle?idvehicle={idvehicle}" class="card-footer-item">
               Editar

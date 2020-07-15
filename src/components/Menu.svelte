@@ -1,94 +1,196 @@
 <script>
-  //import GlobalS from "../components/GlobalStore.svelte";
+  import { createEventDispatcher } from "svelte";
 
-  export let segment;
-  let idBurger = "MenuBurger" + (Math.floor(Math.random() * 100000) + 1);
-  let idMenu = "MenuBurger" + (Math.floor(Math.random() * 100000) + 1);
+  export let ShowSearch = false;
+  export let ShowR1 = false;
+  export let ShowR2 = false;
+  export let ShowR3 = false;
+  export let ShowR4 = false;
+  export let ShowR5 = false;
 
-  function ClickMenu(e) {
-    console.log(e.target);
+  let class_menu = "close";
+  let text_search = '';
 
-    var M = document.getElementById(idMenu);
-    var B = document.getElementById(idBurger);
 
-    console.log(e.target, M, B);
+  const dispatch = createEventDispatcher();
 
-    if (M && B) {
-      M.classList.toggle("is-active");
-      B.classList.toggle("is-active");
-    }
+  function handleClickSearch() {
+    dispatch("search", {
+      text: text_search,
+    });
+  }
+
+  function openNav() {
+    class_menu = "open";
+  }
+
+  function closeNav() {
+    class_menu = "close;";
   }
 </script>
 
 <style>
-  /* mouse over link */
-  .menu_links a:hover {
-    color: rgb(234, 251, 255);
-    background-color: rgb(24, 37, 56);
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
   }
-  .menu_links a:active {
-    color: rgb(255, 161, 38);
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+
+    display: block;
+    transition: 0.3s;
   }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+
+  .open {
+    width: 250px;
+  }
+  .subt {
+    color: azure;
+  }
+  .close {
+    width: 0px;
+  }
+  .root {
+    padding: 0.2em 1em 0.2em 0.5em;
+    margin-bottom: 0.5rem;
+  }
+
+  .has-background-dark a {
+    color: white;
+  }
+
+  .has-background-dark a:hover {
+    color: rgb(255, 102, 0);
+  }
+
+  .size_search{
+width: 10em;    
+  }
+
 </style>
 
-<!-- svelte-ignore a11y-missing-attribute -->
-<nav class="navbar is-white is-fixed-top" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item">
-      <span>MY CAR LOG</span>
-    </a>
-    <a class="navbar-item">
-      <span>
-        <div class="tags has-addons">
-          <span class="tag">123</span>
-          <span class="tag is-info">km</span>
-        </div>
-      </span>
-    </a>
-    <a class="navbar-item">
-      <span>
-        <div class="tags has-addons">
-          <span class="tag">0</span>
-          <span class="tag is-danger">
-            <i class="fas fa-bell" />
-          </span>
-        </div>
-      </span>
-    </a>
-    <div
-      on:click={ClickMenu}
-      role="button"
-      id={idBurger}
-      class="navbar-burger burger"
-      aria-label="menu"
-      aria-expanded="false">
-      <span aria-hidden="true" />
-      <span aria-hidden="true" />
-      <span aria-hidden="true" />
+<div class="sidenav has-background-dark {class_menu}">
+  <!-- svelte-ignore a11y-missing-attribute -->
+  <a class="" on:click={closeNav}>
+    <i class="far fa-window-close" />
+  </a>
+  <a href="home">
+    <i class="fas fa-home" />
+    HOME
+  </a>
+  <a href="contacts">
+    <i class="fas fa-users" />
+    CONTACTOS
+  </a>
+  <a href="vehicles">
+    <i class="fas fa-car-side" />
+    VEHICULOS
+  </a>
+  <a href="/">
+    <i class="fas fa-power-off" />
+    SALIR
+  </a>
+</div>
+
+<!-- Main container -->
+<nav class=" level has-background-dark is-mobile root">
+  <!-- Left side -->
+  <div class="level-left">
+    <div class="has-text-light level-item">
+      <p class="has-text-weight-bold">
+        <slot name="Title">INDEX</slot>
+      </p>
     </div>
+
+    <slot name="left">.</slot>
+
   </div>
-  <div id={idMenu} class="navbar-menu menu_links">
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <a aria-current={segment === 'home' ? 'page' : undefined} href="home">
-          HOME
-        </a>
+
+  <!-- Right side -->
+  <div class="level-right">
+
+    <!-- svelte-ignore a11y-missing-attribute -->
+    
+
+    {#if ShowR1}
+    <p class="level-item">
+      <slot  name="R1"></slot>
+    </p>
+    {/if}
+
+    {#if ShowR2}
+    <p class="level-item">
+      <slot  name="R2"></slot>
+    </p>
+    {/if}
+
+    {#if ShowR3}
+    <p class="level-item">
+      <slot  name="R3"></slot>
+    </p>
+    {/if}
+
+    {#if ShowR4}
+    <p class="level-item">
+      <slot  name="R4"></slot>
+    </p>
+    {/if}
+    {#if ShowR5}
+    <p class="level-item">
+      <slot  name="R5"></slot>
+    </p>
+    {/if}
+
+
+
+
+    {#if ShowSearch}
+      <div class="level-item">
+        <div class="field has-addons">
+          <p class="control">
+            <input class="input size_search is-small" type="text" placeholder="Buscar" bind:value={text_search} />
+          </p>
+          <p class="control">
+            <button class="button is-small" on:click={handleClickSearch}>
+              <i class="fas fa-search" />
+            </button>
+          </p>
+        </div>
       </div>
-      <div class="navbar-item">
-        <a href="contacts">CONTACTOS</a>
-      </div>
-      <div class="navbar-item">
-        <a href="vehicles">VEHICULOS</a>
-      </div>
-      <div class="navbar-item">
-        <a href="fueling">ABASTECIMIENTO</a>
-      </div>
-      <div class="navbar-item">
-        <a href="/" aria-current={segment === '/' ? 'page' : undefined}>
-          SALIR
-        </a>
-      </div>
-    </div>
+    {/if}
+
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <p class="level-item" />
+    <p class="level-item ">
+      <!-- svelte-ignore a11y-missing-attribute -->
+      <a style="cursor:pointer" on:click={openNav}>
+        <i class="fas fa-bars" />
+      </a>
+    </p>
+
   </div>
 </nav>
-

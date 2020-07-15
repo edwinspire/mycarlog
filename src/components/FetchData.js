@@ -1,6 +1,9 @@
 import {
     APPLocalStorage
 } from "./Stores.js";
+import {
+    hex_sha1, str_sha1
+} from "./sha1.js";
 
 export class FetchData {
     async post(url, data, headers) {
@@ -65,13 +68,17 @@ export class FetchData {
     }
 
     async digestMessage(message) {
+        /*
+        console.log(hex_sha1('hola'), str_sha1('hola'));
         const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
+        console.log(crypto);
         const hashBuffer = await crypto.subtle.digest("SHA-256", msgUint8); // hash the message
         const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
         const hashHex = hashArray
             .map((b) => b.toString(16).padStart(2, "0"))
             .join(""); // convert bytes to hex string
-        return hashHex;
+            */
+        return hex_sha1(message);
     }
 
 }

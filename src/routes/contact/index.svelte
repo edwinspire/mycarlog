@@ -86,152 +86,153 @@
 </script>
 
 <style>
-  
+  .icon_link a {
+    color: white;
+  }
+
+  .icon_link a:hover {
+    color: rgb(255, 102, 0);
+  }
 </style>
 
-<Menu {segment} />
-<ToolBar Search="true">
-  <span slot="Title">CONTACTOS</span>
-  <span slot="Rigth3" on:click={ClickAddContact}>
+<Menu {segment} ShowR5="true" ShowR4="true">
+  <span slot="Title">CONTACTO</span>
+  <span slot="R4" class="icon_link" on:click={ClickAddContact}>
     <!-- svelte-ignore a11y-missing-attribute -->
     <a>
       <i class="fas fa-user fa-lg icon" />
       NUEVO
     </a>
   </span>
-  <span slot="Rigth4" on:click={Save}>
+  <span slot="R5" class="icon_link" on:click={Save}>
     <!-- svelte-ignore a11y-missing-attribute -->
     <a>
       <i class="fas fa-save fa-lg icon" />
       GUARDAR
     </a>
   </span>
-</ToolBar>
+</Menu>
 
+<form class="container is-fluid">
 
+  <div class="columns is-multiline is-mobile">
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Nombre</label>
+          <div class="control is-small">
+            <input
+              type="text"
+              class="input is-small"
+              bind:value={DataContact.firstname} />
+          </div>
+        </div>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Apellido</label>
+          <div class="control is-small">
+            <input
+              placeholder="Placa"
+              type="text"
+              class="input is-small"
+              bind:value={DataContact.lastname} />
+          </div>
+        </div>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Identificación</label>
+          <div class="control is-small">
+            <input
+              type="text"
+              class="input is-small"
+              bind:value={DataContact.identification} />
+          </div>
+        </div>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Tipo Identificación</label>
+          <div class="control is-small">
+            <SelectFromUrl
+              url="/api/toselect/identificationtypes"
+              bind:selected={DataContact.ididentificationtype} />
+          </div>
+        </div>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Tipo Contacto</label>
+          <div class="control is-small">
+            <SelectFromUrl
+              url="/api/toselect/contacttypes"
+              bind:selected={DataContact.idcontacttype} />
+          </div>
+        </div>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Fecha Cumpleaños</label>
+          <div class="control is-small">
+            <input
+              type="date"
+              class="input is-small"
+              bind:value={DataContact.birthday} />
+          </div>
+        </div>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Género</label>
+          <div class="control is-small">
+            <SelectFromUrl
+              url="/api/toselect/genders"
+              bind:selected={DataContact.idgender} />
+          </div>
+        </div>
+      </span>
+    </div>
+    <div
+      class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
+      is-one-quarter-widescreen is-one-quarter-desktop">
+      <span>
+        <div class="field">
+          <label class="label is-small">Notas</label>
+          <div class="control is-small">
 
-  <form class="container is-fluid" >
-
-    <div class="columns is-multiline is-mobile">
-      <div
-        class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
-        is-one-quarter-widescreen is-one-quarter-desktop">
-        <span>
-          <div class="field">
-            <label class="label is-small">Nombre</label>
-            <div class="control is-small">
-              <input
-                type="text"
-                class="input is-small"
-                bind:value={DataContact.firstname} />
-            </div>
+            <textarea class="input is-small" bind:value={DataContact.note} />
           </div>
-        </span>
-      </div>
-      <div
-        class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
-        is-one-quarter-widescreen is-one-quarter-desktop">
-        <span>
-          <div class="field">
-            <label class="label is-small">Apellido</label>
-            <div class="control is-small">
-              <input
-                placeholder="Placa"
-                type="text"
-                class="input is-small"
-                bind:value={DataContact.lastname} />
-            </div>
-          </div>
-        </span>
-      </div>
-      <div
-        class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
-        is-one-quarter-widescreen is-one-quarter-desktop">
-        <span>
-          <div class="field">
-            <label class="label is-small">Identificación</label>
-            <div class="control is-small">
-              <input
-                type="text"
-                class="input is-small"
-                bind:value={DataContact.identification} />
-            </div>
-          </div>
-        </span>
-      </div>
-      <div
-        class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
-        is-one-quarter-widescreen is-one-quarter-desktop">
-        <span>
-          <div class="field">
-            <label class="label is-small">Tipo Identificación</label>
-            <div class="control is-small">
-              <SelectFromUrl
-                url="/api/toselect/identificationtypes"
-                bind:selected={DataContact.ididentificationtype} />
-            </div>
-          </div>
-        </span>
-      </div>
-      <div
-        class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
-        is-one-quarter-widescreen is-one-quarter-desktop">
-        <span>
-          <div class="field">
-            <label class="label is-small">Tipo Contacto</label>
-            <div class="control is-small">
-              <SelectFromUrl
-                url="/api/toselect/contacttypes"
-                bind:selected={DataContact.idcontacttype} />
-            </div>
-          </div>
-        </span>
-      </div>
-      <div
-        class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
-        is-one-quarter-widescreen is-one-quarter-desktop">
-        <span>
-          <div class="field">
-            <label class="label is-small">Fecha Cumpleaños</label>
-            <div class="control is-small">
-              <input
-                type="date"
-                class="input is-small"
-                bind:value={DataContact.birthday} />
-            </div>
-          </div>
-        </span>
-      </div>
-      <div
-        class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
-        is-one-quarter-widescreen is-one-quarter-desktop">
-        <span>
-          <div class="field">
-            <label class="label is-small">Género</label>
-            <div class="control is-small">
-              <SelectFromUrl
-                url="/api/toselect/genders"
-                bind:selected={DataContact.idgender} />
-            </div>
-          </div>
-        </span>
-      </div>
-      <div
-        class="column is-one-third-tablet is-half-mobile is-one-quarter-fullhd
-        is-one-quarter-widescreen is-one-quarter-desktop">
-        <span>
-          <div class="field">
-            <label class="label is-small">Notas</label>
-            <div class="control is-small">
-
-              <textarea class="input is-small" bind:value={DataContact.note} />
-            </div>
-          </div>
-        </span>
-      </div>
-
+        </div>
+      </span>
     </div>
 
-  </form>
+  </div>
 
-
+</form>

@@ -103,28 +103,35 @@
 </script>
 
 <style>
+ .icon_link a {
+    color: white;
+  }
 
+  .icon_link a:hover {
+    color: rgb(255, 102, 0);
+  }
 </style>
 
-<Menu {segment} />
-<ToolBar Search="true">
-  <span slot="Title">VEHICULO</span>
-  <span slot="Rigth3" on:click={ClickAddVehicle}>
+<Menu {segment}  ShowR5=true ShowR4=true>
+
+  <span slot="Title"> <i class="fas fa-car fa-lg icon" /> VEHICULO</span>
+  <span slot="R4" class="icon_link" on:click={ClickAddVehicle}>
     <!-- svelte-ignore a11y-missing-attribute -->
     <a on:click={ClickAddVehicle}>
       <i class="fas fa-car fa-lg icon" />
       NUEVO
     </a>
   </span>
-  <span slot="Rigth4" on:click={Save}>
+  <span slot="R5" on:click={Save} class="icon_link">
     <!-- svelte-ignore a11y-missing-attribute -->
     <a>
       <i class="fas fa-save fa-lg icon" />
       GUARDAR
     </a>
   </span>
-</ToolBar>
-<hr />
+</Menu>
+
+
 
 <form class="container is-fluid">
 

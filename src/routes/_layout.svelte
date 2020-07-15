@@ -62,13 +62,13 @@
     position: relative;
     /* max-width: 56em; */
     min-width: 100%;
-    min-height: 200%;
     background-color: white;
     /* padding: 2em; */
     display: contents;
     margin: 0 auto;
-    box-sizing: border-box;
   }
+
+
 </style>
 
 <!-- <Nav {segment}/> -->
