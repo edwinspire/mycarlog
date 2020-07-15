@@ -40,7 +40,7 @@
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 99;
     top: 0;
     right: 0;
 
@@ -52,7 +52,7 @@
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 1.5px;
+    font-size: 1.2em;
 
     display: block;
     transition: 0.3s;
