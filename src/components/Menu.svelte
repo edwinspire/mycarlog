@@ -2,12 +2,18 @@
   import { createEventDispatcher } from "svelte";
 
   export let ShowSearch = false;
+  export let ShowR0 = false;
   export let ShowR1 = false;
   export let ShowR2 = false;
   export let ShowR3 = false;
   export let ShowR4 = false;
   export let ShowR5 = false;
-
+  export let ShowL0 = false;
+  export let ShowL1 = false;
+  export let ShowL2 = false;
+  export let ShowL3 = false;
+  export let ShowL4 = false;
+  export let ShowL5 = false;
   let class_menu = "close";
   let text_search = '';
 
@@ -46,7 +52,7 @@
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.5px;
 
     display: block;
     transition: 0.3s;
@@ -126,15 +132,51 @@ width: 10em;
       </p>
     </div>
 
-    <slot name="left">.</slot>
+    {#if ShowL0}
+    <p class="level-item">
+      <slot  name="L0"></slot>
+    </p>    
+    {/if}
+    {#if ShowL1}
+    <p class="level-item">
+      <slot  name="L1"></slot>
+    </p>
+    {/if}
+
+    {#if ShowL2}
+    <p class="level-item">
+      <slot  name="L2"></slot>
+    </p>
+    {/if}
+
+    {#if ShowL3}
+    <p class="level-item">
+      <slot  name="L3"></slot>
+    </p>
+    {/if}
+
+    {#if ShowL4}
+    <p class="level-item">
+      <slot  name="L4"></slot>
+    </p>
+    {/if}
+    {#if ShowL5}
+    <p class="level-item">
+      <slot  name="L5"></slot>
+    </p>
+    {/if}
 
   </div>
 
   <!-- Right side -->
   <div class="level-right">
 
-    <!-- svelte-ignore a11y-missing-attribute -->
-    
+   
+    {#if ShowR0}
+    <p class="level-item">
+      <slot  name="R0"></slot>
+    </p>    
+    {/if}
 
     {#if ShowR1}
     <p class="level-item">
