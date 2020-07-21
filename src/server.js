@@ -54,8 +54,8 @@ if (cluster.isMaster) {
     console.log("Example app listening on port " + process.env.PORT+' '+cluster.worker.id);
   });
 */
-
-  if (process.env.LOCAL_SERVER == "Yes") {
+console.log(process.env.LOCAL_SERVER);
+  if (!process.env.LOCAL_SERVER) {
     var httpServer = http.createServer(app);
     httpServer.listen(process.env.PORT, () => {
       console.log(
