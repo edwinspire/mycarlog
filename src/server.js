@@ -4,23 +4,20 @@ import * as sapper from "@sapper/server";
 import sirv from "sirv";
 import compression from "compression";
 import virtual_route from "@app_express_routes/routes";
-import fs from 'fs';
-import https from 'https';
+import fs from "fs";
+import https from "https";
 
-
-console.log(__dirname);
-var privateKey  = fs.readFileSync('./certs/selfsigned.key', 'utf8');
-var certificate = fs.readFileSync('./certs/selfsigned.crt', 'utf8');
-
-var credentials = {key: privateKey, cert: certificate};
+// Para generar los certificados correr el siguiente comando, completar los datos que solicita y copiar los dos archivos que se generan
+// openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout etafashion-selfsigned.key -out etafashion-selfsigned.crt
+var privateKey = fs.readFileSync("./certs/selfsigned.key", "utf8");
+var certificate = fs.readFileSync("./certs/selfsigned.crt", "utf8");
+var credentials = { key: privateKey, cert: certificate };
 //var express = require('express');
 //var app = express();
 
-
-
 const express = require("express");
 const morgan = require("morgan");
-//const http = require("http");
+const http = require("http");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 
@@ -57,14 +54,32 @@ if (cluster.isMaster) {
     console.log("Example app listening on port " + process.env.PORT+' '+cluster.worker.id);
   });
 */
-//var httpServer = http.createServer(app);
-var httpsServer = https.createServer(credentials, app);
 
-//httpServer.listen(8080);
-httpsServer.listen(process.env.PORT, () => {
-  console.log("Example app listening on port " + process.env.PORT+' '+cluster.worker.id);
-});
+  if (process.env.LOCAL_SERVER == "Yes") {
+    var httpServer = http.createServer(app);
+    httpServer.listen(process.env.PORT, () => {
+      console.log(
+        "Example app listening on port " +
+          process.env.PORT +
+          " " +
+          cluster.worker.id
+      );
+    });
+  } else {
+    var httpsServer = https.createServer(credentials, app);
+    httpsServer.listen(process.env.PORT, () => {
+      console.log(
+        "Example app HTTPS listening on port " +
+          process.env.PORT +
+          " " +
+          cluster.worker.id
+      );
+    });
+  }
 
+  //
+
+  //httpServer.listen(8080);
 }
 
 // Listen for dying workers
