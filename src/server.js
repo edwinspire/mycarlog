@@ -4,12 +4,24 @@ import * as sapper from "@sapper/server";
 import sirv from "sirv";
 import compression from "compression";
 import virtual_route from "@app_express_routes/routes";
+import fs from 'fs';
+import https from 'https';
+
+
+console.log(__dirname);
+var privateKey  = fs.readFileSync('./certs/selfsigned.key', 'utf8');
+var certificate = fs.readFileSync('./certs/selfsigned.crt', 'utf8');
+
+var credentials = {key: privateKey, cert: certificate};
+//var express = require('express');
+//var app = express();
+
+
 
 const express = require("express");
 const morgan = require("morgan");
-const http = require("http");
+//const http = require("http");
 const path = require("path");
-const fs = require("fs");
 const cookieParser = require("cookie-parser");
 
 const { PORT, NODE_ENV } = process.env;
@@ -40,9 +52,19 @@ if (cluster.isMaster) {
     sapper.middleware()
   );
 
+  /*
   app.listen(process.env.PORT, () => {
     console.log("Example app listening on port " + process.env.PORT+' '+cluster.worker.id);
   });
+*/
+//var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+
+//httpServer.listen(8080);
+httpsServer.listen(process.env.PORT, () => {
+  console.log("Example app listening on port " + process.env.PORT+' '+cluster.worker.id);
+});
+
 }
 
 // Listen for dying workers
